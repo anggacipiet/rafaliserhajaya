@@ -1,0 +1,29 @@
+{
+  "name": "rafaliserhajaya",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "hugo server --disableFastRender & npx @tinacms/cli server:start",
+    "build": "hugo --minify && npx @tinacms/cli build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anggacipiet/rafaliserhajaya.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anggacipiet/rafaliserhajaya/issues"
+  },
+  "homepage": "https://github.com/anggacipiet/rafaliserhajaya#readme",
+  "description": "",
+  "dependencies": {
+    "tinacms": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^1.8.2",
+    "@types/node": "^22.12.0"
+  }
+}
