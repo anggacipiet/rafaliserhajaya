@@ -1,10 +1,27 @@
 ---
-title: "About Us"
+title: Contact Us
+date: 2025-02-04T17:00:00.000Z
 draft: false
-# page title background image
-bg_image: "images/backgrounds/page-title.jpg"
-# meta description
-description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
+bg_image: /images/about/banner-1.png
+description: |-
+  Jangan ragu untuk menghubungi kami
+  Kami siap membantu anda
+office:
+  title: Alamat Kantor
+  address: >-
+    PURI HESTI INSANI RT. 17 RW. 15 No. 3 Desa Mampir Kec. Cileungsi Kab. bogor
+    Jawa Barat Indonesia
+  email: rhprecast@rafaliserhajaya.com
+  whatsapp: (+62) 81294212524
+  maps_embed_url: >-
+    https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.708930727572!2d107.00577679999999!3d-6.4314245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6995d8c98e4b45%3A0x65f736ee6b9b6344!2sPuri%20Hesti%20Insani!5e0!3m2!1sid!2sid!4v1738766926876!5m2!1sid!2sid
+factory:
+  title: Alamat Pabrik
+  address: >-
+    Kp. Binong RT.03 RW. 05 No.3 Desa Situsari Kec. Cileungsi Kab Bogor, Jawa
+    Barat - Indonesia
+  maps_embed_url: >-
+    https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31717.596474639467!2d106.98145088093608!3d-6.432625827295698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69966da4b0ebb9%3A0x5e875b91f6b29b47!2sSetu%20Sari%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1738770925121!5m2!1sid!2sid
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium. Odit unde optio nulla ipsum quae obcaecati! Quod esse natus quibusdam asperiores quam vel, tempore itaque architecto ducimus expedita
+Jangan ragu untuk menghubungi kami Kami siap membantu anda

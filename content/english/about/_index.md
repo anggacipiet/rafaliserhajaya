@@ -1,23 +1,34 @@
 ---
-title: "About Us"
+title: About Us
+date: 2025-02-03T17:00:00.000Z
 draft: false
-# page title background image
-bg_image: "images/backgrounds/page-title.jpg"
-# about image
-image: "images/about/about-page.jpg"
-# meta description
-description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. dolore magna aliqua. Ut enim ad minim veniam, quis nostrud."
+bg_image: /images/about/banner-1.png
+description: >-
+  Merupakan perusahaan yang bergerak di bidang pabrikasi berbagai macam jenis
+  beton pracetak.
+
+  Pendiri perusahaan ini berkomitmen melakukan pelayanan yang maksimal baik dari
+  segi kualitas produk maupun pelayanannya, karena sudah berpengalaman lebih
+  dari 10 tahun sehingga mampu melihat kekurangan produk yang serupa dan terus
+  melakukan inovasi agar mampu memproduksi beton dengan kualitas terbaik dengan
+  harga yang bersaing.
+image: /images/about/mutu.png
+company_vision: >-
+  Menjadi pelopor utama supplier beton pracetak yang sesuai dengan keinginan
+  customer
+company_mission: |-
+  Menjadi solusi beton terbaik bagi customer
+  Memberikan pelayanan yang prima kepada para seluruh pelanggan
+  Mencetak beton dengan presisi tinggi dan sangat kokoh
+  Senantiasa berinovasi demi terwujudnya kepuasan para customer kami
+company_values:
+  - title: test
+    description: ok
+  - {}
 ---
 
-## ABOUT OUR JOURNY
+## Tentang kami
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-et.dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Lorem ipsum dolor sit amet consectetur,
-adipisicing elit. Saepe ipsa illo quod veritatis, magni debitis fugiat dolore voluptates! Consequatur,
-aliquid. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat perferendis sint optio similique.
-Et amet magni facilis vero corporis quos.
+Merupakan perusahaan yang bergerak di bidang pabrikasi berbagai macam jenis beton pracetak.
 
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum, dolor sit amet consectetur
-adipisicing elit. Ipsum a, facere fugit error accusamus est officiis vero in, nostrum laboriosam corrupti
-explicabo, cumque repudiandae deleniti perspiciatis quae consectetur enim. Laboriosam!
+Pendiri perusahaan ini berkomitmen melakukan pelayanan yang maksimal baik dari segi kualitas produk maupun pelayanannya, karena sudah berpengalaman lebih dari 10 tahun sehingga mampu melihat kekurangan produk yang serupa dan terus melakukan inovasi agar mampu memproduksi beton dengan kualitas terbaik dengan harga yang bersaing.

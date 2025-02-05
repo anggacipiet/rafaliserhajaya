@@ -45,12 +45,7 @@
           <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
             <i class="{{ .icon }} mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
             <h3 class="mb-xl-4 mb-lg-3 mb-4">{{ .name | markdownify }}</h3>
-            <!--<p>{{ .content | markdownify }}</p>-->
-            {{ if .image }}
-              {{ partial "image.html" (dict "Src" .image "Alt" "banner-feature" "Class" "img-fluid" ) }}
-            {{ else }}
-              <p>{{ .content | markdownify }}</p>
-            {{ end }}
+            <p>{{ .content | markdownify }}</p>
           </div>
           {{ end }}
         </div>
@@ -89,41 +84,41 @@
 {{ end }}
 <!-- /about us -->
 
-<!-- courses -->
-{{ if $data.homepage.course.enable }}
+<!-- products -->
+{{ if $data.homepage.product.enable }}
 <section class="section-sm">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="d-flex align-items-center section-title justify-content-between">
-          <h2 class="mb-0 text-nowrap mr-3">{{ $data.homepage.course.title }}</h2>
+          <h2 class="mb-0 text-nowrap mr-3">{{ $data.homepage.product.title }}</h2>
           <div class="border-top w-100 border-primary d-none d-sm-block"></div>
           <div>
-            <a href="{{ `course` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 d-none d-sm-block">{{ i18n "see_all" }}</a>
+            <a href="{{ `product` | relLangURL }}" class="btn btn-sm btn-outline-primary ml-sm-3 d-none d-sm-block">{{ i18n "see_all" }}</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- course list -->
+    <!-- product list -->
     <div class="row justify-content-center">
-      <!-- course item -->
-      {{ range first 6 (where site.RegularPages "Type" "course")}}
+      <!-- product item -->
+      {{ range first 6 (where site.RegularPages "Type" "product")}}
       <div class="col-lg-4 col-sm-6 mb-5">
-        {{ .Render "course" }}
+        {{ .Render "product" }}
       </div>
       {{ end }}
     </div>
-    <!-- /course list -->
+    <!-- /product list -->
     <!-- mobile see all button -->
     <div class="row">
       <div class="col-12 text-center">
-        <a href="{{ `course` | relLangURL }}" class="btn btn-sm btn-outline-primary d-sm-none d-inline-block">{{ i18n "see_all" }}</a>
+        <a href="{{ `product` | relLangURL }}" class="btn btn-sm btn-outline-primary d-sm-none d-inline-block">{{ i18n "see_all" }}</a>
       </div>
     </div>
   </div>
 </section>
 {{ end }}
-<!-- /courses -->
+<!-- /products -->
 
 <!-- cta -->
 {{ if $data.homepage.cta.enable }}

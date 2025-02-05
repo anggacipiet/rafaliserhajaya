@@ -46,8 +46,8 @@
 - id: category
   translation: Category
 
-- id: related_course
-  translation: Related Course
+- id: related_product
+  translation: Related Product
 
 - id: duration
   translation: duration
@@ -85,8 +85,8 @@
 - id: links
   translation: links
 
-- id: courses
-  translation: Courses
+- id: product
+  translation: product
 
 - id: new_notice
   translation: new notice

@@ -1,5 +1,5 @@
 [build]
-  command = "hugo --gc --minify"
+  command = "npm run build"
   publish = "public"
 
 [build.environment]
@@ -9,3 +9,31 @@
   from = "/admin"
   to = "/admin/index.html"
   status = 200
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*" # This defines which paths this specific [[headers]] block will cover.
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"

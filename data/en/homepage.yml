@@ -1,146 +1,100 @@
-################################# Slider #####################################
-slider:
-  enable : true
-  bg_image : "images/banner/banner-1.png"
-  slider_item:
-    # slider item loop
-    - title : "Exceed your expectations"
-      content : "Merupakan perusahaan yang bergerak di bidang pabrikasi berbagai macam jenis beton pracetak."
-      animation_in : "left"
-      animation_out : "right"
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Apply now"
-        link : "contact/"
-
-    # slider item loop
-    - title : "Exceed your expectations"
-      content : "Menjadi pelopor utama supplier pracetak yang sesuai dengan keinginan customer."
-      animation_in : "left"
-      animation_out : "right"
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Apply now"
-        link : "contact/"
-
-    # slider item loop
-    - title : "Exceed your expectations"
-      content : "Menjadi solusi beton terbaik bagi customer, memberikan pelayanan yang prima kepada seluruh pelanggan, mencetak beton dengan presisi tinggi dan sangat kokoh, senantiasa berinovasi demi terwujudnya kepuasan para customer kami."
-      animation_in : "left"
-      animation_out : "right"
-      # available animation : left, right, up, down
-      button:
-        enable : true
-        label : "Apply now"
-        link : "contact/"
-
-
-############################### Banner feature ###############################
-banner_feature:
-  enable : true
-  image : "images/banner/mutu.png"
-  feature_item:
-    # feature item loop
-    - name : "Kualitas Terjamin"
-      #icon : "ti-thumb-up" # icon pack : https://themify.me/themify-icons
-      content : "Produk kami telah memenuhi standar kualitas yang telah ditetapkan oleh SNI dan telah memiliki sertifikasi dari lembaga terkemuka."
-
-    # feature item loop
-    - name : "Pengiriman Tepat Waktu"
-      #icon : "ti-time" # icon pack : https://themify.me/themify-icons
-      content : "Komitmen pengiriman produk kami sesuai dengan jadwal yang telah disepakati."
-
-    # feature item loop
-    - name : "Harga Bersaing"
-      #icon : "ti-money" # icon pack : https://themify.me/themify-icons
-      content : "Harga produk kami yang kompetitif dengan kualitas terbaik."
-
-    # feature item loop
-    - name : "Layanan Profesional"
-      #icon : "ti-user" # icon pack : https://themify.me/themify-icons
-      content : "Tim kami terdiri dari para ahli yang berpengalaman dan berdedikasi untuk memberikan layanan terbaik."
-
-
-############################## about ##################################
-about:
-  enable : true
-  title : "Tentang Kami"
-  image : "images/about/mutu.png"
-  content : "Merupakan perusahaan yang bergerak di bidang pabrikasi berbagai macam jenis beton pracetak.
-
-
-  Pendiri perusahaan ini berkomitmen melakukan pelayanan yang maksimal baik dari segi kualitas produk maupun pelayanannya, karena sudah berpengalaman lebih dari 10 tahun sehingga mampu melihat kekurangan produk yang serupa dan terus melakukan inovasi agar mampu memproduksi beton dengan kualitas terbaik dengan harga yang bersaing. "
-  button:
-    enable : true
-    label : "Pelajari lebih lanjut"
-    link : "about/"
-
-
-############################# Course ################################
-course:
-  enable : true
-  title : "Produk Kami"
-  # course item comes from "content/**/course" folder.
-
-########################## Call to action ############################
+product:
+  enable: true
+  title: Produk Kami
 cta:
-  enable : true
-  subtitle : "Jangan ragu untuk menghubungi kami"
-  title : "Kami siap membantu anda"
+  enable: true
+  subtitle: Jangan ragu untuk menghubungi kami
+  title: Kami siap membantu anda
   button:
-    enable : true
-    label : "Hubungi Kami"
-    link : "contact/"
-
-
-######################## Success story #############################
-success_story:
-  enable : true
-  bg_image : "images/backgrounds/mutu.png"
-  title : "Exceed Your Expectations"
-  content : "Tidak ada kepuasan yang kami dapatkan selain terus berusaha memberi pelayanan terbaik.
-            
-            
-  sehingga mendapatkan kepercayaan yang tinggi dari para customer kami."
-  # video link
-  video_link : "https://www.youtube.com/watch?v=ResipmZmpDU"
-
-
-############################# event ################################
+    enable: true
+    label: Hubungi Kami
+    link: contact/
 event:
-  enable : true
-  title : "Upcoming Events"
-  # event item comes from "content/**/event" folder.
-
-  
-########################### funfacts ############################
-funfacts:
-  enable : true
-  funfact_item:
-    # funfact item loop
-    - name : "TEACHERS"
-      count : "60"
-
-    # funfact item loop
-    - name : "COURSES"
-      count : "50"
-
-    # funfact item loop
-    - name : "STUDENTS"
-      count : "1000"
-
-    # funfact item loop
-    - name : "SATISFIED CLIENT"
-      count : "1400"
-
-# funfact is for about page
-
-
-
-############################# blog ################################
+  enable: true
+  title: Upcoming Events
 blog:
-  enable : true
-  title : "Latest News"
-  # blog item comes from "content/**/blog" folder.
+  enable: true
+  title: Latest News
+slider:
+  enable: true
+  bg_image: images/banner/banner-1.png
+  slider_item:
+    - title: Exceed your expectations
+      content: >-
+        Merupakan perusahaan yang bergerak di bidang pabrikasi berbagai macam
+        jenis beton pracetak.
+      animation_in: left
+      animation_out: right
+      button:
+        enable: true
+        label: Apply now
+        link: contact/
+    - title: Exceed your expectations
+      content: >-
+        Menjadi pelopor utama supplier pracetak yang sesuai dengan keinginan
+        customer.
+      animation_in: left
+      animation_out: right
+      button:
+        enable: true
+        label: Apply now
+        link: contact/
+    - title: Exceed your expectations
+      content: >-
+        Menjadi solusi beton terbaik bagi customer, memberikan pelayanan yang
+        prima kepada seluruh pelanggan, mencetak beton dengan presisi tinggi dan
+        sangat kokoh, senantiasa berinovasi demi terwujudnya kepuasan para
+        customer kami.
+      animation_in: left
+      animation_out: right
+      button:
+        enable: true
+        label: Apply now
+        link: contact/
+banner_feature:
+  enable: true
+  image: images/banner/mutu.png
+  feature_item:
+    - name: Kualitas Terjamin
+      content: >-
+        Produk kami telah memenuhi standar kualitas yang telah ditetapkan oleh
+        SNI dan telah memiliki sertifikasi dari lembaga terkemuka.
+    - name: Pengiriman Tepat Waktu
+      content: >-
+        Komitmen pengiriman produk kami sesuai dengan jadwal yang telah
+        disepakati.
+    - name: Harga Bersaing
+      content: Harga produk kami yang kompetitif dengan kualitas terbaik.
+    - name: Layanan Profesional
+      content: >-
+        Tim kami terdiri dari para ahli yang berpengalaman dan berdedikasi untuk
+        memberikan layanan terbaik.
+about:
+  enable: true
+  title: Tentang Kami
+  image: images/about/mutu.png
+  content: >-
+    Merupakan perusahaan yang bergerak di bidang pabrikasi berbagai macam jenis
+    beton pracetak.
+
+
+    Pendiri perusahaan ini berkomitmen melakukan pelayanan yang maksimal baik
+    dari segi kualitas produk maupun pelayanannya, karena sudah berpengalaman
+    lebih dari 10 tahun sehingga mampu melihat kekurangan produk yang serupa dan
+    terus melakukan inovasi agar mampu memproduksi beton dengan kualitas terbaik
+    dengan harga yang bersaing. 
+  button:
+    enable: true
+    label: Pelajari lebih lanjut
+    link: about/
+success_story:
+  enable: true
+  bg_image: /images/banner/banner-1.png
+  title: Exceed Your Expectations
+  content: >-
+    Tidak ada kepuasan yang kami dapatkan selain terus berusaha memberi
+    pelayanan terbaik.
+
+
+    sehingga mendapatkan kepercayaan yang tinggi dari para customer kami.
+  video_link: 'https://www.youtube.com/watch?v=ResipmZmpDU'

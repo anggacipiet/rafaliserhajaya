@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<!-- products -->
+<section class="section">
+  <div class="container">
+    <!-- product list -->
+    <div class="row justify-content-center">
+      <!-- product item -->
+      {{ range .Data.Pages }}
+      <div class="col-lg-4 col-sm-6 mb-5">
+        {{ .Render "product" }}
+      </div>
+      {{ end }}
+    </div>
+    <!-- /product list -->
+  </div>
+</section>
+<!-- /product -->
+
+{{ end }}
