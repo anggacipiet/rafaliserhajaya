@@ -18,6 +18,8 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "static",
+    basePath: "",
+    host: process.env.NETLIFY ? "https://rafaliserhajaya.com" : "http://localhost:1313",
   },
   media: {
     tina: {
