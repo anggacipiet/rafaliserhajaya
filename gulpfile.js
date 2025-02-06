@@ -4,7 +4,17 @@ const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const purgecss = require('@fullhuman/postcss-purgecss');
+const purgecss = require('@fullhuman/postcss-purgecss')({
+  content: [
+    'layouts/**/*.html',
+    'content/**/*.md'
+  ],
+  safelist: {
+    standard: [/^slick-/, /^venobox/, /^ti-/, /^animate/],
+    deep: [/^modal/, /^show/, /^active/, /^nav/, /^dropdown/],
+    greedy: [/^slick/, /^venobox/, /^animate/]
+  }
+});
 const sass = require('gulp-sass')(require('sass'));
 
 // CSS optimization options
@@ -69,17 +79,7 @@ gulp.task('prod:scss', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([
       autoprefixer(),
-      purgecss({
-        content: [
-          'layouts/**/*.html',
-          'content/**/*.md'
-        ],
-        safelist: {
-          standard: [/^slick-/, /^venobox/, /^ti-/, /^animate/],
-          deep: [/^modal/, /^show/, /^active/, /^nav/, /^dropdown/],
-          greedy: [/^slick/, /^venobox/, /^animate/]
-        }
-      })
+      purgecss
     ]))
     .pipe(cleanCSS(cssOptions))
     .pipe(rename({ suffix: '.min' }))
@@ -110,17 +110,7 @@ gulp.task('prod:css', () => {
   ])
   .pipe(postcss([
     autoprefixer(),
-    purgecss({
-      content: [
-        'layouts/**/*.html',
-        'content/**/*.md'
-      ],
-      safelist: {
-        standard: [/^slick-/, /^venobox/, /^ti-/, /^animate/],
-        deep: [/^modal/, /^show/, /^active/, /^nav/, /^dropdown/],
-        greedy: [/^slick/, /^venobox/, /^animate/]
-      }
-    })
+    purgecss
   ]))
   .pipe(cleanCSS(cssOptions))
   .pipe(rename(function(path) {
