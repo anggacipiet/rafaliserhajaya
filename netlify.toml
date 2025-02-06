@@ -18,47 +18,22 @@
 [[headers]]
   for = "/*.jpg"
   [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+  Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/*.png"
   [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+  Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+  Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.woff2"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.woff"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/static/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+  Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/*" # This defines which paths this specific [[headers]] block will cover.
@@ -67,4 +42,3 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer"
     X-Content-Type-Options = "nosniff"
-    Cache-Control = "public, max-age=0, must-revalidate"
