@@ -1,0 +1,68 @@
+<style>
+/* Critical CSS only */
+:root {
+  --primary-color: #ffbc3b;
+  --secondary-color: #1a1a37;
+  --text-color: #5c5c77;
+  --text-color-light: #8585a4;
+  --white-color: #fff;
+  --light-color: #f8f9fe;
+  --font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Base styles */
+body {
+  line-height: 1.5;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+[class*="col-"] {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* Responsive containers */
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { 
+  .container { max-width: 720px; }
+  .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+}
+@media (min-width: 992px) { 
+  .container { max-width: 960px; }
+  .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+}
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+/* Components */
+.navbar {
+  background: var(--white-color);
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.hero-section {
+  padding: 4rem 0;
+  background-position: center;
+  background-size: cover;
+  color: var(--white-color);
+}
+</style> 

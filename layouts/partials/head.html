@@ -27,15 +27,11 @@
   {{ end }}
 
   {{ "<!-- Critical CSS -->" | safeHTML }}
-  <style>
-    /* Inline critical CSS here */
-    :root{--primary-color:#ffbc3b;--secondary-color:#1a1a37;--text-color:#5c5c77;--text-color-light:#8585a4;--white-color:#fff;--light-color:#f8f9fe;--font-family:Poppins,sans-serif}
-    body{line-height:1.5;font-family:var(--font-family);-webkit-font-smoothing:antialiased;font-size:15px;color:var(--text-color)}
-  </style>
+  {{ partial "critical-css.html" . }}
 
   {{ "<!-- Preload Fonts -->" | safeHTML }}
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&display=swap"></noscript>
 
   {{ "<!-- Preload Critical CSS -->" | safeHTML }}
   <link rel="preload" href="{{ "plugins/bootstrap/bootstrap.min.css" | absURL }}" as="style">
@@ -53,6 +49,24 @@
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
+
+  {{ "<!-- Preload Font Files -->" | safeHTML }}
+  <link rel="preload" href="{{ "fonts/themify.woff?-fvbane" | absURL }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ "fonts/Futura-Bold.woff" | absURL }}" as="font" type="font/woff" crossorigin>
+
+  {{ "<!-- Modern JavaScript -->" | safeHTML }}
+  <script type="module">
+    // Modern browsers - ES modules
+    import { Filterizr } from '{{ "plugins/filterizr/filterizr.esm.min.js" | absURL }}';
+    
+    // Initialize Filterizr
+    const filterizr = new Filterizr('.filtr-container');
+  </script>
+  <script nomodule src="{{ "plugins/filterizr/jquery.filterizr.min.js" | absURL }}"></script>
+
+  {{ "<!-- Optimized Bootstrap -->" | safeHTML }}
+  <link rel="stylesheet" href="{{ "plugins/bootstrap/bootstrap.critical.min.css" | absURL }}" media="all">
+  <link rel="stylesheet" href="{{ "plugins/bootstrap/bootstrap.noncritical.min.css" | absURL }}" media="print" onload="this.media='all'">
 
   <script>
     // Modern CSS loading
