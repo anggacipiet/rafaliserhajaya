@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "gulp dev && tinacms dev -c \"hugo server\"",
-    "build": "node scripts/optimize-bootstrap.js && gulp prod && tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
+    "build": "gulp prod && tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
     "optimize-images": "gulp images",
     "dev:assets": "gulp dev",
     "prod:assets": "gulp prod",
@@ -30,10 +30,14 @@
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@tinacms/cli": "^1.8.2",
     "@types/node": "^22.12.0",
+    "autoprefixer": "^10.4.17",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^10.0.0",
     "gulp-purgecss": "^7.0.2",
-    "gulp-rename": "^2.0.0"
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.84.0"
   }
 }
