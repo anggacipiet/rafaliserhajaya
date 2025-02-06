@@ -2,6 +2,12 @@
   <meta charset="utf-8">
   <title>{{ .Title }}</title>
 
+  {{ "<!-- Resource Hints -->" | safeHTML }}
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description"
@@ -20,17 +26,71 @@
   {{ end }}
   {{ end }}
 
+  {{ "<!-- Critical CSS -->" | safeHTML }}
+  <style>
+    /* Inline critical CSS here */
+    :root{--primary-color:#ffbc3b;--secondary-color:#1a1a37;--text-color:#5c5c77;--text-color-light:#8585a4;--white-color:#fff;--light-color:#f8f9fe;--font-family:Poppins,sans-serif}
+    body{line-height:1.5;font-family:var(--font-family);-webkit-font-smoothing:antialiased;font-size:15px;color:var(--text-color)}
+  </style>
+
+  {{ "<!-- Preload Fonts -->" | safeHTML }}
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+
+  {{ "<!-- Preload Critical CSS -->" | safeHTML }}
+  <link rel="preload" href="{{ "plugins/bootstrap/bootstrap.min.css" | absURL }}" as="style">
+  <link rel="preload" href="{{ "scss/main.css" | absURL }}" as="style">
+
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .link | absURL }}">
+  <link rel="stylesheet" href="{{ .link | absURL }}" media="print" onload="this.media='all'">
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ $styles := resources.Get "scss/main.scss" | toCSS | fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="print" onload="this.media='all'">
 
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
+
+  <script>
+    // Modern CSS loading
+    (function() {
+      var cssFiles = [
+        '{{ "plugins/bootstrap/bootstrap.min.css" | absURL }}',
+        '{{ "plugins/slick/slick.css" | absURL }}',
+        '{{ "plugins/animate/animate.css" | absURL }}',
+        '{{ "plugins/venobox/venobox.css" | absURL }}',
+        '{{ "plugins/themify-icons/themify-icons.css" | absURL }}',
+        '{{ $styles.Permalink }}'
+      ];
+      
+      function loadStyleSheet(src) {
+        if (document.createStyleSheet) {
+          document.createStyleSheet(src);
+        }
+        else {
+          var stylesheet = document.createElement('link');
+          stylesheet.href = src;
+          stylesheet.rel = 'stylesheet';
+          stylesheet.type = 'text/css';
+          document.getElementsByTagName('head')[0].appendChild(stylesheet);
+        }
+      }
+      
+      // Load CSS asynchronously
+      cssFiles.forEach(function(src) {
+        window.requestAnimationFrame(function() {
+          loadStyleSheet(src);
+        });
+      });
+      
+      // Fallback for older browsers
+      if (!window.requestAnimationFrame) {
+        cssFiles.forEach(loadStyleSheet);
+      }
+    })();
+  </script>
 
 </head>
