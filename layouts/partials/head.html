@@ -13,6 +13,86 @@
   <meta name="theme-name" content="educenter-hugo" />
   
   {{ hugo.Generator }}
+  
+  {{ "<!-- Resource Hints -->" | safeHTML }}
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+  {{ "<!-- Modern JavaScript -->" | safeHTML }}
+  <script type="module">
+    // Custom jQuery with passive event listeners
+    const jQueryScript = document.createElement('script');
+    jQueryScript.src = 'https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js';
+    jQueryScript.onload = function() {
+      // Add passive event listeners
+      jQuery.event.special.touchstart = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("touchstart", handle, { passive: true });
+        }
+      };
+      jQuery.event.special.touchmove = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("touchmove", handle, { passive: true });
+        }
+      };
+      jQuery.event.special.wheel = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("wheel", handle, { passive: true });
+        }
+      };
+      jQuery.event.special.mousewheel = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("mousewheel", handle, { passive: true });
+        }
+      };
+    };
+    document.head.appendChild(jQueryScript);
+    import 'https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.esm.min.js';
+  </script>
+  
+  {{ "<!-- Legacy JavaScript -->" | safeHTML }}
+  <script nomodule>
+    // Load legacy jQuery with passive events
+    const script = document.createElement('script');
+    script.src = "{{ "plugins/jQuery/jquery.min.js" | absURL }}";
+    script.onload = function() {
+      jQuery.event.special.touchstart = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("touchstart", handle, { passive: true });
+        }
+      };
+      jQuery.event.special.touchmove = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("touchmove", handle, { passive: true });
+        }
+      };
+      jQuery.event.special.wheel = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("wheel", handle, { passive: true });
+        }
+      };
+      jQuery.event.special.mousewheel = {
+        setup: function( _, ns, handle ) {
+          this.addEventListener("mousewheel", handle, { passive: true });
+        }
+      };
+    };
+    document.head.appendChild(script);
+    document.write('<script src="{{ "plugins/bootstrap/bootstrap.min.js" | absURL }}"><\/script>');
+  </script>
+  
+  {{ "<!-- Async load non-critical JS -->" | safeHTML }}
+  <script defer src="{{ "plugins/slick/slick.min.js" | absURL }}"></script>
+  <script defer src="{{ "plugins/filterizr/jquery.filterizr.min.js" | absURL }}"></script>
+  <script defer src="{{ "plugins/venobox/venobox.min.js" | absURL }}"></script>
+  {{ if site.Params.map.enable }}
+  <script defer src="{{ "plugins/google-map/gmap.js" | absURL }}"></script>
+  {{ end }}
+
   {{ "<!-- multilingual SEO optimizations -->" | safeHTML }}
   {{ if .IsTranslated }}
   {{ range .Page.AllTranslations }}
@@ -20,17 +100,103 @@
   {{ end }}
   {{ end }}
 
+  {{ "<!-- Preload critical CSS -->" | safeHTML }}
+  <link rel="preload" href="{{ "plugins/bootstrap/bootstrap.min.css" | absURL }}" as="style">
+  <link rel="preload" href="{{ "scss/main.scss" | absURL }}" as="style">
+  
+  {{ "<!-- Preload fonts -->" | safeHTML }}
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&display=swap&display=fallback" media="print" onload="this.media='all'">
+
+  {{ "<!-- Font loading optimization -->" | safeHTML }}
+  <style>
+    /* Critical CSS */
+    :root {
+      --primary-color: #ffbc3b;
+      --secondary-color: #1a1a37;
+      --text-color: #5c5c77;
+      --text-color-light: #8585a4;
+      --white-color: #ffffff;
+      --light-color: #f8f9fe;
+      --font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* Base styles */
+    body {
+      line-height: 1.5;
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+      color: var(--text-color);
+      background-color: var(--white-color);
+    }
+
+    /* Header & Navigation */
+    .navbar {
+      padding: 20px 0;
+      background: var(--white-color);
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      max-width: 180px;
+      margin-bottom: 0;
+    }
+
+    /* Hero section */
+    .hero-section {
+      padding: 250px 0 150px;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Utility classes */
+    .text-primary {
+      color: var(--primary-color) !important;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    /* Custom font loading behavior */
+    @font-face {
+      font-family: 'themify';
+      src: url('{{ "fonts/themify.woff?-fvbane" | absURL }}') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .link | absURL }}">
+  {{ if in .link "bootstrap" }}
+  <link rel="stylesheet" href="{{ .link | absURL }}" media="print" onload="this.media='all'">
+  {{ else }}
+  <link rel="stylesheet" href="{{ .link | absURL }}" media="print" onload="this.media='all'">
   {{ end }}
+  {{ end }}
+
+  {{ "<!-- Purged Bootstrap CSS -->" | safeHTML }}
+  {{ $bootstrap := resources.Get "scss/bootstrap.scss" | resources.ExecuteAsTemplate "bootstrap.scss" . | toCSS | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}" integrity="{{ $bootstrap.Data.Integrity }}">
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ $styles := resources.Get "scss/main.scss" | toCSS | fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="print" onload="this.media='all'">
 
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
 
+  {{ "<!-- Fallback for no-JS -->" | safeHTML }}
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    {{ range site.Params.plugins.css }}
+    <link rel="stylesheet" href="{{ .link | absURL }}">
+    {{ end }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+  </noscript>
 </head>
