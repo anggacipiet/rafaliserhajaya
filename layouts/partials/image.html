@@ -1,4 +1,10 @@
-{{ $image := resources.Get .Src }}
+{{ $image := "" }}
+{{ if hasPrefix .Src "images/" }}
+  {{ $image = resources.Get .Src }}
+{{ else if hasPrefix .Src "/" }}
+  {{ $image = resources.Get (strings.TrimPrefix "/" .Src) }}
+{{ end }}
+
 {{ if $image }}
   {{ $imgType := path.Ext .Src }}
   {{ $format := "" }}
