@@ -1,14 +1,6 @@
 product:
   enable: true
   title: Produk Kami
-cta:
-  enable: true
-  subtitle: Jangan ragu untuk menghubungi kami
-  title: Kami siap membantu anda
-  button:
-    enable: true
-    label: Hubungi Kami
-    link: contact/
 event:
   enable: true
   title: Upcoming Events
@@ -98,3 +90,11 @@ success_story:
 
     sehingga mendapatkan kepercayaan yang tinggi dari para customer kami.
   video_link: 'https://www.youtube.com/watch?v=ResipmZmpDU'
+cta:
+  enable: true
+  subtitle: Jangan ragu untuk menghubungi kami
+  title: Kami siap membantu anda
+  button:
+    enable: true
+    label: Hubungi Kami
+    link: contact/
