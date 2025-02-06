@@ -2,11 +2,6 @@
   <meta charset="utf-8">
   <title>{{ .Title }}</title>
 
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com">
-
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description"
@@ -27,12 +22,12 @@
 
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
-  <link rel="stylesheet" href="{{ .link | absURL }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ .link | absURL }}">
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint "sha512" }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="print" onload="this.media='all'">
+  {{ $styles := resources.Get "scss/main.scss" | toCSS | fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
