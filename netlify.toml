@@ -42,10 +42,3 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer"
     X-Content-Type-Options = "nosniff"
-
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    Content-Security-Policy = "frame-ancestors 'self'"
-    Access-Control-Allow-Origin = "*"

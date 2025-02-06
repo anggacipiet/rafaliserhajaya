@@ -1,11 +1,10 @@
 {
   "name": "rafaliserhajaya",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "tinacms dev -c \"hugo server\"",
-    "build": "tinacms build --skip-cloud-checks && hugo --minify",
+    "build": "tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,7 +12,7 @@
     "url": "git+https://github.com/anggacipiet/rafaliserhajaya.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "angga cipiet",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anggacipiet/rafaliserhajaya/issues"
