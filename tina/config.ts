@@ -21,8 +21,14 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "static/images",
       publicFolder: "static",
+    },
+  },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_TOKEN,
+      stopwordLanguages: ['ind']
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
