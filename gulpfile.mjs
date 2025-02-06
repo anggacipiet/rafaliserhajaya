@@ -10,7 +10,6 @@ import gulpSass from 'gulp-sass';
 import babel from 'gulp-babel';
 import terser from 'gulp-terser';
 import concat from 'gulp-concat';
-import ttf2woff from 'gulp-ttf2woff';
 import fontmin from 'gulp-fontmin';
 
 const sass = gulpSass(dartSass);
@@ -127,8 +126,8 @@ gulp.task('prod:css', () => {
   .pipe(gulp.dest('static/plugins'));
 });
 
-// Optimize fonts
-gulp.task('fonts:optimize', () => {
+// Font task
+gulp.task('fonts', () => {
   return gulp.src([
     'static/plugins/slick/fonts/*',
     'static/plugins/themify-icons/fonts/*',
@@ -143,20 +142,6 @@ gulp.task('fonts:optimize', () => {
   }))
   .pipe(gulp.dest('static'));
 });
-
-// Convert TTF to WOFF
-gulp.task('fonts:woff', () => {
-  return gulp.src([
-    'static/plugins/slick/fonts/*.ttf',
-    'static/plugins/themify-icons/fonts/*.ttf',
-    'static/fonts/*.ttf'
-  ], { base: 'static' })
-  .pipe(ttf2woff())
-  .pipe(gulp.dest('static'));
-});
-
-// Combined fonts task
-gulp.task('fonts', gulp.series('fonts:optimize', 'fonts:woff'));
 
 gulp.task('dev:js', () => {
   return gulp.src([
@@ -232,7 +217,7 @@ gulp.task('prod:js', () => {
 });
 
 // Development build
-gulp.task('dev', gulp.series('dev:images', 'dev:scss', 'dev:css', 'dev:js', 'fonts:optimize'));
+gulp.task('dev', gulp.series('dev:images', 'dev:scss', 'dev:css', 'dev:js', 'fonts'));
 
 // Production build
 gulp.task('prod', gulp.series('prod:images', 'prod:scss', 'prod:css', 'prod:js', 'fonts'));
