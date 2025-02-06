@@ -1,1 +1,45 @@
-<img src="{{ .Src | relURL }}" alt="{{ .Alt }}" class="img-fluid">
+{{ $image := .image }}
+{{ $alt := .alt }}
+{{ $class := .class }}
+
+<picture>
+  {{ with $image }}
+    {{ $basename := path.Base . }}
+    {{ $dirname := path.Dir . }}
+    {{ $extension := path.Ext . }}
+    {{ $filename := strings.TrimSuffix $extension $basename }}
+    
+    <!-- AVIF -->
+    <source
+      type="image/avif"
+      srcset="{{ $dirname }}/{{ $filename }}-sm.avif 640w,
+              {{ $dirname }}/{{ $filename }}-md.avif 768w,
+              {{ $dirname }}/{{ $filename }}-lg.avif 1024w"
+      sizes="(max-width: 640px) 640px,
+             (max-width: 768px) 768px,
+             1024px">
+    
+    <!-- WebP -->
+    <source
+      type="image/webp"
+      srcset="{{ $dirname }}/{{ $filename }}-sm.webp 640w,
+              {{ $dirname }}/{{ $filename }}-md.webp 768w,
+              {{ $dirname }}/{{ $filename }}-lg.webp 1024w"
+      sizes="(max-width: 640px) 640px,
+             (max-width: 768px) 768px,
+             1024px">
+    
+    <!-- Fallback -->
+    <img
+      srcset="{{ $dirname }}/{{ $filename }}-sm{{ $extension }} 640w,
+              {{ $dirname }}/{{ $filename }}-md{{ $extension }} 768w,
+              {{ $dirname }}/{{ $filename }}-lg{{ $extension }} 1024w"
+      src="{{ $dirname }}/{{ $filename }}-lg{{ $extension }}"
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      loading="lazy"
+      sizes="(max-width: 640px) 640px,
+             (max-width: 768px) 768px,
+             1024px">
+  {{ end }}
+</picture>

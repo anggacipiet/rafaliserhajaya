@@ -180,3 +180,14 @@ title = "twitter"
 icon = "ti-instagram"
 link = "#"
 title = "instagram"
+
+[server]
+  [[server.headers]]
+    for = "/**/*.woff"
+    [server.headers.values]
+      Content-Type = "application/font-woff"
+
+  [[server.headers]]
+    for = "/**/*.css"
+    [server.headers.values]
+      Content-Type = "text/css"
