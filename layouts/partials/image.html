@@ -1,1 +1,63 @@
-<img src="{{ .Src | relURL }}" alt="{{ .Alt }}" class="img-fluid">
+{{ $image := resources.Get .Src }}
+{{ if $image }}
+  {{ $imgType := path.Ext .Src }}
+  {{ $format := "" }}
+  {{ if eq $imgType ".png" }}
+    {{ $format = "png" }}
+  {{ else if eq $imgType ".jpg" }}
+    {{ $format = "jpg" }}
+  {{ else if eq $imgType ".jpeg" }}
+    {{ $format = "jpg" }}
+  {{ else }}
+    {{ $format = "webp" }}
+  {{ end }}
+
+  {{ $small := $image.Resize (printf "400x %s" $format) }}
+  {{ $medium := $image.Resize (printf "800x %s" $format) }}
+  {{ $large := $image.Resize (printf "1200x %s" $format) }}
+
+  <picture>
+    {{ if ne $format "webp" }}
+      <!-- Original format (PNG/JPEG) -->
+      <source 
+        srcset="{{ $large.RelPermalink }}"
+        type="image/{{ $format }}"
+        media="(min-width: 1200px)">
+      <source 
+        srcset="{{ $medium.RelPermalink }}"
+        type="image/{{ $format }}"
+        media="(min-width: 800px)">
+      <source 
+        srcset="{{ $small.RelPermalink }}"
+        type="image/{{ $format }}">
+    {{ else }}
+      <!-- WebP format -->
+      <source 
+        srcset="{{ $large.RelPermalink }}"
+        type="image/webp"
+        media="(min-width: 1200px)">
+      <source 
+        srcset="{{ $medium.RelPermalink }}"
+        type="image/webp"
+        media="(min-width: 800px)">
+      <source 
+        srcset="{{ $small.RelPermalink }}"
+        type="image/webp">
+    {{ end }}
+    <img
+      src="{{ .Src | relURL }}"
+      alt="{{ .Alt }}"
+      class="{{ if .Class }}{{ .Class }}{{ else }}img-fluid{{ end }}"
+      loading="lazy"
+      {{ with $small }}
+      width="{{ .Width }}"
+      height="{{ .Height }}"
+      {{ end }}>
+  </picture>
+{{ else }}
+  <img 
+    src="{{ .Src | relURL }}" 
+    alt="{{ .Alt }}" 
+    class="{{ if .Class }}{{ .Class }}{{ else }}img-fluid{{ end }}"
+    loading="lazy">
+{{ end }}

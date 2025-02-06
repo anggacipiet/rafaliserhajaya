@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "tinacms dev -c \"hugo server\"",
-    "build": "tinacms build --skip-cloud-checks && hugo  --gc --minify --templateMetrics --forceSyncStatic -e production",
+    "build": "tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic --ignoreCache -e production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
