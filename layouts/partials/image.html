@@ -7,58 +7,49 @@
 
 {{ if $image }}
   {{ $imgType := path.Ext .Src }}
-  {{ $format := "" }}
-  {{ if eq $imgType ".png" }}
-    {{ $format = "png" }}
-  {{ else if eq $imgType ".jpg" }}
-    {{ $format = "jpg" }}
-  {{ else if eq $imgType ".jpeg" }}
-    {{ $format = "jpg" }}
-  {{ else }}
-    {{ $format = "webp" }}
-  {{ end }}
+  
+  {{ $small := $image.Resize "400x webp" }}
+  {{ $medium := $image.Resize "800x webp" }}
+  {{ $large := $image.Resize "1200x webp" }}
 
-  {{ $small := $image.Resize (printf "400x %s" $format) }}
-  {{ $medium := $image.Resize (printf "800x %s" $format) }}
-  {{ $large := $image.Resize (printf "1200x %s" $format) }}
+  {{ $smallOriginal := $image.Resize "400x" }}
+  {{ $mediumOriginal := $image.Resize "800x" }}
+  {{ $largeOriginal := $image.Resize "1200x" }}
 
   <picture>
-    {{ if ne $format "webp" }}
-      <!-- Original format (PNG/JPEG) -->
-      <source 
-        srcset="{{ $large.RelPermalink }}"
-        type="image/{{ $format }}"
-        media="(min-width: 1200px)">
-      <source 
-        srcset="{{ $medium.RelPermalink }}"
-        type="image/{{ $format }}"
-        media="(min-width: 800px)">
-      <source 
-        srcset="{{ $small.RelPermalink }}"
-        type="image/{{ $format }}">
-    {{ else }}
-      <!-- WebP format -->
-      <source 
-        srcset="{{ $large.RelPermalink }}"
-        type="image/webp"
-        media="(min-width: 1200px)">
-      <source 
-        srcset="{{ $medium.RelPermalink }}"
-        type="image/webp"
-        media="(min-width: 800px)">
-      <source 
-        srcset="{{ $small.RelPermalink }}"
-        type="image/webp">
-    {{ end }}
+    <!-- WebP versions -->
+    <source 
+      srcset="{{ $large.RelPermalink }}"
+      type="image/webp"
+      media="(min-width: 1200px)">
+    <source 
+      srcset="{{ $medium.RelPermalink }}"
+      type="image/webp"
+      media="(min-width: 800px)">
+    <source 
+      srcset="{{ $small.RelPermalink }}"
+      type="image/webp">
+      
+    <!-- Original format fallback -->
+    <source 
+      srcset="{{ $largeOriginal.RelPermalink }}"
+      type="image/{{ if eq $imgType ".png" }}png{{ else }}jpeg{{ end }}"
+      media="(min-width: 1200px)">
+    <source 
+      srcset="{{ $mediumOriginal.RelPermalink }}"
+      type="image/{{ if eq $imgType ".png" }}png{{ else }}jpeg{{ end }}"
+      media="(min-width: 800px)">
+    <source 
+      srcset="{{ $smallOriginal.RelPermalink }}"
+      type="image/{{ if eq $imgType ".png" }}png{{ else }}jpeg{{ end }}">
+      
     <img
-      src="{{ .Src | relURL }}"
+      src="{{ $smallOriginal.RelPermalink }}"
       alt="{{ .Alt }}"
       class="{{ if .Class }}{{ .Class }}{{ else }}img-fluid{{ end }}"
       loading="lazy"
-      {{ with $small }}
-      width="{{ .Width }}"
-      height="{{ .Height }}"
-      {{ end }}>
+      width="{{ $small.Width }}"
+      height="{{ $small.Height }}">
   </picture>
 {{ else }}
   <img 
