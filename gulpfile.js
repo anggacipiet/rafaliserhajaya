@@ -4,7 +4,11 @@ const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const purgecss = require('@fullhuman/postcss-purgecss')({
+const purgecss = require('@fullhuman/postcss-purgecss');
+const sass = require('gulp-sass')(require('sass'));
+
+// PurgeCSS config
+const purgeCSSConfig = {
   content: [
     'layouts/**/*.html',
     'content/**/*.md'
@@ -14,8 +18,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     deep: [/^modal/, /^show/, /^active/, /^nav/, /^dropdown/],
     greedy: [/^slick/, /^venobox/, /^animate/]
   }
-});
-const sass = require('gulp-sass')(require('sass'));
+};
 
 // CSS optimization options
 const cssOptions = {
@@ -79,7 +82,7 @@ gulp.task('prod:scss', () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([
       autoprefixer(),
-      purgecss
+      purgecss(purgeCSSConfig)
     ]))
     .pipe(cleanCSS(cssOptions))
     .pipe(rename({ suffix: '.min' }))
@@ -110,7 +113,7 @@ gulp.task('prod:css', () => {
   ])
   .pipe(postcss([
     autoprefixer(),
-    purgecss
+    purgecss(purgeCSSConfig)
   ]))
   .pipe(cleanCSS(cssOptions))
   .pipe(rename(function(path) {
