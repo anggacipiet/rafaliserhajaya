@@ -4,6 +4,9 @@
 
 [build.environment]
   HUGO_VERSION = "0.68.3"
+  TINA_PUBLIC_CLIENT_ID = "20883a00-ef1c-4234-83d9-dc9addde95c0"
+  TINA_TOKEN = "e7c6b98ea4b57d1beba9e53fad23ba2f46fa4dac"
+  GITHUB_BRANCH = "master"
 
 [[redirects]]
   from = "/admin"
@@ -13,11 +16,6 @@
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
   status = 200
 
 [[headers]]
@@ -51,6 +49,6 @@
 [[headers]]
   for = "/admin/*"
   [headers.values]
-    X-Frame-Options = "ALLOWALL"
-    Content-Security-Policy = "frame-ancestors *"
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "frame-ancestors 'self'"
     Access-Control-Allow-Origin = "*"
