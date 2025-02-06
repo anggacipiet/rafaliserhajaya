@@ -4,7 +4,6 @@ paginate = "9"
 summaryLength = 10
 theme = "educenter-hugo"
 title = "Rafalis Erha Jaya"
-
 [Languages.en]
 contentDir = "content/english"
 copyright = "Copyright &copy; 2024 All Right Reserved [Rafalis Erha Jaya](/)"
@@ -70,7 +69,7 @@ weight = 4
 address = "PURI HESTI INSANI RT. 17 RW. 15 No. 3 Desa Mampir Kec. Cileungsi Kab. bogor Jawa Barat Indonesia"
 author = "angga cipiet"
 contact_form_action = "https://formspree.io/f/movjwyrk"
-description = "PT Rafalis Erha Jaya - Spesialis beton precast berkualitas SNI untuk proyek konstruksi dan infrastruktur. Box Culvert, U-Ditch, dan Panel Pagar dengan presisi tinggi. Pengiriman tepat waktu dan layanan profesional."
+description = "PT Rafalis Erha Jaya - Produsen beton precast berkualitas tinggi untuk proyek infrastruktur. Box Culvert, U-Ditch, dan Fence Panel dengan standar SNI. Solusi drainase terpercaya."
 email = "rhprecast@rafaliserhajaya.com"
 google_analitycs_id = "G-2PHP592VWS"
 logo = "images/rafalis.png"
@@ -88,14 +87,18 @@ map_marker = "images/marker.png"
 [build]
 noJSConfigInAssets = false
 useResourceCacheWhen = 'fallback'
+
 [build.buildStats]
 enable = true
+
 [[build.cachebusters]]
 source = 'assets/.*\.(js|ts|jsx|tsx)'
 target = '(js|scripts|javascript)'
+
 [[build.cachebusters]]
 source = 'assets/.*\.(css|sass|scss)$'
 target = '(css|styles|scss|sass)'
+
 [[build.cachebusters]]
 source = 'assets/.*\.(.*)$'
 target = '$1'
@@ -126,8 +129,8 @@ maxAge = "720h"
 [markup.goldmark.renderer]
 unsafe = true
 
-############################# Plugins ##############################
-
+############################# Plugins #############################
+[params.plugins]
 # CSS Plugins
 [[params.plugins.css]]
 link = "plugins/bootstrap/bootstrap.min.css"
@@ -140,6 +143,20 @@ link = "plugins/venobox/venobox.css"
 [[params.plugins.css]]
 link = "plugins/themify-icons/themify-icons.css"
 
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/venobox/venobox.min.js"
+[[params.plugins.js]]
+link = "plugins/filterizr/jquery.filterizr.min.js"
+[[params.plugins.js]]
+link = "plugins/google-map/gmap.js"
+
 [params.preloader]
 enable = false
 preloader = "images/preloader.gif"
@@ -151,15 +168,15 @@ mailchimp_form_name = "b254bade3600ade2f1eb9fed1"
 
 [[params.social]]
 icon = "ti-facebook"
-link = "https://facebook.com/rafaliserhajaya"
+link = "#"
 title = "facebook"
 
 [[params.social]]
 icon = "ti-twitter-alt"
-link = "https://twitter.com/rafaliserhajaya"
+link = "#"
 title = "twitter"
 
 [[params.social]]
 icon = "ti-instagram"
-link = "https://instagram.com/rafaliserhajaya"
+link = "#"
 title = "instagram"

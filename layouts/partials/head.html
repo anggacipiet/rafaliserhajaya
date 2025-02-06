@@ -13,42 +13,6 @@
   <meta name="theme-name" content="educenter-hugo" />
   
   {{ hugo.Generator }}
-  
-  {{ "<!-- Resource Hints -->" | safeHTML }}
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
-
-  {{ "<!-- Modern JavaScript -->" | safeHTML }}
-  <script type="module">
-    // Load modern versions
-    const loadScript = (src) => {
-      return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = src;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
-    };
-    
-    Promise.all([
-      loadScript('{{ "plugins/jQuery/jquery.min.js" | absURL }}'),
-      loadScript('{{ "plugins/bootstrap/bootstrap.min.js" | absURL }}')
-    ]).then(() => {
-      // Load plugins after jQuery
-      loadScript('{{ "plugins/slick/slick.min.js" | absURL }}');
-      loadScript('{{ "plugins/filterizr/jquery.filterizr.min.js" | absURL }}');
-      loadScript('{{ "plugins/venobox/venobox.min.js" | absURL }}');
-      {{ if site.Params.map.enable }}
-      loadScript('{{ "plugins/google-map/gmap.js" | absURL }}');
-      {{ end }}
-    });
-  </script>
-  
   {{ "<!-- multilingual SEO optimizations -->" | safeHTML }}
   {{ if .IsTranslated }}
   {{ range .Page.AllTranslations }}
@@ -56,63 +20,17 @@
   {{ end }}
   {{ end }}
 
-  {{ "<!-- Preload critical CSS -->" | safeHTML }}
-  <link rel="preload" href="{{ "plugins/bootstrap/bootstrap.min.css" | absURL }}" as="style">
-  {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
-  <link rel="preload" href="{{ $styles.Permalink }}" as="style">
-  
-  {{ "<!-- Preload fonts -->" | safeHTML }}
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&display=swap&display=fallback" media="print" onload="this.media='all'">
-
-  {{ "<!-- Font loading optimization -->" | safeHTML }}
-  <style>
-    /* Custom font loading behavior */
-    @font-face {
-      font-family: 'themify';
-      src: url('{{ "fonts/themify.woff?-fvbane" | absURL }}') format('woff');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: 'Futura';
-      src: url('{{ "fonts/Futura-Bold.woff" | absURL }}') format('woff');
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    /* Fallback font stack */
-    body {
-      font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
-  </style>
-
   {{ "<!-- plugins -->" | safeHTML }}
   {{ range site.Params.plugins.css }}
-  {{ if in .link "bootstrap" }}
   <link rel="stylesheet" href="{{ .link | absURL }}">
-  {{ else }}
-  <link rel="stylesheet" href="{{ .link | absURL }}" media="print" onload="this.media='all'">
-  {{ end }}
   {{ end }}
 
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
-  {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="all">
+  {{ $styles := resources.Get "scss/main.scss" | toCSS | fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 
   {{ "<!--Favicon-->" | safeHTML }}
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
 
-  {{ "<!-- Fallback for no-JS -->" | safeHTML }}
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    {{ range site.Params.plugins.css }}
-    <link rel="stylesheet" href="{{ .link | absURL }}">
-    {{ end }}
-    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
-  </noscript>
 </head>
