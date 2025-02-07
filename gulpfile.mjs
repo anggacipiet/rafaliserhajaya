@@ -11,8 +11,14 @@ import babel from 'gulp-babel';
 import terser from 'gulp-terser';
 import concat from 'gulp-concat';
 import fontmin from 'gulp-fontmin';
+import fs from 'fs';
+import path from 'path';
+import sharp from 'sharp';
+import { promisify } from 'util';
+import glob from 'glob';
 
 const sass = gulpSass(dartSass);
+const globPromise = promisify(glob);
 
 // PurgeCSS config
 const purgeCSSConfig = {
@@ -56,22 +62,59 @@ gulp.task('dev:images', () => {
 });
 
 gulp.task('prod:images', () => {
-  return gulp.src([
+  const src = [
     'static/images/**/*',
     'static/plugins/slick/ajax-loader.gif'
-  ])
-  .pipe(imagemin([
-    imagemin.gifsicle({interlaced: true}),
-    imagemin.mozjpeg({quality: 75, progressive: true}),
-    imagemin.optipng({optimizationLevel: 5}),
-    imagemin.svgo({
-      plugins: [
-        {removeViewBox: false},
-        {cleanupIDs: false}
-      ]
-    })
-  ]))
-  .pipe(gulp.dest('static/images'));
+  ];
+
+  return new Promise(async (resolve, reject) => {
+    try {
+      const files = await globPromise(src);
+      
+      for (const file of files) {
+        if (file.match(/\.(jpg|jpeg|png)$/i)) {
+          const outputWebP = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+          const outputAvif = file.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+          
+          await sharp(file)
+            .resize(1920, null, { 
+              withoutEnlargement: true,
+              fit: 'inside'
+            })
+            .webp({ quality: 80 })
+            .toFile(outputWebP);
+          
+          await sharp(file)
+            .resize(1920, null, {
+              withoutEnlargement: true,
+              fit: 'inside'
+            })
+            .avif({ quality: 80 })
+            .toFile(outputAvif);
+          
+          // Original format with optimization
+          await sharp(file)
+            .resize(1920, null, {
+              withoutEnlargement: true,
+              fit: 'inside'
+            })
+            .jpeg({ quality: 80, progressive: true })
+            .toFile(file.replace(/\.(jpg|jpeg)$/i, '.jpg'));
+          
+          await sharp(file)
+            .resize(1920, null, {
+              withoutEnlargement: true,
+              fit: 'inside'
+            })
+            .png({ quality: 80, progressive: true })
+            .toFile(file.replace(/\.png$/i, '.png'));
+        }
+      }
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+  });
 });
 
 gulp.task('dev:scss', () => {
@@ -106,9 +149,8 @@ gulp.task('dev:css', () => {
 });
 
 gulp.task('prod:css', () => {
-  return gulp.src([
+  const plugins = gulp.src([
     'static/plugins/animate/animate.css',
-    'static/plugins/bootstrap/bootstrap.min.css',
     'static/plugins/slick/slick.css',
     'static/plugins/themify-icons/themify-icons.css',
     'static/plugins/venobox/venobox.css'
@@ -124,6 +166,24 @@ gulp.task('prod:css', () => {
     }
   }))
   .pipe(gulp.dest('static/plugins'));
+
+  // Handle Bootstrap separately for critical CSS
+  const bootstrap = gulp.src('static/plugins/bootstrap/bootstrap.min.css')
+    .pipe(postcss([
+      autoprefixer(),
+      purgecss({
+        ...purgeCSSConfig,
+        safelist: {
+          ...purgeCSSConfig.safelist,
+          deep: [/^container/, /^row/, /^col/, ...purgeCSSConfig.safelist.deep]
+        }
+      })
+    ]))
+    .pipe(cleanCSS(cssOptions))
+    .pipe(rename({ suffix: '.critical' }))
+    .pipe(gulp.dest('static/plugins/bootstrap'));
+
+  return gulp.parallel(plugins, bootstrap)();
 });
 
 // Font task

@@ -1,45 +1,32 @@
 {{ $image := .image }}
 {{ $alt := .alt }}
 {{ $class := .class }}
+{{ $width := .width | default "1920" }}
 
 <picture>
-  {{ with $image }}
-    {{ $basename := path.Base . }}
-    {{ $dirname := path.Dir . }}
-    {{ $extension := path.Ext . }}
-    {{ $filename := strings.TrimSuffix $extension $basename }}
-    
-    <!-- AVIF -->
-    <source
-      type="image/avif"
-      srcset="{{ $dirname }}/{{ $filename }}-sm.avif 640w,
-              {{ $dirname }}/{{ $filename }}-md.avif 768w,
-              {{ $dirname }}/{{ $filename }}-lg.avif 1024w"
-      sizes="(max-width: 640px) 640px,
-             (max-width: 768px) 768px,
-             1024px">
-    
-    <!-- WebP -->
-    <source
-      type="image/webp"
-      srcset="{{ $dirname }}/{{ $filename }}-sm.webp 640w,
-              {{ $dirname }}/{{ $filename }}-md.webp 768w,
-              {{ $dirname }}/{{ $filename }}-lg.webp 1024w"
-      sizes="(max-width: 640px) 640px,
-             (max-width: 768px) 768px,
-             1024px">
-    
-    <!-- Fallback -->
-    <img
-      srcset="{{ $dirname }}/{{ $filename }}-sm{{ $extension }} 640w,
-              {{ $dirname }}/{{ $filename }}-md{{ $extension }} 768w,
-              {{ $dirname }}/{{ $filename }}-lg{{ $extension }} 1024w"
-      src="{{ $dirname }}/{{ $filename }}-lg{{ $extension }}"
-      alt="{{ $alt }}"
-      class="{{ $class }}"
-      loading="lazy"
-      sizes="(max-width: 640px) 640px,
-             (max-width: 768px) 768px,
-             1024px">
-  {{ end }}
+  {{ $imageBase := path.Base $image }}
+  {{ $imageExt := path.Ext $image }}
+  {{ $imageName := strings.TrimSuffix $imageExt $imageBase }}
+  {{ $imageDir := path.Dir $image }}
+  
+  <!-- AVIF -->
+  <source
+    type="image/avif"
+    srcset="{{ printf "%s/%s.avif" $imageDir $imageName | absURL }}"
+  >
+  
+  <!-- WebP -->
+  <source
+    type="image/webp"
+    srcset="{{ printf "%s/%s.webp" $imageDir $imageName | absURL }}"
+  >
+  
+  <!-- Fallback -->
+  <img
+    src="{{ $image | absURL }}"
+    alt="{{ $alt }}"
+    {{ with $class }}class="{{ . }}"{{ end }}
+    loading="lazy"
+    width="{{ $width }}"
+  >
 </picture>

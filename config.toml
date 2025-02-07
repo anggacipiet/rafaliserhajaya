@@ -183,9 +183,9 @@ title = "instagram"
 
 [server]
   [[server.headers]]
-    for = "/**/*.woff"
+    for = "/**/*.{woff,woff2,ttf,eot,svg}"
     [server.headers.values]
-      Content-Type = "application/font-woff"
+      Content-Type = "application/x-font-ttf"
 
   [[server.headers]]
     for = "/**/*.css"

@@ -22,11 +22,11 @@
 
   {{ "<!-- plugins -->" | safeHTML }}
   {{ "<!-- Critical CSS -->" | safeHTML }}
-  <link rel="stylesheet" href="{{ "plugins/bootstrap/bootstrap.critical.min.css" | absURL }}">
+  <link rel="stylesheet" href="{{ "plugins/bootstrap/bootstrap.min.critical.css" | absURL }}" type="text/css">
 
   {{ range site.Params.plugins.css }}
   {{ if not (eq .link "plugins/bootstrap/bootstrap.min.css") }}
-  <link rel="stylesheet" href="{{ .link | absURL }}">
+  <link rel="stylesheet" href="{{ .link | absURL }}" type="text/css">
   {{ end }}
   {{ end }}
 
@@ -42,14 +42,20 @@
   <style>
     @font-face {
       font-family: 'themify';
-      src: url('{{ "plugins/themify-icons/fonts/themify.ttf" | absURL }}') format('truetype');
+      src: url('{{ "plugins/themify-icons/fonts/themify.eot" | absURL }}');
+      src: url('{{ "plugins/themify-icons/fonts/themify.eot?#iefix" | absURL }}') format('embedded-opentype'),
+           url('{{ "plugins/themify-icons/fonts/themify.woff" | absURL }}') format('woff'),
+           url('{{ "plugins/themify-icons/fonts/themify.ttf" | absURL }}') format('truetype'),
+           url('{{ "plugins/themify-icons/fonts/themify.svg?#themify" | absURL }}') format('svg');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
     @font-face {
       font-family: 'Futura-Bold';
-      src: url('{{ "fonts/Futura-Bold.ttf" | absURL }}') format('truetype');
+      src: url('{{ "fonts/Futura-Bold.woff2" | absURL }}') format('woff2'),
+           url('{{ "fonts/Futura-Bold.woff" | absURL }}') format('woff'),
+           url('{{ "fonts/Futura-Bold.ttf" | absURL }}') format('truetype');
       font-weight: bold;
       font-style: normal;
       font-display: swap;

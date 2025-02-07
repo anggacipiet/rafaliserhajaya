@@ -2,6 +2,15 @@
   "name": "rafaliserhajaya",
   "version": "1.0.0",
   "type": "module",
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", {
+        "modules": false,
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }]
+    ]
+  },
   "browserslist": [
     "defaults",
     "not IE 11",
@@ -52,6 +61,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
     "sass": "^1.84.0",
-    "through2": "^4.0.2"
+    "through2": "^4.0.2",
+    "sharp": "^0.33.2",
+    "glob": "^10.3.10"
   }
 }
