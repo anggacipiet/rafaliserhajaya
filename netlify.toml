@@ -6,10 +6,15 @@
   HUGO_VERSION = "0.68.3"
 
 [[redirects]]
-  from = "/admin/*"
+  from = "/admin"
   to = "/admin/index.html"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
 
 [[headers]]
   for = "/admin/*"
@@ -26,6 +31,18 @@
       frame-ancestors 'self';
       form-action 'self';
     """
+
+[[headers]]
+  for = "/admin/assets/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/admin/assets/*.css"
+  [headers.values]
+    Content-Type = "text/css"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.js"
