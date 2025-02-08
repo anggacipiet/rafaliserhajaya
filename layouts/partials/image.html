@@ -44,21 +44,21 @@
 
     {{/* Generate WebP version */}}
     {{ $webp := $processedImage.Resize (printf "%dx%d webp q-%d" $processedImage.Width $processedImage.Height ($processedImage.Quality | default 85)) }}
-  {{ end }}
 
-  <picture>
-    <source 
-      srcset="{{ $webp.RelPermalink }}"
-      type="image/webp"
-    >
-    <img
-      src="{{ $processedImage.RelPermalink }}"
-      alt="{{ $alt }}"
-      width="{{ $processedImage.Width }}"
-      height="{{ $processedImage.Height }}"
-      loading="lazy"
-      class="{{ $class }}"
-      {{ with $style }}style="{{ . }}"{{ end }}
-    >
-  </picture>
+    <picture>
+      <source 
+        srcset="{{ $webp.RelPermalink }}"
+        type="image/webp"
+      >
+      <img
+        src="{{ $processedImage.RelPermalink }}"
+        alt="{{ $alt }}"
+        width="{{ $processedImage.Width }}"
+        height="{{ $processedImage.Height }}"
+        loading="lazy"
+        class="{{ $class }}"
+        {{ with $style }}style="{{ . }}"{{ end }}
+      >
+    </picture>
+  {{ end }}
 {{ end }}
