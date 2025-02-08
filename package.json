@@ -27,7 +27,7 @@
     "start": "gulp prod:images && npm run dev",
     "dev:images": "gulp dev",
     "dev": "tinacms dev -c \"hugo server\"",
-    "build": "gulp favicons && gulp prod && tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
+    "build": "tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
     "optimize-images": "gulp images",
     "dev:assets": "gulp dev",
     "prod:assets": "gulp prod",

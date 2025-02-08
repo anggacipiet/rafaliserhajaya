@@ -77,11 +77,11 @@ mobile = "(+62) 81294212524"
 top_header = true
 
 [params.map]
-enable = false
-gmap_api = "https://www.google.com/maps?z=16&q=jl.%2Bmanisi%2B(bunderan%2Bcibiru)%2Bcipadung%2Bcibiru%2Bbandung%2B40614"
-map_latitude = "107.00659177478612"
-map_longitude = "-6.4326057629037"
-map_marker = "images/marker.png"
+#enable = false
+#gmap_api = "https://www.google.com/maps?z=16&q=jl.%2Bmanisi%2B(bunderan%2Bcibiru)%2Bcipadung%2Bcibiru%2Bbandung%2B40614"
+#map_latitude = "107.00659177478612"
+#map_longitude = "-6.4326057629037"
+#map_marker = "images/marker.png"
 
 ############################# Build ##############################
 [build]
