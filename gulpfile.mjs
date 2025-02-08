@@ -36,9 +36,30 @@ const purgeCSSConfig = {
     'content/**/*.md'
   ],
   safelist: {
-    standard: [/^slick-/, /^venobox/, /^ti-/, /^animate/],
-    deep: [/^modal/, /^show/, /^active/, /^nav/, /^dropdown/],
-    greedy: [/^slick/, /^venobox/, /^animate/]
+    standard: [
+      /^slick-/,
+      /^venobox/,
+      /^ti-/,
+      /^animate/,
+      /^modal/,
+      /^show/,
+      /^active/,
+      /^nav/,
+      /^dropdown/,
+      /^container/,
+      /^row/,
+      /^col/
+    ],
+    deep: [
+      /^modal/,
+      /^show/,
+      /^active/,
+      /^nav/,
+      /^dropdown/,
+      /^slick/,
+      /^venobox/,
+      /^animate/
+    ]
   }
 };
 
@@ -94,8 +115,12 @@ gulp.task('dev:images', () => {
           }
           
           try {
+            // Get image dimensions
+            const metadata = await sharp(file).metadata();
+            const width = Math.min(metadata.width, 1200); // Max width 1200px
+            
             await sharp(file)
-              .resize(1920, null, { 
+              .resize(width, null, {
                 withoutEnlargement: true,
                 fit: 'inside'
               })
@@ -103,7 +128,7 @@ gulp.task('dev:images', () => {
               .toFile(path.join(outputDir, path.basename(outputWebP)));
             
             await sharp(file)
-              .resize(1920, null, {
+              .resize(width, null, {
                 withoutEnlargement: true,
                 fit: 'inside'
               })
@@ -119,7 +144,7 @@ gulp.task('dev:images', () => {
               const tempFile = path.join(outputDir, `${path.basename(file)}.tmp`);
               const outputFile = path.join(outputDir, path.basename(file));
               await sharp(file)
-                .resize(1920, null, {
+                .resize(width, null, {
                   withoutEnlargement: true,
                   fit: 'inside'
                 })
@@ -134,7 +159,7 @@ gulp.task('dev:images', () => {
               const tempFile = path.join(outputDir, `${path.basename(file)}.tmp`);
               const outputFile = path.join(outputDir, path.basename(file));
               await sharp(file)
-                .resize(1920, null, {
+                .resize(width, null, {
                   withoutEnlargement: true,
                   fit: 'inside'
                 })
