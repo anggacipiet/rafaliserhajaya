@@ -1,1 +1,62 @@
-<img src="{{ .Src | relURL }}" alt="{{ .Alt }}" class="img-fluid">
+{{ $image := .Src | default .image }}
+{{ $alt := .Alt | default .alt | default "" }}
+{{ $class := .Class | default .class | default "img-fluid" }}
+{{ $style := .Style | default .style }}
+
+{{/* Define image dimensions map */}}
+{{ $dimensions := dict "product" (dict "width" 400 "height" 300) "blog" (dict "width" 800 "height" 600) "events" (dict "width" 600 "height" 400) "about" (dict "width" 800 "height" 600) "banner" (dict "width" 1920 "height" 600) "logo" (dict "width" 200 "height" 80) }}
+
+{{/* Determine image type */}}
+{{ $imageType := "" }}
+{{ if findRE "product/" $image }}
+  {{ $imageType = "product" }}
+{{ else if findRE "blog/" $image }}
+  {{ $imageType = "blog" }}
+{{ else if findRE "events/" $image }}
+  {{ $imageType = "events" }}
+{{ else if findRE "about/" $image }}
+  {{ $imageType = "about" }}
+{{ else if findRE "banner/" $image }}
+  {{ $imageType = "banner" }}
+{{ else if findRE "rafalis" $image }}
+  {{ $imageType = "logo" }}
+{{ end }}
+
+{{/* Get dimensions based on type */}}
+{{ $width := .width }}
+{{ $height := .height }}
+
+{{ if not $width }}
+  {{ with $imageType }}
+    {{ with index $dimensions . }}
+      {{ $width = .width }}
+      {{ $height = .height }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $width = $width | default 800 }}
+{{ $height = $height | default 600 }}
+
+{{/* Calculate styles */}}
+{{ $defaultStyle := printf "width: %dpx; height: %dpx; object-fit: cover;" $width $height }}
+{{ $finalStyle := $style | default $defaultStyle }}
+
+{{/* Generate image HTML */}}
+<picture class="image-wrapper" style="display: block; position: relative; padding-top: {{ mul (div (float $height) (float $width)) 100 }}%;">
+  {{ $imageBase := path.Base $image }}
+  {{ $imageExt := path.Ext $image }}
+  {{ $imageName := strings.TrimSuffix $imageExt $imageBase }}
+  {{ $imageDir := path.Dir $image }}
+  
+  <!-- Fallback -->
+  <img
+    src="{{ $image | absURL }}"
+    alt="{{ $alt }}"
+    class="{{ $class }}"
+    loading="lazy"
+    width="{{ $width }}"
+    height="{{ $height }}"
+    style="position: absolute; top: 0; left: 0; {{ $finalStyle }}"
+  >
+</picture>

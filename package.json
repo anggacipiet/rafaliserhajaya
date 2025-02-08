@@ -24,9 +24,10 @@
   ],
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev",
+    "start": "gulp prod:images && npm run dev",
+    "dev:images": "gulp dev:images",
     "dev": "tinacms dev -c \"hugo server\"",
-    "build": "tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
+    "build": "gulp prod:images && tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
     "optimize-images": "gulp images",
     "dev:assets": "gulp dev",
     "prod:assets": "gulp prod",

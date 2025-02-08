@@ -53,20 +53,13 @@ const cssOptions = {
 
 // Tasks
 gulp.task('dev:images', () => {
-  return gulp.src([
-    'static/images/**/*',
-    'static/plugins/slick/ajax-loader.gif'
-  ])
-  .pipe(gulp.dest('static/images'));
-});
-
-gulp.task('prod:images', () => {
   const src = [
     'static/images/**/*',
     'static/product/**/*',
     'static/about/**/*',
     'static/blog/**/*',
     'static/events/**/*',
+    'static/plugins/**/*.{jpg,jpeg,png,gif}',
     'static/plugins/slick/ajax-loader.gif'
   ];
 
@@ -75,27 +68,20 @@ gulp.task('prod:images', () => {
       const files = await glob(src, { nodir: true });
       
       for (const file of files) {
-        // Skip if file doesn't exist
         if (!fs.existsSync(file)) continue;
 
-        // Get file stats
         const stats = fs.statSync(file);
         if (!stats.isFile()) continue;
 
-        // Process only images
         if (file.match(/\.(jpg|jpeg|png)$/i)) {
           const outputWebP = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
           const outputAvif = file.replace(/\.(jpg|jpeg|png)$/i, '.avif');
-          const outputDir = path.join('public', path.relative('static', path.dirname(file)));
+          const outputDir = path.join('static', path.relative('static', path.dirname(file)));
           
           // Ensure output directory exists
           if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir, { recursive: true });
           }
-          
-          // Copy original file first
-          const outputOriginal = path.join(outputDir, path.basename(file));
-          fs.copyFileSync(file, outputOriginal);
           
           try {
             await sharp(file)
@@ -113,8 +99,8 @@ gulp.task('prod:images', () => {
               })
               .avif({ 
                 quality: 80,
-                effort: 4, // Lower effort for faster encoding
-                chromaSubsampling: '4:2:0' // Better compression
+                effort: 4,
+                chromaSubsampling: '4:2:0'
               })
               .toFile(path.join(outputDir, path.basename(outputAvif)));
             
@@ -153,7 +139,111 @@ gulp.task('prod:images', () => {
             }
           } catch (err) {
             console.error(`Error processing image ${file}:`, err);
-            // Continue with next file if one fails
+          }
+        }
+      }
+      resolve();
+    } catch (err) {
+      console.error('Error processing images:', err);
+      reject(err);
+    }
+  });
+});
+
+gulp.task('prod:images', () => {
+  const src = [
+    'static/images/**/*',
+    'static/product/**/*',
+    'static/about/**/*',
+    'static/blog/**/*',
+    'static/events/**/*',
+    'static/plugins/**/*.{jpg,jpeg,png,gif}',
+    'static/plugins/slick/ajax-loader.gif'
+  ];
+
+  return new Promise(async (resolve, reject) => {
+    try {
+      const files = await glob(src, { nodir: true });
+      
+      for (const file of files) {
+        // Skip if file doesn't exist
+        if (!fs.existsSync(file)) continue;
+
+        // Get file stats
+        const stats = fs.statSync(file);
+        if (!stats.isFile()) continue;
+
+        // Process only images
+        if (file.match(/\.(jpg|jpeg|png)$/i)) {
+          const outputWebP = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+          const outputAvif = file.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+          const outputDir = path.join('public', path.relative('static', path.dirname(file)));
+          
+          // Ensure output directory exists
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
+          
+          // Copy original file
+          const outputOriginal = path.join(outputDir, path.basename(file));
+          fs.copyFileSync(file, outputOriginal);
+          
+          try {
+            await sharp(file)
+              .resize(1920, null, { 
+                withoutEnlargement: true,
+                fit: 'inside'
+              })
+              .webp({ quality: 80 })
+              .toFile(path.join(outputDir, path.basename(outputWebP)));
+            
+            await sharp(file)
+              .resize(1920, null, {
+                withoutEnlargement: true,
+                fit: 'inside'
+              })
+              .avif({ 
+                quality: 80,
+                effort: 4,
+                chromaSubsampling: '4:2:0'
+              })
+              .toFile(path.join(outputDir, path.basename(outputAvif)));
+            
+            // Optimize original format
+            if (file.match(/\.(jpg|jpeg)$/i)) {
+              const tempFile = path.join(outputDir, `${path.basename(file)}.tmp`);
+              const outputFile = path.join(outputDir, path.basename(file));
+              await sharp(file)
+                .resize(1920, null, {
+                  withoutEnlargement: true,
+                  fit: 'inside'
+                })
+                .jpeg({ 
+                  quality: 80, 
+                  progressive: true,
+                  optimizeCoding: true
+                })
+                .toFile(tempFile);
+              fs.renameSync(tempFile, outputFile);
+            } else if (file.match(/\.png$/i)) {
+              const tempFile = path.join(outputDir, `${path.basename(file)}.tmp`);
+              const outputFile = path.join(outputDir, path.basename(file));
+              await sharp(file)
+                .resize(1920, null, {
+                  withoutEnlargement: true,
+                  fit: 'inside'
+                })
+                .png({ 
+                  quality: 80,
+                  progressive: true,
+                  compressionLevel: 9,
+                  adaptiveFiltering: true
+                })
+                .toFile(tempFile);
+              fs.renameSync(tempFile, outputFile);
+            }
+          } catch (err) {
+            console.error(`Error processing image ${file}:`, err);
             continue;
           }
         } else {
