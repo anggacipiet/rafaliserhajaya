@@ -19,6 +19,16 @@ import { glob } from 'glob';
 
 const sass = gulpSass(dartSass);
 
+// Favicon sizes
+const faviconSizes = [
+  { size: 16, name: 'favicon-16x16.png' },
+  { size: 32, name: 'favicon-32x32.png' },
+  { size: 180, name: 'apple-touch-icon.png' },
+  { size: 192, name: 'android-chrome-192x192.png' },
+  { size: 512, name: 'android-chrome-512x512.png' },
+  { size: 150, name: 'mstile-150x150.png' }
+];
+
 // PurgeCSS config
 const purgeCSSConfig = {
   content: [
@@ -444,11 +454,43 @@ gulp.task('prod:js', () => {
   });
 });
 
+// Favicon task
+gulp.task('favicons', () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const favicon = 'static/images/favicon.png';
+      
+      // Generate PNG favicons
+      for (const { size, name } of faviconSizes) {
+        await sharp(favicon)
+          .resize(size, size, {
+            fit: 'contain',
+            background: { r: 255, g: 255, b: 255, alpha: 0 }
+          })
+          .png()
+          .toFile(`static/images/${name}`);
+      }
+      
+      // Generate monochrome SVG for Safari pinned tab
+      await sharp(favicon)
+        .resize(512, 512)
+        .threshold(128)
+        .toColourspace('b-w')
+        .toFile('static/images/safari-pinned-tab.svg');
+        
+      resolve();
+    } catch (err) {
+      console.error('Error generating favicons:', err);
+      reject(err);
+    }
+  });
+});
+
 // Development build
-gulp.task('dev', gulp.series('dev:images', 'dev:scss', 'dev:css', 'dev:js', 'fonts'));
+gulp.task('dev', gulp.series('dev:images', 'dev:scss', 'dev:css', 'dev:js', 'fonts', 'favicons'));
 
 // Production build
-gulp.task('prod', gulp.series('prod:images', 'prod:scss', 'prod:css', 'prod:js', 'fonts'));
+gulp.task('prod', gulp.series('prod:images', 'prod:scss', 'prod:css', 'prod:js', 'fonts', 'favicons'));
 
 // Default task (development)
 gulp.task('default', gulp.series('dev')); 
