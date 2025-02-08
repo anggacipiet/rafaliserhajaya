@@ -1,12 +1,3 @@
-<!-- preload logo -->
-<link 
-  rel="preload" 
-  as="image" 
-  href="{{ "images/rafalis.png" | absURL }}"
-  imagesrcset="{{ "images/rafalis.webp" | absURL }}"
-  type="image/webp"
->
-
 <!-- header -->
 <header class="fixed-top header">
   <!-- top header -->
@@ -38,14 +29,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
         <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
-          {{ partial "image.html" (dict 
-            "Src" "images/rafalis.png"
-            "Alt" "Rafalis Erha Jaya"
-            "Width" "200"
-            "Height" "80"
-            "Class" "img-fluid"
-            "Style" "object-fit:contain"
-          ) }}
+          {{ partial "image.html" (dict "Src" site.Params.logo "Alt" site.Title "Class" "img-fluid") }}
         </a>
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
