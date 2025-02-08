@@ -1,7 +1,9 @@
 {{ $data := index site.Data site.Language.Lang }}
 
 {{ with $data.homepage.success_story }}
-<section class="section bg-cover" data-background="{{ .bg_image | absURL }}">
+{{ $bgImage := partial "image.html" (dict "Src" .bg_image "Alt" "success story background" "Class" "bg-image") }}
+<section class="section bg-cover" 
+  style="background-image: url({{ $bgImage | safeURL }})">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-sm-4 position-relative success-video">

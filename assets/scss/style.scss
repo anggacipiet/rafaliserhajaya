@@ -1,0 +1,19 @@
+// Logo optimization
+.navbar-brand {
+  display: inline-block;
+  
+  img {
+    width: 200px;
+    height: 80px;
+    object-fit: contain;
+    will-change: transform; // Optimize for animations
+    transform: translateZ(0); // Force GPU acceleration
+  }
+}
+
+// Preload optimization
+@media (prefers-reduced-motion: no-preference) {
+  .navbar-brand img {
+    transition: transform 0.2s ease;
+  }
+} 
