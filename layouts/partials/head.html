@@ -36,23 +36,21 @@
   <link rel="preload" href="{{ "plugins/themify-icons/themify-icons.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   {{ "<!-- Preload Critical Fonts -->" | safeHTML }}
+  <link rel="preload" href="{{ "fonts/Futura-Bold.woff" | absURL }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ "plugins/themify-icons/fonts/themify.woff" | absURL }}" as="font" type="font/woff" crossorigin>
+
   <style>
     @font-face {
       font-family: 'themify';
-      src: url('{{ "plugins/themify-icons/fonts/themify.eot" | absURL }}');
-      src: url('{{ "plugins/themify-icons/fonts/themify.eot?#iefix" | absURL }}') format('embedded-opentype'),
-           url('{{ "plugins/themify-icons/fonts/themify.woff" | absURL }}') format('woff'),
-           url('{{ "plugins/themify-icons/fonts/themify.ttf" | absURL }}') format('truetype'),
-           url('{{ "plugins/themify-icons/fonts/themify.svg?#themify" | absURL }}') format('svg');
-      font-weight: normal;
-      font-style: normal;
+      src: local('themify'),
+           url('{{ "plugins/themify-icons/fonts/themify.woff" | absURL }}') format('woff');
       font-display: swap;
     }
+    
     @font-face {
-      font-family: 'Futura-Bold';
-      src: url('{{ "fonts/Futura-Bold.woff" | absURL }}') format('woff');
-      font-weight: bold;
-      font-style: normal;
+      font-family: 'Futura-Bold'; 
+      src: local('Futura-Bold'),
+           url('{{ "fonts/Futura-Bold.woff" | absURL }}') format('woff');
       font-display: swap;
     }
     /* Critical Font Styles */
@@ -106,9 +104,6 @@
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint "sha512" }}
   <link rel="preload" href="{{ $styles.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="{{ $styles.Data.Integrity }}" media="screen">
-  <noscript>
-    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-  </noscript>
 
   {{ "<!--Favicon-->" | safeHTML }}
   <!-- Favicons -->

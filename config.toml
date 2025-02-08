@@ -105,14 +105,20 @@ target = '$1'
 
 ############################# Outputs ##############################
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS"]
 
 ############################# Imaging ##############################
 [imaging]
 # See https://github.com/disintegration/imaging
 # Default JPEG or WebP quality setting. Default is 75.
-quality = 90
+quality = 85
 resampleFilter = "lanczos"
+
+[imaging.exif]
+disableDate = true
+disableLatLong = true
+excludeFields = ''
+includeFields = ''
 
 ############################# Caches ###############################
 [caches]
