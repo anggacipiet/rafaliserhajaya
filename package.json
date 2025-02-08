@@ -4,11 +4,17 @@
   "type": "module",
   "babel": {
     "presets": [
-      ["@babel/preset-env", {
-        "modules": false,
-        "useBuiltIns": "usage",
-        "corejs": 3
-      }]
+      [
+        "@babel/preset-env",
+        {
+          "modules": false,
+          "useBuiltIns": "usage",
+          "corejs": {
+            "version": 3,
+            "proposals": true
+          }
+        }
+      ]
     ]
   },
   "browserslist": [
@@ -50,6 +56,7 @@
     "autoprefixer": "^10.4.17",
     "core-js": "^3.35.1",
     "critical": "^7.2.1",
+    "glob": "^10.3.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -61,8 +68,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
     "sass": "^1.84.0",
-    "through2": "^4.0.2",
-    "sharp": "^0.33.2",
-    "glob": "^10.3.10"
+    "sharp": "^0.33.5",
+    "through2": "^4.0.2"
   }
 }

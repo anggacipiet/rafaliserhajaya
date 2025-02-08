@@ -29,7 +29,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
         <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
-          {{ partial "image.html" (dict "Src" site.Params.logo "Alt" site.Title "Class" "img-fluid") }}
+          {{ partial "image.html" (dict "image" site.Params.logo "alt" site.Title "class" "img-fluid") }}
         </a>
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">

@@ -15,10 +15,9 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 import { promisify } from 'util';
-import glob from 'glob';
+import { glob } from 'glob';
 
 const sass = gulpSass(dartSass);
-const globPromise = promisify(glob);
 
 // PurgeCSS config
 const purgeCSSConfig = {
@@ -64,54 +63,112 @@ gulp.task('dev:images', () => {
 gulp.task('prod:images', () => {
   const src = [
     'static/images/**/*',
+    'static/product/**/*',
+    'static/about/**/*',
+    'static/blog/**/*',
+    'static/events/**/*',
     'static/plugins/slick/ajax-loader.gif'
   ];
 
   return new Promise(async (resolve, reject) => {
     try {
-      const files = await globPromise(src);
+      const files = await glob(src, { nodir: true });
       
       for (const file of files) {
+        // Skip if file doesn't exist
+        if (!fs.existsSync(file)) continue;
+
+        // Get file stats
+        const stats = fs.statSync(file);
+        if (!stats.isFile()) continue;
+
+        // Process only images
         if (file.match(/\.(jpg|jpeg|png)$/i)) {
           const outputWebP = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
           const outputAvif = file.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+          const outputDir = path.join('public', path.relative('static', path.dirname(file)));
           
-          await sharp(file)
-            .resize(1920, null, { 
-              withoutEnlargement: true,
-              fit: 'inside'
-            })
-            .webp({ quality: 80 })
-            .toFile(outputWebP);
+          // Ensure output directory exists
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
           
-          await sharp(file)
-            .resize(1920, null, {
-              withoutEnlargement: true,
-              fit: 'inside'
-            })
-            .avif({ quality: 80 })
-            .toFile(outputAvif);
+          // Copy original file first
+          const outputOriginal = path.join(outputDir, path.basename(file));
+          fs.copyFileSync(file, outputOriginal);
           
-          // Original format with optimization
-          await sharp(file)
-            .resize(1920, null, {
-              withoutEnlargement: true,
-              fit: 'inside'
-            })
-            .jpeg({ quality: 80, progressive: true })
-            .toFile(file.replace(/\.(jpg|jpeg)$/i, '.jpg'));
-          
-          await sharp(file)
-            .resize(1920, null, {
-              withoutEnlargement: true,
-              fit: 'inside'
-            })
-            .png({ quality: 80, progressive: true })
-            .toFile(file.replace(/\.png$/i, '.png'));
+          try {
+            await sharp(file)
+              .resize(1920, null, { 
+                withoutEnlargement: true,
+                fit: 'inside'
+              })
+              .webp({ quality: 80 })
+              .toFile(path.join(outputDir, path.basename(outputWebP)));
+            
+            await sharp(file)
+              .resize(1920, null, {
+                withoutEnlargement: true,
+                fit: 'inside'
+              })
+              .avif({ 
+                quality: 80,
+                effort: 4, // Lower effort for faster encoding
+                chromaSubsampling: '4:2:0' // Better compression
+              })
+              .toFile(path.join(outputDir, path.basename(outputAvif)));
+            
+            // Optimize original format
+            if (file.match(/\.(jpg|jpeg)$/i)) {
+              const tempFile = path.join(outputDir, `${path.basename(file)}.tmp`);
+              const outputFile = path.join(outputDir, path.basename(file));
+              await sharp(file)
+                .resize(1920, null, {
+                  withoutEnlargement: true,
+                  fit: 'inside'
+                })
+                .jpeg({ 
+                  quality: 80, 
+                  progressive: true,
+                  optimizeCoding: true
+                })
+                .toFile(tempFile);
+              fs.renameSync(tempFile, outputFile);
+            } else if (file.match(/\.png$/i)) {
+              const tempFile = path.join(outputDir, `${path.basename(file)}.tmp`);
+              const outputFile = path.join(outputDir, path.basename(file));
+              await sharp(file)
+                .resize(1920, null, {
+                  withoutEnlargement: true,
+                  fit: 'inside'
+                })
+                .png({ 
+                  quality: 80,
+                  progressive: true,
+                  compressionLevel: 9,
+                  adaptiveFiltering: true
+                })
+                .toFile(tempFile);
+              fs.renameSync(tempFile, outputFile);
+            }
+          } catch (err) {
+            console.error(`Error processing image ${file}:`, err);
+            // Continue with next file if one fails
+            continue;
+          }
+        } else {
+          // Copy non-image files
+          const destPath = path.join('public', path.relative('static', file));
+          const destDir = path.dirname(destPath);
+          if (!fs.existsSync(destDir)) {
+            fs.mkdirSync(destDir, { recursive: true });
+          }
+          fs.copyFileSync(file, destPath);
         }
       }
       resolve();
     } catch (err) {
+      console.error('Error processing images:', err);
       reject(err);
     }
   });
@@ -149,41 +206,62 @@ gulp.task('dev:css', () => {
 });
 
 gulp.task('prod:css', () => {
-  const plugins = gulp.src([
-    'static/plugins/animate/animate.css',
-    'static/plugins/slick/slick.css',
-    'static/plugins/themify-icons/themify-icons.css',
-    'static/plugins/venobox/venobox.css'
-  ])
-  .pipe(postcss([
-    autoprefixer(),
-    purgecss(purgeCSSConfig)
-  ]))
-  .pipe(cleanCSS(cssOptions))
-  .pipe(rename(function(path) {
-    if (!path.basename.endsWith('.min')) {
-      path.basename += '.min';
-    }
-  }))
-  .pipe(gulp.dest('static/plugins'));
-
-  // Handle Bootstrap separately for critical CSS
-  const bootstrap = gulp.src('static/plugins/bootstrap/bootstrap.min.css')
-    .pipe(postcss([
-      autoprefixer(),
-      purgecss({
-        ...purgeCSSConfig,
-        safelist: {
-          ...purgeCSSConfig.safelist,
-          deep: [/^container/, /^row/, /^col/, ...purgeCSSConfig.safelist.deep]
+  return new Promise((resolve, reject) => {
+    // Process plugins CSS
+    const processPlugins = () => {
+      return gulp.src([
+        'static/plugins/animate/animate.css',
+        'static/plugins/slick/slick.css',
+        'static/plugins/themify-icons/themify-icons.css',
+        'static/plugins/venobox/venobox.css'
+      ])
+      .pipe(postcss([
+        autoprefixer(),
+        purgecss(purgeCSSConfig)
+      ]))
+      .pipe(cleanCSS(cssOptions))
+      .pipe(rename(function(path) {
+        if (!path.basename.endsWith('.min')) {
+          path.basename += '.min';
         }
-      })
-    ]))
-    .pipe(cleanCSS(cssOptions))
-    .pipe(rename({ suffix: '.critical' }))
-    .pipe(gulp.dest('static/plugins/bootstrap'));
+      }))
+      .pipe(gulp.dest('static/plugins'));
+    };
 
-  return gulp.parallel(plugins, bootstrap)();
+    // Process Bootstrap CSS
+    const processBootstrap = () => {
+      return gulp.src('static/plugins/bootstrap/bootstrap.min.css')
+        .pipe(postcss([
+          autoprefixer(),
+          purgecss({
+            ...purgeCSSConfig,
+            safelist: {
+              ...purgeCSSConfig.safelist,
+              deep: [/^container/, /^row/, /^col/, ...purgeCSSConfig.safelist.deep]
+            }
+          })
+        ]))
+        .pipe(cleanCSS(cssOptions))
+        .pipe(rename({ suffix: '.critical' }))
+        .pipe(gulp.dest('static/plugins/bootstrap'));
+    };
+
+    // Run tasks in parallel
+    Promise.all([
+      new Promise((res, rej) => {
+        processPlugins()
+          .on('end', res)
+          .on('error', rej);
+      }),
+      new Promise((res, rej) => {
+        processBootstrap()
+          .on('end', res)
+          .on('error', rej);
+      })
+    ])
+    .then(() => resolve())
+    .catch(err => reject(err));
+  });
 });
 
 // Font task

@@ -1,4 +1,4 @@
-{{ $image := .image }}
+{{ $image := .Src | default .image }}
 {{ $alt := .alt }}
 {{ $class := .class }}
 {{ $width := .width | default "1920" }}
@@ -8,7 +8,10 @@
   {{ $imageExt := path.Ext $image }}
   {{ $imageName := strings.TrimSuffix $imageExt $imageBase }}
   {{ $imageDir := path.Dir $image }}
+  {{ $staticPath := printf "static/%s" $image }}
+  {{ $imageExists := fileExists $staticPath }}
   
+  {{ if $imageExists }}
   <!-- AVIF -->
   <source
     type="image/avif"
@@ -29,4 +32,14 @@
     loading="lazy"
     width="{{ $width }}"
   >
+  {{ else }}
+  <!-- Placeholder for missing image -->
+  <img
+    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='{{ $width }}' height='300' viewBox='0 0 {{ $width }} 300'%3E%3Crect width='100%25' height='100%25' fill='%23eee'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%23999'%3EImage not found%3C/text%3E%3C/svg%3E"
+    alt="{{ $alt }} (not found)"
+    {{ with $class }}class="{{ . }}"{{ end }}
+    width="{{ $width }}"
+    height="300"
+  >
+  {{ end }}
 </picture>
