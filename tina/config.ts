@@ -6,6 +6,8 @@ const branch =
   process.env.HEAD ||
   "master";
 
+const isLocal = process.env.NODE_ENV === "development";
+
 export default defineConfig({
   branch,
 
@@ -13,15 +15,22 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
 
-  build: {
+    build: {
     outputFolder: "admin",
     publicFolder: "static",
-    basePath: "",
+    host: process.env.NETLIFY ? "https://rafaliserhajaya.com" : "http://localhost:1313",
+    basePath: "admin",
   },
   media: {
     tina: {
+      mediaRoot: "static/images",
       publicFolder: "static",
-      mediaRoot: "images"
+    },
+  },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_TOKEN,
+      stopwordLanguages: ['ind']
     },
   },
   //See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/

@@ -4,7 +4,5 @@
 # Except these files
 !.gitignore
 !index.html
-
-# And all files in assets directory
 !assets/
 !assets/**/*

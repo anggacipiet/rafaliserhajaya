@@ -12,8 +12,8 @@
   force = true
 
 [[redirects]]
-  from = "/admin/*"
-  to = "/admin/:splat"
+  from = "/admin/assets/*"
+  to = "/admin/assets/:splat"
   status = 200
 
 [[headers]]
@@ -33,16 +33,11 @@
     """
 
 [[headers]]
-  for = "/admin/assets/*.js"
+  for = "/admin/assets/*"
   [headers.values]
     Content-Type = "application/javascript"
     Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/admin/assets/*.css"
-  [headers.values]
-    Content-Type = "text/css"
-    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/*.js"
