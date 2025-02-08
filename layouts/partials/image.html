@@ -4,19 +4,25 @@
 {{ $width := .width }}
 {{ $height := .height }}
 
-{{ $dimensions := dict 
-  "product" (dict "width" 400 "height" 300)
-  "blog" (dict "width" 800 "height" 600)
-  "events" (dict "width" 600 "height" 400)
-  "about" (dict "width" 800 "height" 600)
-  "logo" (dict "width" 200 "height" 80)
-}}
+{{ $dimensions := dict }}
+{{ $_ := dict "width" 400 "height" 300 | set $dimensions "product" }}
+{{ $_ := dict "width" 800 "height" 600 | set $dimensions "blog" }}
+{{ $_ := dict "width" 600 "height" 400 | set $dimensions "events" }}
+{{ $_ := dict "width" 800 "height" 600 | set $dimensions "about" }}
+{{ $_ := dict "width" 200 "height" 80 | set $dimensions "logo" }}
 
-{{ $imageType := cond (findRE "product/" $image) "product" 
-                 (cond (findRE "blog/" $image) "blog"
-                 (cond (findRE "events/" $image) "events" 
-                 (cond (findRE "about/" $image) "about"
-                 (cond (findRE "rafalis" $image) "logo" "")))) }}
+{{ $imageType := "" }}
+{{ if findRE "product/" $image }}
+  {{ $imageType = "product" }}
+{{ else if findRE "blog/" $image }}
+  {{ $imageType = "blog" }}
+{{ else if findRE "events/" $image }}
+  {{ $imageType = "events" }}
+{{ else if findRE "about/" $image }}
+  {{ $imageType = "about" }}
+{{ else if findRE "rafalis" $image }}
+  {{ $imageType = "logo" }}
+{{ end }}
 
 {{ if not $width }}
   {{ with $imageType }}
