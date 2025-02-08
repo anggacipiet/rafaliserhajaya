@@ -6,7 +6,6 @@ const branch =
   process.env.HEAD ||
   "master";
 
-const isLocal = process.env.NODE_ENV === "development";
 
 export default defineConfig({
   branch,
