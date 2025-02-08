@@ -64,4 +64,13 @@
                 loading="lazy"
             >
         {{ end }}
+    {{ else }}
+        <div style="color: red;">
+            File not found: {{ $image }}
+        </div>
+    {{ end }}
+{{ else }}
+    <div style="color: red;">
+        No image source provided
+    </div>
 {{ end }}
