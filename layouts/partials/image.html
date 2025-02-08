@@ -8,14 +8,7 @@
         {{ $original := resources.Get $image }}
         {{ with $original }}
             {{ $processedImage := . }}
-            {{ $dimensions := dict 
-                "product" (dict "width" 800 "height" 600)
-                "blog" (dict "width" 800 "height" 600)
-                "events" (dict "width" 600 "height" 400)
-                "about" (dict "width" 800 "height" 600)
-                "banner" (dict "width" 1200 "height" 400)
-                "logo" (dict "width" 200 "height" 80)
-            }}
+            {{ $dimensions := dict "product" (dict "width" 800 "height" 600) "blog" (dict "width" 800 "height" 600) "events" (dict "width" 600 "height" 400) "about" (dict "width" 800 "height" 600) "banner" (dict "width" 1200 "height" 400) "logo" (dict "width" 200 "height" 80) }}
             
             {{ $imageType := "" }}
             {{ if findRE "product/" $image }}
@@ -71,13 +64,4 @@
                 loading="lazy"
             >
         {{ end }}
-    {{ else }}
-        <div style="color: red;">
-            File not found: {{ $image }}
-        </div>
-    {{ end }}
-{{ else }}
-    <div style="color: red;">
-        No image source provided
-    </div>
 {{ end }}
