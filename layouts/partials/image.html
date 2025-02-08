@@ -1,1 +1,67 @@
-<img src="{{ .Src | relURL }}" alt="{{ .Alt }}" class="img-fluid">
+{{ $image := .Src | default .image }}
+{{ $alt := .Alt | default .alt | default "" }}
+{{ $class := .Class | default .class | default "img-fluid" }}
+{{ $style := .Style | default .style }}
+
+{{ $dimensions := dict "product" (dict "width" 800 "height" 600 "quality" 80) "blog" (dict "width" 800 "height" 600 "quality" 80) "events" (dict "width" 600 "height" 400 "quality" 80) "about" (dict "width" 800 "height" 600 "quality" 80) "banner" (dict "width" 1200 "height" 400 "quality" 75) "logo" (dict "width" 200 "height" 80 "quality" 90) }}
+
+{{ if $image }}
+    {{ if fileExists (printf "static/%s" $image) }}
+        {{ $original := resources.Get $image }}
+        {{ with $original }}
+            {{ $processedImage := . }}
+            
+            {{ $imageExt := path.Ext $image }}
+            {{ $imageType := "" }}
+            
+            {{/* Tentukan tipe gambar berdasarkan path */}}
+            {{ if findRE "product/" $image }}
+                {{ $processedImage = $original.Resize "800x600 q-80" }}
+                {{ $imageType = "product" }}
+            {{ else if findRE "blog/" $image }}
+                {{ $processedImage = $original.Resize "800x600 q-80" }}
+                {{ $imageType = "blog" }}
+            {{ else if findRE "events/" $image }}
+                {{ $processedImage = $original.Resize "600x400 q-80" }}
+                {{ $imageType = "events" }}
+            {{ else if findRE "about/" $image }}
+                {{ $processedImage = $original.Resize "800x600 q-80" }}
+                {{ $imageType = "about" }}
+            {{ else if findRE "banner/" $image }}
+                {{ $processedImage = $original.Resize "1200x400 q-75" }}
+                {{ $imageType = "banner" }}
+            {{ end }}
+
+            <picture>
+                {{/* Generate WebP version */}}
+                {{ $webp := $processedImage.Resize (printf "%dx%d webp q-85" $processedImage.Width $processedImage.Height) }}
+                <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+                <img 
+                    src="{{ $processedImage.RelPermalink }}"
+                    alt="{{ $alt }}"
+                    width="{{ $processedImage.Width }}"
+                    height="{{ $processedImage.Height }}"
+                    class="{{ $class }}"
+                    {{ with $style }}style="{{ . }}"{{ end }}
+                    loading="lazy"
+                >
+            </picture>
+        {{ else }}
+            <img 
+                src="{{ $image | relURL }}"
+                alt="{{ $alt }}"
+                class="{{ $class }}"
+                {{ with $style }}style="{{ . }}"{{ end }}
+                loading="lazy"
+            >
+        {{ end }}
+    {{ else }}
+        <div style="color: red;">
+            File not found: {{ $image }}
+        </div>
+    {{ end }}
+{{ else }}
+    <div style="color: red;">
+        No image source provided
+    </div>
+{{ end }}
