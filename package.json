@@ -24,14 +24,12 @@
   ],
   "main": "index.js",
   "scripts": {
-    "start": "gulp prod:images && npm run dev",
-    "dev:images": "gulp dev",
-    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"hugo server\"",
-    "build": "TINA_PUBLIC_IS_LOCAL=false gulp images && tinacms build --skip-cloud-checks --no-client-build-cache && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
-    "optimize-images": "gulp images",
-    "dev:assets": "gulp dev",
-    "prod:assets": "gulp prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tinacms dev -c \"hugo server\"",
+    "build": "tinacms build && hugo --gc --minify",
+    "export": "hugo --gc --minify",
+    "start": "hugo server",
+    "clean": "rimraf public resources",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\""
   },
   "repository": {
     "type": "git",

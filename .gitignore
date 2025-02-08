@@ -6,6 +6,8 @@ public/
 resources/
 static/admin/
 .env
+.env.development
+.env.local
 
 # Cache
 .hugo_build.lock

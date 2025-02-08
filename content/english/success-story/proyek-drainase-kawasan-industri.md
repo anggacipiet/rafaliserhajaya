@@ -20,11 +20,11 @@ project_details:
   - label: Waktu Pengerjaan
     value: Januari - Juni 2023
 gallery:
-  - image: /images/events/event-1.jpg
+  - image: /images/product/box-culvert.jpg
     caption: Proses pemasangan U-Ditch
-  - image: /images/events/event-2.jpg
+  - image: /images/product/box-culvert.jpg
     caption: Hasil pemasangan Box Culvert
-  - image: /images/events/event-3.jpg
+  - image: /images/product/box-culvert.jpg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 

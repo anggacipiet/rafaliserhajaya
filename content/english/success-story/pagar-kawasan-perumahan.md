@@ -19,11 +19,11 @@ project_details:
   - label: "Waktu Pengerjaan"
     value: "November 2023 - Januari 2024"
 gallery:
-  - image: "images/success-story/pagar-2.jpg"
+  - image: "images/product/box-culvert.jpg"
     caption: "Proses pemasangan Fence Panel"
-  - image: "images/success-story/pagar-3.jpg"
+  - image: "images/product/box-culvert.jpg"
     caption: "Detail sambungan panel dan kolom"
-  - image: "images/success-story/pagar-4.jpg"
+  - image: "images/product/box-culvert.jpg"
     caption: "Hasil akhir pagar perumahan"
 ---
 
