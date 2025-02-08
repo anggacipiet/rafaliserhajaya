@@ -36,12 +36,12 @@
 [[headers]]
   for = "/*.css"
   [headers.values]
-  Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-  Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/fonts/*"
@@ -51,7 +51,7 @@
 [[headers]]
   for = "/*.woff2"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"  
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*"
@@ -61,5 +61,16 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options = "nosniff"
     Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: www.google-analytics.com;"
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+      img-src 'self' data: www.google-analytics.com;
+      font-src 'self' fonts.gstatic.com;
+      connect-src 'self' www.google-analytics.com;
+      frame-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      """
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
