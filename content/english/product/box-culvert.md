@@ -1,20 +1,20 @@
 ---
+type: product
 title: Box Culvert
 date: 2019-07-06T09:27:17.000Z
 draft: false
-bg_image: images/product/box.png
+bg_image: /images/product/box-culvert.jpg
 description: >-
   Merupakan product beton precast berbentuk persegi atau kotak dengan beragam
   ukuran. Berfungsi sebagai media saluran drainase dengan sistem tanam.
-image: images/product/box.png
-category: 'Box Culvert'
+image: /images/product/box-culvert.jpg
+category: Box Culvert
 whatsapp: 0812 9421 2524
 email: rhprecast@rafaliserhajaya.com
 address: >-
   PURI HESTI INSANI RT.17 RW. 15 No.3 Desa Mampir Kec. Cileungsi Kab Bogor, Jawa
   Barat - Indonesia
 apply_url: 'https://wa.me/6281294212524'
-type: product
 ---
 
 ### Tentang Produk
@@ -29,17 +29,16 @@ Merupakan product beton precast berbentuk persegi atau kotak dengan beragam ukur
 * Tersedia berbagai ukuran sesuai kebutuhan
 * Dapat disesuaikan dengan spesifikasi proyek
 
-
 ### Spesifikasi Teknis
 
-| Parameter | Keterangan |
-|-----------|------------|
-| Mutu Beton | K-350 |
-| Kuat Tekan Beton | Min. 350 Kg/Cm² |
-| Tegangan Tarik | +5000 Kg/Cm² |
-| Panjang Efektif | 600 mm |
-| Jenis Tulangan | HDDW (Hard Drawn Deformed Wire) |
-| Tegangan Leleh | > 4500 Kg/Cm² |
+| Parameter        | Keterangan                      |
+| ---------------- | ------------------------------- |
+| Mutu Beton       | K-350                           |
+| Kuat Tekan Beton | Min. 350 Kg/Cm²                 |
+| Tegangan Tarik   | +5000 Kg/Cm²                    |
+| Panjang Efektif  | 600 mm                          |
+| Jenis Tulangan   | HDDW (Hard Drawn Deformed Wire) |
+| Tegangan Leleh   | > 4500 Kg/Cm²                   |
 
 ### Dimensi Produk
 
@@ -63,7 +62,6 @@ Merupakan product beton precast berbentuk persegi atau kotak dengan beragam ukur
 * Tb = Tebal bawah
 * L = Panjang
 
-
 ### Daftar Harga Box Culvert
 
 | TIPE / Size  | Dimensi (cm)               | Harga (Rp)\* |
@@ -75,7 +73,6 @@ Merupakan product beton precast berbentuk persegi atau kotak dengan beragam ukur
 | BC80         | 80 x 80 x 100              | 1.850.000    |
 | BC100 Type 1 | 100 x 100 x 100 (t=12.5cm) | 2.450.000    |
 | BC100 Type 2 | 100 x 100 x 100 (t=15cm)   | 2.750.000    |
-
 
 ### Ketentuan Harga
 
@@ -89,7 +86,6 @@ Merupakan product beton precast berbentuk persegi atau kotak dengan beragam ukur
 * Harga sewaktu waktu dapat berubah
 * Harga diatas hanya sebagai acuan, untuk informasi lebih lanjut silakan hubungi kami
 * Pengiriman di luar Jabodetabek akan dikenakan biaya tambahan
-
 
 ### Informasi Pemesanan
 
@@ -105,9 +101,9 @@ PURI HESTI INSANI
 RT.17 RW. 15 No.3 Desa Mampir Kec. Cileungsi
 Kab Bogor, Jawa Barat - Indonesia
 
-
 ### Alamat Pabrik:
+
 PT. RAFALIS ERHA JAYA
 Kp. Binong
 RT.03 RW. 05 No.3 Desa Situsari Kec. Cileungsi
-Kab Bogor, Jawa Barat - Indonesia 
+Kab Bogor, Jawa Barat - Indonesia

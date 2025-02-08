@@ -3,11 +3,11 @@ type: product
 title: Cover U-Ditch
 date: 2024-03-14T09:27:17.000Z
 draft: false
-bg_image: /images/banner/banner-1.png
+bg_image: /images/product/cover-uditch.jpg
 description: >-
   Merupakan product beton precast untuk penutup saluran U-Ditch. Tersedia dalam
   tipe Heavy Duty dan Light Duty untuk berbagai kebutuhan beban.
-image: /images/product/coverudit.png
+image: /images/product/cover-uditch.jpg
 category: Cover U-Ditch
 whatsapp: 0812 9421 2524
 email: rhprecast@rafaliserhajaya.com

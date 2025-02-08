@@ -20,13 +20,13 @@ export default defineConfig({
     publicFolder: "static",
     basePath: "admin",
   },
-  // media: {
-  //   tina: {
-  //     mediaRoot: "static/images",
-  //     publicFolder: "static",
-  //   },
-  // },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
+  media: {
+    tina: {
+      mediaRoot: "",
+      publicFolder: "static",
+    },
+  },
+  //See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
       {
