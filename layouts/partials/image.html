@@ -4,37 +4,29 @@
 {{ $width := .width }}
 {{ $height := .height }}
 
-{{ $dimensions := dict }}
-{{ $_ := dict "width" 400 "height" 300 | set $dimensions "product" }}
-{{ $_ := dict "width" 800 "height" 600 | set $dimensions "blog" }}
-{{ $_ := dict "width" 600 "height" 400 | set $dimensions "events" }}
-{{ $_ := dict "width" 800 "height" 600 | set $dimensions "about" }}
-{{ $_ := dict "width" 200 "height" 80 | set $dimensions "logo" }}
+{{ $defaultWidth := 800 }}
+{{ $defaultHeight := 600 }}
 
 {{ $imageType := "" }}
 {{ if findRE "product/" $image }}
-  {{ $imageType = "product" }}
+  {{ $defaultWidth = 400 }}
+  {{ $defaultHeight = 300 }}
 {{ else if findRE "blog/" $image }}
-  {{ $imageType = "blog" }}
+  {{ $defaultWidth = 800 }}
+  {{ $defaultHeight = 600 }}
 {{ else if findRE "events/" $image }}
-  {{ $imageType = "events" }}
+  {{ $defaultWidth = 600 }}
+  {{ $defaultHeight = 400 }}
 {{ else if findRE "about/" $image }}
-  {{ $imageType = "about" }}
+  {{ $defaultWidth = 800 }}
+  {{ $defaultHeight = 600 }}
 {{ else if findRE "rafalis" $image }}
-  {{ $imageType = "logo" }}
+  {{ $defaultWidth = 200 }}
+  {{ $defaultHeight = 80 }}
 {{ end }}
 
-{{ if not $width }}
-  {{ with $imageType }}
-    {{ with index $dimensions . }}
-      {{ $width = .width }}
-      {{ $height = .height }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ $width = $width | default "800" }}
-{{ $height = $height | default (div (mul $width 3) 4) }}
+{{ $width = $width | default $defaultWidth }}
+{{ $height = $height | default $defaultHeight }}
 
 <picture>
   {{ $imageBase := path.Base $image }}
