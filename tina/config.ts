@@ -11,9 +11,9 @@ export default defineConfig({
   branch,
 
   // Gunakan clientId langsung tanpa environment variable
-  clientId: "20883a00-ef1c-4234-83d9-dc9addde95c0",
+  clientId: process.env.TINA_CLIENT_ID || "20883a00-ef1c-4234-83d9-dc9addde95c0",
   // Gunakan token langsung tanpa environment variable 
-  token: "e7c6b98ea4b57d1beba9e53fad23ba2f46fa4dac",
+  token: process.env.TINA_TOKEN || "e7c6b98ea4b57d1beba9e53fad23ba2f46fa4dac",
 
   build: {
     outputFolder: "admin",
@@ -22,8 +22,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
       publicFolder: "static",
+      mediaRoot: "images"
     },
   },
   //See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/

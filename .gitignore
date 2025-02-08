@@ -1,1 +1,12 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build output
+public/
+resources/
+static/admin/
+.env
+
+# Cache
+.hugo_build.lock
+.DS_Store

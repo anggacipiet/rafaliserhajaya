@@ -26,8 +26,8 @@
   "scripts": {
     "start": "gulp prod:images && npm run dev",
     "dev:images": "gulp dev",
-    "dev": "tinacms dev -c \"hugo server\"",
-    "build": "tinacms build --skip-cloud-checks && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
+    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"hugo server\"",
+    "build": "TINA_PUBLIC_IS_LOCAL=false gulp images && tinacms build && hugo --gc --minify --templateMetrics --forceSyncStatic -e production",
     "optimize-images": "gulp images",
     "dev:assets": "gulp dev",
     "prod:assets": "gulp prod",

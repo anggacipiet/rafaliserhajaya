@@ -35,4 +35,8 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /*.xml
-  Cache-Control: public, max-age=0, must-revalidate 
+  Cache-Control: public, max-age=0, must-revalidate
+
+/admin/*
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Frame-Options: SAMEORIGIN 

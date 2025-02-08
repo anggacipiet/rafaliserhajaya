@@ -1,1 +1,7 @@
-<img src="{{ .Src | relURL }}" alt="{{ .Alt }}" class="img-fluid">
+{{ $src := .Src }}
+{{ $webpSrc := replace $src (index (findRE "\\.(jpg|jpeg|png)$" $src) 0) ".webp" }}
+
+<picture>
+  <source srcset="{{ $webpSrc | relURL }}" type="image/webp">
+  <img src="{{ $src | relURL }}" alt="{{ .Alt }}" {{ with .Class }}class="{{ . }}"{{ end }} {{ with .Style }}style="{{ . }}"{{ end }} loading="lazy">
+</picture>
