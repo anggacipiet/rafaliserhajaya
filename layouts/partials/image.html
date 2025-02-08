@@ -3,46 +3,60 @@
 {{ $class := .Class | default .class | default "img-fluid" }}
 {{ $style := .Style | default .style }}
 
-{{ $dimensions := dict "product" (dict "width" 800 "height" 600 "quality" 80) "blog" (dict "width" 800 "height" 600 "quality" 80) "events" (dict "width" 600 "height" 400 "quality" 80) "about" (dict "width" 800 "height" 600 "quality" 80) "banner" (dict "width" 1200 "height" 400 "quality" 75) "logo" (dict "width" 200 "height" 80 "quality" 90) }}
-
 {{ if $image }}
     {{ if fileExists (printf "static/%s" $image) }}
         {{ $original := resources.Get $image }}
         {{ with $original }}
             {{ $processedImage := . }}
+            {{ $dimensions := dict 
+                "product" (dict "width" 800 "height" 600)
+                "blog" (dict "width" 800 "height" 600)
+                "events" (dict "width" 600 "height" 400)
+                "about" (dict "width" 800 "height" 600)
+                "banner" (dict "width" 1200 "height" 400)
+                "logo" (dict "width" 200 "height" 80)
+            }}
             
-            {{ $imageExt := path.Ext $image }}
             {{ $imageType := "" }}
-            
-            {{/* Tentukan tipe gambar berdasarkan path */}}
             {{ if findRE "product/" $image }}
-                {{ $processedImage = $original.Resize "800x600 q-80" }}
                 {{ $imageType = "product" }}
             {{ else if findRE "blog/" $image }}
-                {{ $processedImage = $original.Resize "800x600 q-80" }}
                 {{ $imageType = "blog" }}
             {{ else if findRE "events/" $image }}
-                {{ $processedImage = $original.Resize "600x400 q-80" }}
                 {{ $imageType = "events" }}
             {{ else if findRE "about/" $image }}
-                {{ $processedImage = $original.Resize "800x600 q-80" }}
                 {{ $imageType = "about" }}
             {{ else if findRE "banner/" $image }}
-                {{ $processedImage = $original.Resize "1200x400 q-75" }}
                 {{ $imageType = "banner" }}
+            {{ else if findRE "rafalis" $image }}
+                {{ $imageType = "logo" }}
+            {{ end }}
+
+            {{ $width := 800 }}
+            {{ $height := 600 }}
+            {{ if $imageType }}
+                {{ with index $dimensions $imageType }}
+                    {{ $width = .width }}
+                    {{ $height = .height }}
+                    {{ $processedImage = $original.Resize (printf "%dx%d" .width .height) }}
+                {{ end }}
             {{ end }}
 
             <picture>
-                {{/* Generate WebP version */}}
-                {{ $webp := $processedImage.Resize (printf "%dx%d webp q-85" $processedImage.Width $processedImage.Height) }}
-                <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+                {{ $webp := $processedImage.Resize (printf "%dx%d webp q-85" $width $height) }}
+                <source 
+                    srcset="{{ $webp.RelPermalink }}" 
+                    type="image/webp"
+                    width="{{ $width }}"
+                    height="{{ $height }}"
+                >
                 <img 
                     src="{{ $processedImage.RelPermalink }}"
                     alt="{{ $alt }}"
-                    width="{{ $processedImage.Width }}"
-                    height="{{ $processedImage.Height }}"
+                    width="{{ $width }}"
+                    height="{{ $height }}"
                     class="{{ $class }}"
-                    {{ with $style }}style="{{ . }}"{{ end }}
+                    {{ with $style }}style="{{ . }}; object-fit: cover;"{{ else }}style="object-fit: cover;"{{ end }}
                     loading="lazy"
                 >
             </picture>
@@ -50,8 +64,10 @@
             <img 
                 src="{{ $image | relURL }}"
                 alt="{{ $alt }}"
+                width="800"
+                height="600"
                 class="{{ $class }}"
-                {{ with $style }}style="{{ . }}"{{ end }}
+                {{ with $style }}style="{{ . }}; object-fit: cover;"{{ else }}style="object-fit: cover;"{{ end }}
                 loading="lazy"
             >
         {{ end }}
