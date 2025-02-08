@@ -45,6 +45,28 @@
     onload="this.onload=null;this.rel='stylesheet'"
   >
 
+  {{ "<!-- Preload Critical Fonts -->" | safeHTML }}
+  <style>
+    @font-face {
+      font-family: 'themify';
+      src: url('{{ "plugins/themify-icons/fonts/themify.eot" | absURL }}');
+      src: url('{{ "plugins/themify-icons/fonts/themify.eot?#iefix" | absURL }}') format('embedded-opentype'),
+           url('{{ "plugins/themify-icons/fonts/themify.woff" | absURL }}') format('woff'),
+           url('{{ "plugins/themify-icons/fonts/themify.ttf" | absURL }}') format('truetype'),
+           url('{{ "plugins/themify-icons/fonts/themify.svg?#themify" | absURL }}') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Futura-Bold';
+      src:url('{{ "fonts/Futura-Bold.woff" | absURL }}') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
   {{ "<!-- Main Stylesheet -->" | safeHTML }}
   {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint "sha512" }}
   <link rel="preload" href="{{ $styles.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="{{ $styles.Data.Integrity }}" media="screen">
