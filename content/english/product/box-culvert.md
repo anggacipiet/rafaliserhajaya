@@ -1,7 +1,7 @@
 ---
 type: product
 title: Box Culvert
-date: 2019-07-06T09:27:17.000Z
+date: '2019-07-06T09:27:17.000Z'
 draft: false
 bg_image: /images/product/box-culvert.jpg
 description: >-
@@ -16,6 +16,7 @@ address: >-
   Barat - Indonesia
 apply_url: 'https://wa.me/6281294212524'
 ---
+
 
 ### Tentang Produk
 
