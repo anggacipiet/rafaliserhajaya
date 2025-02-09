@@ -32,7 +32,7 @@
       frame-src 'self' https://identity.tinajs.io https://app.tina.io;
       form-action 'self' https://identity.tinajs.io https://app.tina.io;
       worker-src 'self' blob:;
-      font-src 'self' data: fonts.gstatic.com https://*.tinajs.io https://app.tina.io;
+      font-src 'self' data: fonts.gstatic.com https://*.tinajs.io https://app.tina.io https://fonts.gstatic.com;
     """
 
 [[headers]]
@@ -94,8 +94,8 @@
       script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com;
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
       img-src 'self' data: www.google-analytics.com;
-      font-src 'self' fonts.gstatic.com;
-      connect-src 'self' www.google-analytics.com;
+      font-src 'self' data: fonts.gstatic.com;
+      connect-src 'self' https://*.tinajs.io https://identity.tinajs.io www.google-analytics.com;
       frame-src 'self';
       object-src 'none';
       base-uri 'self';
