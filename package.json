@@ -24,7 +24,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "dev": "tinacms dev -c \"hugo server\"",
+    "dev": "cross-env NODE_ENV=development TINA_CLI_PORT=4001 tinacms dev -c \"hugo server --port 1313\"",
     "build": "tinacms build && hugo --gc --minify",
     "export": "hugo --gc --minify",
     "start": "hugo server",
@@ -68,6 +68,7 @@
     "gulp-terser": "^2.1.0",
     "sass": "^1.84.0",
     "sharp": "^0.33.5",
-    "through2": "^4.0.2"
+    "through2": "^4.0.2",
+    "cross-env": "^7.0.3"
   }
 }

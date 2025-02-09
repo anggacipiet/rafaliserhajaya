@@ -8,7 +8,6 @@ const branch =
   "master";
 
 const isLocal = process.env.NODE_ENV === "development";
-const baseUrl = isLocal ? "http://localhost:1313" : "https://rafaliserhajaya.com";
 
 export default defineConfig({
   branch,
@@ -21,13 +20,14 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "static",
-    host: baseUrl,
+    host: isLocal ? "127.0.0.1" : "rafaliserhajaya.com",
     basePath: "admin",
   },
+  
   media: {
     tina: {
-      mediaRoot: "static/images",
       publicFolder: "static",
+      mediaRoot: "images",
     },
   },
   search: {

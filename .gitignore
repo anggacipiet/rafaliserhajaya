@@ -5,6 +5,8 @@ node_modules/
 public/
 resources/
 static/admin/
+
+# Tina
 tina/__generated__/
 
 # Environment
