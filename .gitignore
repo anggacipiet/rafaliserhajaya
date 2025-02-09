@@ -5,9 +5,14 @@ node_modules/
 public/
 resources/
 static/admin/
+tina/__generated__/
+
+# Environment
 .env
 .env.development
+.env.local
 
 # Cache
 .hugo_build.lock
 .DS_Store
+node_modules
