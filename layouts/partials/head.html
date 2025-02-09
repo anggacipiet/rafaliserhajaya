@@ -87,9 +87,56 @@
 
   <!-- Google Fonts -->
   <link 
-    href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=fallback" 
     rel="stylesheet" 
     media="print" 
     onload="this.media='all'"
   >
+  <link 
+    rel="preload"
+    as="font"
+    href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2"
+    crossorigin
+  >
+
+  <!-- Critical CSS -->
+  <style>
+    /* Font loading optimization */
+    .navigation {
+      opacity: 0;
+    }
+    .fonts-loaded .navigation {
+      opacity: 1;
+      transition: opacity 0.1s;
+    }
+
+    /* Font fallbacks */
+    @font-face {
+      font-family: 'Poppins';
+      size-adjust: 100%;
+      ascent-override: 90%;
+      src: local('Arial');
+      font-display: swap;
+    }
+
+    h1.text-white {
+      font-family: 'Futura-Bold', sans-serif;
+      font-display: swap;
+      visibility: visible;
+    }
+  </style>
+
+  <!-- Font loading detection -->
+  <script>
+    if ("fonts" in document) {
+      Promise.all([
+        document.fonts.load("1em Poppins"),
+        document.fonts.load("700 1em Poppins"),
+      ]).then(() => {
+        document.documentElement.classList.add("fonts-loaded");
+      });
+    } else {
+      document.documentElement.classList.add("fonts-loaded");
+    }
+  </script>
 </head>
