@@ -1,15 +1,17 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ .Title }}</title>
-
-  {{ "<!-- Resource Hints -->" | safeHTML }}
+  <!-- Preconnect to critical origins -->
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <title>{{ .Title }}</title>
+
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
@@ -84,13 +86,13 @@
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
 
   <!-- CSS -->
-  {{ $bootstrap := resources.Get "plugins/bootstrap/bootstrap.min.css" | minify }}
+  {{ $bootstrap := resources.Get "plugins/bootstrap/bootstrap.min.css" }}
   <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}" media="print" onload="this.media='all'">
 
-  {{ $slick := resources.Get "plugins/slick/slick.css" | minify }}
+  {{ $slick := resources.Get "plugins/slick/slick.css" }}
   <link rel="stylesheet" href="{{ $slick.RelPermalink }}" media="print" onload="this.media='all'">
 
-  {{ $animate := resources.Get "plugins/animate/animate.css" | minify }}
+  {{ $animate := resources.Get "plugins/animate/animate.css" }}
   <link rel="stylesheet" href="{{ $animate.RelPermalink }}" media="print" onload="this.media='all'">
 
   <!-- Google Fonts -->
