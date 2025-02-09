@@ -7,6 +7,9 @@ const branch =
   process.env.HEAD ||
   "master";
 
+const isLocal = process.env.NODE_ENV === "development";
+const baseUrl = isLocal ? "http://localhost:1313" : "https://rafaliserhajaya.com";
+
 export default defineConfig({
   branch,
 
@@ -18,12 +21,19 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "static",
+    host: baseUrl,
     basePath: "admin",
   },
   media: {
     tina: {
       mediaRoot: "static/images",
       publicFolder: "static",
+    },
+  },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ['ind']
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
