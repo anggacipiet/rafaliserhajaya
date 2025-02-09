@@ -1,7 +1,7 @@
 ---
 type: product
 title: Cover U-Ditch
-date: 2024-03-14T09:27:17.000Z
+date: '2024-03-14T09:27:17.000Z'
 draft: false
 bg_image: /images/product/cover-uditch.jpg
 description: >-
@@ -16,6 +16,7 @@ address: >-
   Barat - Indonesia
 apply_url: 'https://wa.me/6281294212524'
 ---
+
 
 ### Tentang Produk
 
