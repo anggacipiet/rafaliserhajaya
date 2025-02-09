@@ -21,23 +21,15 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "static",
     host: isLocal ? "127.0.0.1" : "rafaliserhajaya.com",
-    basePath: "",
+    basePath: "admin",
   },
   
   media: {
     tina: {
-      publicFolder: "public",
+      publicFolder: "static",
       mediaRoot: "images",
       static: false,
     },
-    accept: [
-      'image/jpeg',
-      'image/png',
-      'image/webp',
-      'image/gif',
-      'image/svg+xml',
-      'video/mp4',
-    ],
   },
   search: {
     tina: {
