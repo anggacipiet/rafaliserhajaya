@@ -85,16 +85,6 @@
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
 
-  <!-- CSS -->
-  {{ $bootstrap := resources.Get "plugins/bootstrap/bootstrap.min.css" }}
-  <link rel="stylesheet" href="{{ $bootstrap.RelPermalink }}" media="print" onload="this.media='all'">
-
-  {{ $slick := resources.Get "plugins/slick/slick.css" }}
-  <link rel="stylesheet" href="{{ $slick.RelPermalink }}" media="print" onload="this.media='all'">
-
-  {{ $animate := resources.Get "plugins/animate/animate.css" }}
-  <link rel="stylesheet" href="{{ $animate.RelPermalink }}" media="print" onload="this.media='all'">
-
   <!-- Google Fonts -->
   <link 
     href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" 
