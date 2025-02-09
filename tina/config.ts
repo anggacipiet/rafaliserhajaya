@@ -30,6 +30,14 @@ export default defineConfig({
       mediaRoot: "images",
       static: false,
     },
+    accept: [
+      'image/jpeg',
+      'image/png',
+      'image/webp',
+      'image/gif',
+      'image/svg+xml',
+      'video/mp4',
+    ],
   },
   search: {
     tina: {
