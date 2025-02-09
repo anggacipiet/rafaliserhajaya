@@ -1,6 +1,6 @@
 ---
 title: Proyek Drainase Kawasan Industri
-date: 2024-03-14T09:27:17.000Z
+date: '2024-03-14T09:27:17.000Z'
 draft: false
 bg_image: /images/backgrounds/page-title.jpg
 description: Pemasangan U-Ditch dan Box Culvert untuk sistem drainase di kawasan industri
@@ -27,6 +27,7 @@ gallery:
   - image: /images/product/box-culvert.jpg
     caption: Tampak sistem drainase yang sudah selesai
 ---
+
 
 ### Tentang Proyek
 
