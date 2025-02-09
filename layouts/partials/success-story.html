@@ -1,23 +1,7 @@
 {{ $data := index site.Data site.Language.Lang }}
 
 {{ with $data.homepage.success_story }}
-{{ $bgImage := .bg_image }}
-{{ $webpBg := replace $bgImage ".png" ".webp" }}
-<section class="section bg-cover">
-  <picture class="bg-picture">
-    <source 
-      srcset="{{ $webpBg | absURL }}" 
-      type="image/webp"
-    >
-    <img 
-      src="{{ $bgImage | absURL }}" 
-      alt="success story background"
-      class="bg-image"
-      loading="lazy"
-      decoding="async"
-      fetchpriority="low"
-    >
-  </picture>
+<section class="section bg-cover" data-background="{{ .bg_image | absURL }}">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-sm-4 position-relative success-video">
