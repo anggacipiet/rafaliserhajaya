@@ -4,14 +4,19 @@
 
 [build.environment]
   HUGO_VERSION = "0.68.3"
+  NODE_VERSION = "20"
 
+[build.lifecycle]
+  onBuild = """
+    apt-get update && apt-get install -y brotli
+    brotli -q 11 public/**/*.{css,js,woff,woff2}
+  """
 
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
   force = true
-
 
 [[headers]]
   for = "/admin/*"
@@ -131,3 +136,10 @@
       form-action 'self' https://identity.tinajs.io https://app.tina.io;
     """
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+[plugins.inputs]
+  compressionLevel = 11
+  compressionFormats = ["br"]

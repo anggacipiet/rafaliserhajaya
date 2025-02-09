@@ -25,7 +25,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development TINA_CLI_PORT=4001 tinacms dev -c \"hugo server --port 1313\"",
-    "build": "tinacms build && hugo --gc --minify && brotli -q 11 public/**/*.{css,js,woff,woff2}",
+    "build": "tinacms build && hugo --gc --minify",
     "export": "hugo --gc --minify",
     "start": "hugo server",
     "clean": "rimraf public resources",
