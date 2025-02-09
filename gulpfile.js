@@ -10,7 +10,7 @@ function convertToWebp() {
       if (file.isBuffer()) {
         try {
           const webpBuffer = await sharp(file.contents)
-            .webp({ quality: 80 })
+            .webp({ quality: 100 })
             .toBuffer();
           
           file.contents = webpBuffer;
@@ -31,7 +31,7 @@ function convertToWebp() {
 function optimizeImages() {
   return gulp.src('static/images/**/*.{jpg,jpeg,png,gif,svg}')
     .pipe(imagemin([
-      imagemin.mozjpeg({ quality: 80, progressive: true }),
+      imagemin.mozjpeg({ quality: 100, progressive: true }),
       imagemin.optipng({ optimizationLevel: 5 }),
       imagemin.gifsicle({ interlaced: true }),
       imagemin.svgo({
