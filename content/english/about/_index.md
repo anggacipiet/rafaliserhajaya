@@ -1,6 +1,6 @@
 ---
 title: About Us
-date: 2025-02-03T17:00:00.000Z
+date: '2025-02-03T17:00:00.000Z'
 draft: false
 bg_image: /images/about/banner-1.png
 description: >-
@@ -26,6 +26,7 @@ company_values:
     description: ok
   - {}
 ---
+
 
 ## Tentang kami
 
