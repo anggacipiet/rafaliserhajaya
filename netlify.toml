@@ -19,7 +19,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Origin = "https://rafaliserhajaya.com"
     Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
     Access-Control-Allow-Headers = "Content-Type, Authorization"
     Content-Security-Policy = """
@@ -93,7 +93,7 @@
       default-src 'self';
       script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com;
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-      img-src 'self' data: www.google-analytics.com;
+      img-src 'self' data: www.google-analytics.com https://assets.tina.io;
       font-src 'self' data: fonts.gstatic.com;
       connect-src 'self' https://*.tinajs.io https://identity.tinajs.io www.google-analytics.com;
       frame-src 'self';
