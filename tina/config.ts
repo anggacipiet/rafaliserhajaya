@@ -21,7 +21,7 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "static",
     host: isLocal ? "127.0.0.1" : "rafaliserhajaya.com",
-    basePath: "admin",
+    basePath: "",
   },
   
   media: {
