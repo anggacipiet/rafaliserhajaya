@@ -1289,6 +1289,88 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "sertifikasi",
+        label: "Sertifikasi",
+        path: "content/english/sertifikasi",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Draft",
+          },
+          {
+            type: "image",
+            name: "bg_image",
+            label: "Background Image",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Sertifikat Image",
+          },
+          {
+            type: "string",
+            name: "sertifikat_type",
+            label: "Jenis Sertifikat",
+            options: ["SNI", "ISO", "LPJK", "Lainnya"],
+          },
+          {
+            type: "object",
+            name: "sertifikat_details",
+            label: "Detail Sertifikat",
+            fields: [
+              {
+                type: "string",
+                name: "nomor",
+                label: "Nomor Sertifikat",
+              },
+              {
+                type: "datetime",
+                name: "tanggal_terbit",
+                label: "Tanggal Terbit",
+              },
+              {
+                type: "datetime",
+                name: "masa_berlaku",
+                label: "Masa Berlaku",
+              },
+              {
+                type: "string",
+                name: "penerbit",
+                label: "Lembaga Penerbit",
+              },
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ],
+      },
     ],
   },
 });

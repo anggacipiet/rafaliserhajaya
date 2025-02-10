@@ -49,8 +49,8 @@ name = "Contact"
 weight = 5
 
 [[menu.footer]]
-URL = "research"
-name = "research"
+URL = "sertifikasi"
+name = "sertifikasi"
 weight = 1
 [[menu.footer]]
 URL = "spesifikasi"
