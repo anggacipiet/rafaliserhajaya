@@ -3,7 +3,7 @@ type: product
 title: Box Culvert
 date: 2019-07-06T09:27:17.000Z
 draft: false
-bg_image: /images/product/box-culvert.jpg
+bg_image: /images/banner/banner-1.png
 description: >-
   Merupakan product beton precast berbentuk persegi atau kotak dengan beragam
   ukuran. Berfungsi sebagai media saluran drainase dengan sistem tanam.

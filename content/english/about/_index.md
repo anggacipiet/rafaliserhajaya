@@ -22,8 +22,8 @@ company_mission: |-
   Mencetak beton dengan presisi tinggi dan sangat kokoh
   Senantiasa berinovasi demi terwujudnya kepuasan para customer kami
 company_values:
-  - title: test
-    description: ok
+  - title: ''
+    description: ''
   - {}
 ---
 

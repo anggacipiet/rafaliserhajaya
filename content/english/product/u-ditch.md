@@ -1,9 +1,9 @@
 ---
 type: product
-title: U-Ditch
+title: U Ditch
 date: 2024-03-14T09:27:17.000Z
 draft: false
-bg_image: /images/product/u-ditch.jpg
+bg_image: /images/banner/banner-1.png
 description: >-
   Merupakan product beton precast berbentuk U dengan beragam ukuran. Berfungsi
   sebagai saluran drainase terbuka untuk sistem saluran air.

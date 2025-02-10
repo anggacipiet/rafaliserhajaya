@@ -29,7 +29,7 @@ weight = 3
 #hasChildren = true
 #weight = 3
 #[[menu.main]]
-#name = "scholarship"
+#name = "spesifikasi"
 #parent = "Pages"
 #weight = 3
 #[[menu.main]]
@@ -53,8 +53,8 @@ URL = "research"
 name = "research"
 weight = 1
 [[menu.footer]]
-URL = "scholarship"
-name = "scholarship"
+URL = "spesifikasi"
+name = "spesifikasi"
 weight = 2
 [[menu.footer]]
 URL = "event"

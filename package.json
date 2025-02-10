@@ -26,6 +26,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development TINA_CLI_PORT=4001 tinacms dev -c \"hugo server --port 1313\"",
     "build": "npm rebuild && tinacms build && hugo --gc --minify",
+    "images": "gulp images",
+    "optimize": "gulp",
     "export": "hugo --gc --minify",
     "start": "hugo server",
     "clean": "rimraf public resources",

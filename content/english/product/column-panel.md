@@ -1,9 +1,9 @@
 ---
 type: product
-title: Column & Panel
+title: Column Panel
 date: 2024-03-14T09:27:17.000Z
 draft: false
-bg_image: /images/product/column-panel.jpg
+bg_image: /images/banner/banner-1.png
 description: >-
   Produk beton precast untuk konstruksi pagar dengan sistem panel dan kolom.
   Terdiri dari Fence Panel, Column Panel, dan Column Elbow Panel.

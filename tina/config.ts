@@ -1121,6 +1121,174 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "spesifikasi",
+        label: "Spesifikasi",
+        path: "content/english/spesifikasi",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Draft",
+          },
+          {
+            type: "image",
+            name: "bg_image",
+            label: "Background Image",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Spesifikasi Image",
+          },
+          {
+            type: "string",
+            name: "spesifikasi_type",
+            label: "Spesifikasi Type",
+            options: ["Mutu", "Standar Produksi", "Produk", "Material"],
+          },
+          {
+            type: "object",
+            name: "spesifikasi_details",
+            label: "Spesifikasi Details",
+            fields: [
+              {
+                type: "string",
+                name: "duration",
+                label: "Duration",
+              },
+              {
+                type: "string",
+                name: "coverage",
+                label: "Coverage",
+                ui: {
+                  component: "textarea",
+                },
+              },
+              {
+                type: "string",
+                name: "requirements",
+                label: "Requirements",
+                ui: {
+                  component: "textarea",
+                },
+              },
+              {
+                type: "datetime",
+                name: "deadline",
+                label: "Application Deadline",
+              },
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+            templates: [
+              {
+                name: "eligibility",
+                label: "Eligibility Criteria",
+                fields: [
+                  {
+                    type: "string",
+                    name: "criteria",
+                    label: "Criteria",
+                    list: true,
+                  },
+                ],
+              },
+              {
+                name: "documents",
+                label: "Required Documents",
+                fields: [
+                  {
+                    type: "string",
+                    name: "documents",
+                    label: "Documents",
+                    list: true,
+                  },
+                ],
+              },
+              {
+                name: "process",
+                label: "Application Process",
+                fields: [
+                  {
+                    type: "object",
+                    name: "steps",
+                    label: "Steps",
+                    list: true,
+                    fields: [
+                      {
+                        type: "string",
+                        name: "title",
+                        label: "Step Title",
+                      },
+                      {
+                        type: "string",
+                        name: "description",
+                        label: "Step Description",
+                        ui: {
+                          component: "textarea",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "faq",
+                label: "FAQ Section",
+                fields: [
+                  {
+                    type: "object",
+                    name: "questions",
+                    label: "Questions",
+                    list: true,
+                    fields: [
+                      {
+                        type: "string",
+                        name: "question",
+                        label: "Question",
+                      },
+                      {
+                        type: "string",
+                        name: "answer",
+                        label: "Answer",
+                        ui: {
+                          component: "textarea",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 });

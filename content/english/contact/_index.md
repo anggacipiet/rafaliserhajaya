@@ -2,7 +2,7 @@
 title: Contact Us
 date: 2025-02-04T17:00:00.000Z
 draft: false
-bg_image: /images/about/banner-1.png
+bg_image: /images/banner/banner-1.png
 description: |-
   Jangan ragu untuk menghubungi kami
   Kami siap membantu anda
