@@ -11,7 +11,7 @@
 }
 
 .navigation {
-  background: linear-gradient(to right, transparent 50%, $primary-color 50%);
+  background: linear-gradient(to right, transparent -10%, $primary-color 50%);
   transition: .2s ease;
 
   @include desktop {
@@ -40,7 +40,7 @@
 }
 
 .nav-bg {
-  background-color: $secondary-color;
+  background-color: #182b45;
 }
 
 .nav-item {
