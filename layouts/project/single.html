@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+        {{ with .Params.image }}
+        {{ partial "image.html" (dict "Src" . "Alt" "success story image" "Class" "img-fluid w-100") }}
+        {{ end }}
+      </div>
+      
+      <!-- project info -->
+      <div class="col-lg-3">
+        <div class="project-info">
+          <h4 class="mb-4">Project Details</h4>
+          <ul class="list-unstyled">
+            <li class="mb-4">
+              <h5>Client</h5>
+              <p>{{ .Params.client_name }}</p>
+            </li>
+            <li class="mb-4">
+              <h5>Project Type</h5>
+              <p>{{ .Params.project_type }}</p>
+            </li>
+            <li class="mb-4">
+              <h5>Location</h5>
+              <p>{{ .Params.location }}</p>
+            </li>
+            <li class="mb-4">
+              <h5>Duration</h5>
+              <p>{{ .Params.duration }}</p>
+            </li>
+            {{ range .Params.project_details }}
+            <li class="mb-4">
+              <h5>{{ .label }}</h5>
+              <p>{{ .value }}</p>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+
+      <!-- project content -->
+      <div class="col-lg-9">
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+
+      <!-- project gallery -->
+      {{ if .Params.gallery }}
+      <div class="col-12 mt-5">
+        <h3 class="mb-4">Project Gallery</h3>
+        <div class="row">
+          {{ range .Params.gallery }}
+          <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card border-0 rounded-0 hover-shadow">
+              {{ partial "image.html" (dict "Src" .image "Alt" .caption "Class" "card-img-top rounded-0") }}
+              <div class="card-body">
+                <p class="card-text">{{ .caption }}</p>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }} 

@@ -1,0 +1,14 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range where site.RegularPages "Type" "in" (slice "product" "blog" "project") -}}
+  {{- $.Scratch.Add "index" (dict
+    "uri" .RelPermalink
+    "title" .Title
+    "content" .Plain
+    "description" .Description
+    "categories" .Params.categories
+    "tags" .Params.tags
+    "permalink" .Permalink
+    "image" (.Params.image | absURL)
+  ) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}} 

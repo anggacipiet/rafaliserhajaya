@@ -1,9 +1,9 @@
 product:
   enable: true
   title: Produk Kami
-event:
+project:
   enable: true
-  title: Upcoming Events
+  title: Proyek Kami
 blog:
   enable: true
   title: Latest News

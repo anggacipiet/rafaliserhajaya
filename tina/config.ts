@@ -543,9 +543,9 @@ export default defineConfig({
         ],
       },
       {
-        name: "success_story",
-        label: "Success Stories",
-        path: "content/english/success-story",
+        name: "project",
+        label: "Project",
+        path: "content/english/project",
         fields: [
           {
             type: "string",
@@ -588,7 +588,7 @@ export default defineConfig({
             name: "type",
             label: "Type",
             required: true,
-            options: ["success-story"],
+            options: ["project"],
           },
           {
             type: "string",
@@ -1361,6 +1361,238 @@ export default defineConfig({
                 name: "penerbit",
                 label: "Lembaga Penerbit",
               },
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ],
+      },
+      {
+        name: "services",
+        label: "Services",
+        path: "content/english/services",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Draft",
+          },
+          {
+            type: "image",
+            name: "bg_image",
+            label: "Background Image",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "type",
+            label: "Service Type",
+            options: ["info", "pemesanan", "ketentuan", "catalog"],
+            required: true,
+          },
+          {
+            type: "object",
+            name: "pemesanan_details",
+            label: "Detail Pemesanan",
+            fields: [
+              {
+                type: "object",
+                name: "steps",
+                label: "Langkah-langkah",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Judul Langkah",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Deskripsi",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "image",
+                    name: "icon",
+                    label: "Icon",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "ketentuan_details",
+            label: "Detail Ketentuan",
+            fields: [
+              {
+                type: "object",
+                name: "terms",
+                label: "Ketentuan",
+                list: true,
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Judul Ketentuan",
+                  },
+                  {
+                    type: "string",
+                    name: "content",
+                    label: "Isi Ketentuan",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "catalog_details",
+            label: "Detail Catalog",
+            fields: [
+              {
+                type: "string",
+                name: "file_url",
+                label: "URL File PDF",
+              },
+              {
+                type: "datetime",
+                name: "last_updated",
+                label: "Terakhir Diperbarui",
+              },
+              {
+                type: "string",
+                name: "version",
+                label: "Versi Catalog",
+              },
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ],
+      },
+      {
+        name: "post",
+        label: "Blog Post",
+        path: "content/english/blog",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "bg_image",
+            label: "Background Image",
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Featured Image",
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+          },
+          {
+            type: "string",
+            name: "meta_title",
+            label: "Meta Title (SEO)",
+            description: "70 karakter optimal untuk SEO",
+          },
+          {
+            type: "string",
+            name: "meta_description",
+            label: "Meta Description (SEO)",
+            description: "150-160 karakter optimal untuk SEO",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "meta_keywords",
+            label: "Meta Keywords",
+            description: "Pisahkan dengan koma",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+          },
+          {
+            type: "string",
+            name: "categories",
+            label: "Categories",
+            list: true,
+            options: [
+              "Box Culvert",
+              "U-Ditch",
+              "Fence Panel",
+              "Precast",
+              "Konstruksi",
+              "Drainase",
+              "Infrastruktur"
+            ],
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+            options: [
+              "SNI",
+              "ISO",
+              "Quality Control",
+              "Spesifikasi Teknis",
+              "Panduan Pemasangan",
+              "Tips Pemeliharaan",
+              "Proyek",
+              "Inovasi"
             ],
           },
           {

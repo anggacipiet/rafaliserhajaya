@@ -16,32 +16,16 @@ weight = 1
 URL = "about"
 name = "About"
 weight = 1
-[[menu.main]]
-URL = "event"
-name = "event"
-weight = 2
+
 [[menu.main]]
 URL = "product"
 name = "product"
+weight = 2
+
+[[menu.main]]
+URL = "blog"
+name = "artikel"
 weight = 3
-
-#[[menu.main]]
-#hasChildren = true
-#weight = 3
-#[[menu.main]]
-#name = "spesifikasi"
-#parent = "Pages"
-#weight = 3
-#[[menu.main]]
-#URL = "research"
-#name = "research"
-#parent = "Pages"
-#weight = 4
-
-
-#[[menu.main]]
-#name = "blog"
-#weight = 4
 
 [[menu.main]]
 URL = "contact"
@@ -57,11 +41,11 @@ URL = "spesifikasi"
 name = "spesifikasi"
 weight = 2
 [[menu.footer]]
-URL = "event"
-name = "Event"
+URL = "services"
+name = "services"
 weight = 3
 [[menu.footer]]
-URL = "success-story"
+URL = "project"
 name = "project"
 weight = 4
 
@@ -69,9 +53,8 @@ weight = 4
 address = "PURI HESTI INSANI RT. 17 RW. 15 No. 3 Desa Mampir Kec. Cileungsi Kab. bogor Jawa Barat Indonesia"
 author = "angga cipiet"
 contact_form_action = "https://formspree.io/f/movjwyrk"
-description = "PT Rafalis Erha Jaya - Produsen beton precast berkualitas tinggi untuk proyek infrastruktur. Box Culvert, U-Ditch, dan Fence Panel dengan standar SNI. Solusi drainase terpercaya."
+description = "PT Rafalis Erha Jaya - Produsen beton precast berkualitas tinggi di Cileungsi, Bogor. Spesialis Box Culvert, U-Ditch, dan Fence Panel dengan standar SNI. Melayani area Jabodetabek dan sekitarnya. Solusi drainase terpercaya dengan harga pabrik."
 email = "rhprecast@rafaliserhajaya.com"
-google_analitycs_id = "G-2PHP592VWS"
 logo = "images/rafalis.png"
 mobile = "(+62) 81294212524"
 top_header = true
@@ -105,7 +88,23 @@ target = '$1'
 
 ############################# Outputs ##############################
 [outputs]
-home = ["HTML", "RSS"]
+home = ["HTML", "RSS", "SITEMAP", "JSON"]
+
+[outputFormats]
+[outputFormats.Sitemap]
+mediaType = "application/xml"
+baseName = "sitemap"
+isHTML = false
+isPlainText = true
+noUgly = true
+rel = "sitemap"
+
+[outputFormats.JSON]
+mediaType = "application/json"
+baseName = "index"
+isHTML = false
+isPlainText = true
+noUgly = true
 
 ############################# Imaging ##############################
 [imaging]
@@ -172,6 +171,13 @@ enable = true
 mailchimp_form_action = "https://rafaliserhajaya.us19.list-manage.com/subscribe/post?u=b254bade3600ade2f1eb9fed1&id=bf4f2bdb2b&f_id=007f88e4f0"
 mailchimp_form_name = "b254bade3600ade2f1eb9fed1"
 
+
+# cookies
+[params.cookies]
+enable = true
+expire_days = 2
+
+
 [[params.social]]
 icon = "ti-facebook"
 link = "#"
@@ -186,3 +192,17 @@ title = "twitter"
 icon = "ti-instagram"
 link = "#"
 title = "instagram"
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[params.google]
+  analytics_id = "G-2PHP592VWS"
+
+[params.algolia]
+  enable = true
+  app_id = "EE2ODVIPS2"
+  search_api_key = "6bafd5632a313d7fa315ae25bd313054"
+  index_name = "rafaliserhajaya"

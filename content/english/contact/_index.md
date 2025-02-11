@@ -1,11 +1,9 @@
 ---
-title: Contact Us
-date: 2025-02-04T17:00:00.000Z
+title: "Hubungi PT Rafalis Erha Jaya"
+date: 2024-02-09T00:00:00.000Z
 draft: false
 bg_image: /images/banner/banner-1.png
-description: |-
-  Jangan ragu untuk menghubungi kami
-  Kami siap membantu anda
+description: "Hubungi PT Rafalis Erha Jaya untuk kebutuhan produk precast Anda. Konsultasi gratis dengan tim ahli kami. WhatsApp: (+62) 81294212524, Email: rhprecast@rafaliserhajaya.com"
 office:
   title: Alamat Kantor
   address: >-
@@ -24,4 +22,26 @@ factory:
     https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31717.596474639467!2d106.98145088093608!3d-6.432625827295698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69966da4b0ebb9%3A0x5e875b91f6b29b47!2sSetu%20Sari%2C%20Kec.%20Cileungsi%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1738770925121!5m2!1sid!2sid
 ---
 
-Jangan ragu untuk menghubungi kami Kami siap membantu anda
+### Layanan Pelanggan
+* **WhatsApp:** (+62) 81294212524
+* **Email:** rhprecast@rafaliserhajaya.com
+* **Jam Kerja:** Senin - Sabtu, 08:00 - 17:00 WIB
+
+### Informasi Produk & Pemesanan
+* Box Culvert
+* U-Ditch
+* Fence Panel
+* Produk Precast Lainnya
+
+### Layanan Kami
+* Konsultasi Teknis
+* Penawaran Harga
+* Produksi Custom
+* Pengiriman Tepat Waktu
+
+### Area Layanan
+* Jabodetabek
+* Jawa Barat
+* Area lain (sesuai kesepakatan)
+
+*Tim kami siap membantu Anda mendapatkan solusi precast terbaik untuk proyek infrastruktur Anda.*

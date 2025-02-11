@@ -12,8 +12,33 @@
 
   <title>{{ .Title }}</title>
 
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}">
+  <meta name="description" content="{{ if .Params.meta_description }}{{ .Params.meta_description }}{{ else }}{{ .Params.description }}{{ end }}">
+  <meta name="keywords" content="{{ if .Params.meta_keywords }}{{ .Params.meta_keywords }}{{ else }}precast bogor, box culvert cileungsi, u-ditch bogor, fence panel cileungsi, beton precast bogor, produsen beton cileungsi, supplier box culvert bogor{{ end }}">
+  <meta name="author" content="{{ site.Params.author }}">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="{{ .Language.Lang }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ if .Params.meta_description }}{{ .Params.meta_description }}{{ else }}{{ .Params.description }}{{ end }}">
+  <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ site.Params.logo | absURL }}{{ end }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ .Permalink }}">
+  <meta property="twitter:title" content="{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}">
+  <meta property="twitter:description" content="{{ if .Params.meta_description }}{{ .Params.meta_description }}{{ else }}{{ .Params.description }}{{ end }}">
+  <meta property="twitter:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ site.Params.logo | absURL }}{{ end }}">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description"
     content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}
@@ -90,5 +115,58 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="shortcut icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
   <link rel="icon" href="{{ `images/favicon.png` | absURL }}" type="image/x-icon">
+
+  <!-- Google Analytics -->
+  {{ if site.Params.google.analytics_id }}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.Params.google.analytics_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ site.Params.google.analytics_id }}');
+  </script>
+  {{ end }}
+
+  <!-- Schema.org for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PT Rafalis Erha Jaya",
+    "image": "{{ site.Params.logo | absURL }}",
+    "description": "{{ site.Params.description }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "PURI HESTI INSANI RT. 17 RW. 15 No. 3 Desa Mampir",
+      "addressLocality": "Cileungsi",
+      "addressRegion": "Bogor",
+      "postalCode": "",
+      "addressCountry": "ID"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-6.4326057629037",
+      "longitude": "107.00659177478612"
+    },
+    "url": "{{ site.BaseURL }}",
+    "telephone": "{{ site.Params.mobile }}",
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  }
+  </script>
 
 </head>

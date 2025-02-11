@@ -1,5 +1,5 @@
 ---
-title: About Us
+title: Tentang PT Rafalis Erha Jaya
 date: 2025-02-03T17:00:00.000Z
 draft: false
 bg_image: /images/about/banner-1.png

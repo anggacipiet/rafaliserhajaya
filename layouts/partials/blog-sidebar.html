@@ -1,4 +1,4 @@
-{{ "<!-- sidebar -->" | safeHTML }}
+{{ if eq .Type "post" }}
 <aside class="col-lg-4 order-1 order-lg-2">
   {{ "<!-- categories -->" | safeHTML }}
   <div class="bg-white mb-5">
@@ -45,4 +45,4 @@
     {{ end }}
   </div>
 </aside>
-{{ "<!-- /sidebar -->" | safeHTML }}
+{{ end }}

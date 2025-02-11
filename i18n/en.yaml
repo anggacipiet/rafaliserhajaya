@@ -49,29 +49,8 @@
 - id: related_product
   translation: Related Product
 
-- id: duration
-  translation: duration
-
-- id: weekly
-  translation: weekly
-
-- id: fee
-  translation: Address
-
-- id: teacher
-  translation: teacher
-
 - id: location
   translation: location
-
-- id: entry_fee
-  translation: entry fee
-
-- id: event_speaker
-  translation: Event Speakers
-
-- id: more_event
-  translation: More Events
 
 - id: join
   translation: Join
@@ -88,8 +67,8 @@
 - id: product
   translation: product
 
-- id: new_notice
-  translation: new notice
+- id: services
+  translation: services
 
 - id: call
   translation: call
@@ -99,12 +78,6 @@
 
 - id: all
   translation: All
-
-- id: interest
-  translation: SUMMARY OF ACTIVITIES/INTERESTS
-
-- id: our_teachers
-  translation: Our Teachers
 
 - id: download
   translation: Download
