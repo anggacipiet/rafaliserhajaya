@@ -1,14 +1,17 @@
-{{- $.Scratch.Add "index" slice -}}
-{{- range where site.RegularPages "Type" "in" (slice "product" "blog" "project") -}}
-  {{- $.Scratch.Add "index" (dict
-    "uri" .RelPermalink
-    "title" .Title
-    "content" .Plain
-    "description" .Description
-    "categories" .Params.categories
-    "tags" .Params.tags
-    "permalink" .Permalink
-    "image" (.Params.image | absURL)
-  ) -}}
-{{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}} 
+{
+  "pages": [
+    {{- range $index, $page := where site.RegularPages "Type" "in" (slice "product" "blog" "project") -}}
+    {{- if $index -}},{{- end }}
+    {
+      "uri": "{{ $page.RelPermalink }}",
+      "title": "{{ $page.Title }}",
+      "content": {{ $page.Plain | jsonify }},
+      "description": {{ $page.Description | jsonify }},
+      "categories": {{ $page.Params.categories | jsonify }},
+      "tags": {{ $page.Params.tags | jsonify }},
+      "permalink": "{{ $page.Permalink }}",
+      "image": "{{ $page.Params.image | absURL }}"
+    }
+    {{- end -}}
+  ]
+} 
