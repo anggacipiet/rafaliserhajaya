@@ -156,18 +156,4 @@
   }
   </script>
   
-  <!-- Google Analytics -->
-  {{ if site.Params.google.analytics_id }}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.Params.google.analytics_id }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{{ site.Params.google.analytics_id }}');
-  </script>
-  {{ end }}
-
-
 </head>

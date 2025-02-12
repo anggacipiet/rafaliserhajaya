@@ -1,5 +1,9 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{ $pages := .Data.Pages }}
+  {{ $pages = where $pages "Params.private" "!=" true }}
+  
   <!-- Homepage -->
   <url>
     <loc>{{ .Site.BaseURL }}</loc>
@@ -8,38 +12,47 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Products -->
-  {{ range where .Site.RegularPages "Section" "product" }}
+  <!-- Products (Highest Priority after Homepage) -->
+  {{ range where $pages "Section" "product" }}
   <url>
     <loc>{{ .Permalink }}</loc>
     <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <xhtml:link
+      rel="alternate"
+      hreflang="{{ .Language.Lang }}"
+      href="{{ .Permalink }}"
+    />
+    {{ end }}
+    {{ end }}
+  </url>
+  {{ end }}
+
+  <!-- Projects -->
+  {{ range where $pages "Section" "project" }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   {{ end }}
 
   <!-- Blog Posts -->
-  {{ range where .Site.RegularPages "Section" "blog" }}
+  {{ range where $pages "Section" "blog" }}
   <url>
     <loc>{{ .Permalink }}</loc>
     <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   {{ end }}
 
-  <!-- Projects -->
-  {{ range where .Site.RegularPages "Section" "project" }}
-  <url>
-    <loc>{{ .Permalink }}</loc>
-    <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  {{ end }}
-
   <!-- Sertifikasi -->
-  {{ range where .Site.RegularPages "Section" "sertifikasi" }}
+  {{ range where $pages "Section" "sertifikasi" }}
   <url>
     <loc>{{ .Permalink }}</loc>
     <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
@@ -49,13 +62,43 @@
   {{ end }}
 
   <!-- Other Pages -->
-  {{ range .Site.RegularPages }}
+  {{ range $pages }}
   {{ if not (in (slice "product" "blog" "project" "sertifikasi") .Section) }}
   <url>
     <loc>{{ .Permalink }}</loc>
-    <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
+    {{ if not .Lastmod.IsZero }}
+    <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>
+    {{ end }}
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  {{ end }}
+  {{ end }}
+
+  {{ range .Data.Pages }}
+  {{ if not .Params.robotsdisallow }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{ if not .Lastmod.IsZero }}
+    <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>
+    {{ end }}
+    {{ with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>
+    {{ end }}
+    {{ if ge .Sitemap.Priority 0.0 }}
+    <priority>{{ .Sitemap.Priority }}</priority>
+    {{ else }}
+    <priority>0.5</priority>
+    {{ end }}
+    {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <xhtml:link
+      rel="alternate"
+      hreflang="{{ .Language.Lang }}"
+      href="{{ .Permalink }}"
+      />
+    {{ end }}
+    {{ end }}
   </url>
   {{ end }}
   {{ end }}

@@ -88,7 +88,7 @@ target = '$1'
 
 ############################# Outputs ##############################
 [outputs]
-home = ["HTML", "RSS", "SITEMAP", "JSON"]
+home = ["HTML", "RSS", "SITEMAP"]
 
 [outputFormats]
 [outputFormats.Sitemap]
@@ -133,6 +133,15 @@ maxAge = "720h"
 [markup]
 [markup.goldmark.renderer]
 unsafe = true
+
+############################ Minify #############################
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+      keepEndTags = true
+      keepQuotes = true
 
 ############################# Plugins #############################
 [params.plugins]
@@ -197,6 +206,8 @@ title = "instagram"
   changefreq = "monthly"
   filename = "sitemap.xml"
   priority = 0.5
+
+  enableRobotsTXT = true
 
 [params.google]
   analytics_id = "G-2PHP592VWS"
