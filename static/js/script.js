@@ -38,8 +38,8 @@
     infinite: true,
     arrows: true,
     fade: true,
-    prevArrow: '<button type=\'button\' class=\'prevArrow\'><i class=\'ti-angle-left\'></i></button>',
-    nextArrow: '<button type=\'button\' class=\'nextArrow\'><i class=\'ti-angle-right\'></i></button>',
+    prevArrow: '<button type=\'button\' class=\'prevArrow\' aria-label=\'Previous slide\'><i class=\'ti-angle-left\'></i></button>',
+    nextArrow: '<button type=\'button\' class=\'nextArrow\' aria-label=\'Next slide\'><i class=\'ti-angle-right\'></i></button>',
     dots: true
   });
   $('.hero-slider').slickAnimation();
