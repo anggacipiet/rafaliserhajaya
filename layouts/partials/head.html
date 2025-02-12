@@ -14,7 +14,7 @@
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}">
-  <meta name="description" content="{{ if .Params.meta_description }}{{ .Params.meta_description }}{{ else }}{{ .Params.description }}{{ end }}">
+  <meta name="description" content="{{ if .Params.meta_description }}{{ .Params.meta_description }}{{ else if .Description }}{{ .Description }}{{ else }}{{ site.Params.description }}{{ end }}">
   <meta name="keywords" content="{{ if .Params.meta_keywords }}{{ .Params.meta_keywords }}{{ else }}precast bogor, box culvert cileungsi, u-ditch bogor, fence panel cileungsi, beton precast bogor, produsen beton cileungsi, supplier box culvert bogor{{ end }}">
   <meta name="author" content="{{ site.Params.author }}">
   <meta name="robots" content="index, follow">

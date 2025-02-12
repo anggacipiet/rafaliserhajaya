@@ -1,12 +1,11 @@
 ---
 type: product
-title: U Ditch
+title: "U-Ditch Precast"
 date: 2024-03-14T09:27:17.000Z
 draft: false
 bg_image: /images/banner/banner-1.png
-description: >-
-  Merupakan product beton precast berbentuk U dengan beragam ukuran. Berfungsi
-  sebagai saluran drainase terbuka untuk sistem saluran air.
+description: "U-Ditch beton precast berkualitas tinggi dengan standar SNI. Tersedia berbagai ukuran untuk kebutuhan drainase skala kecil hingga besar."
+meta_description: "U-Ditch precast Rafalis - Solusi drainase berkualitas SNI, tersedia berbagai ukuran. Produksi di Cileungsi Bogor, melayani Jabodetabek."
 image: /images/product/u-ditch.jpg
 category: U-Ditch
 whatsapp: 0812 9421 2524
