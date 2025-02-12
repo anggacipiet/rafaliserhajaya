@@ -57,7 +57,7 @@ description = "PT Rafalis Erha Jaya - Produsen beton precast berkualitas tinggi 
 email = "rhprecast@rafaliserhajaya.com"
 logo = "images/rafalis.png"
 mobile = "(+62) 81294212524"
-top_header = true
+top_header = false
 
 [params.map]
 #enable = false

@@ -71,13 +71,6 @@
     onload="this.onload=null;this.rel='stylesheet'"
   >
 
-  <link 
-    rel="preload"
-    as="font"
-    href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2"
-    crossorigin
-  >
-
   {{ "<!-- Preload Critical Fonts -->" | safeHTML }}
   <style>
     @font-face {
@@ -95,6 +88,14 @@
       font-family: 'Futura-Bold';
       src:url('{{ "fonts/Futura-Bold.woff" | absURL }}') format('woff');
       font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+    /* Poppins font */
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
+      font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
@@ -156,4 +157,59 @@
   }
   </script>
   
+  {{ "<!-- Google Analytics -->" | safeHTML }}
+  {{ with site.Params.google.analytics_id }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+  </script>
+  {{ end }}
+
+  <!-- cookie -->
+  {{ if site.Params.cookies.enable }}
+  <script defer src="{{ "js/js.cookie.min.js" | absURL }}"></script>
+  <div id="js-cookie-box" class="cookie-box cookie-box-hide">
+    This site uses cookies. By continuing to use this website, you agree to their use. 
+    <span id="js-cookie-button" class="btn btn-sm btn-outline-primary ml-2">I Accept</span>
+  </div>
+  <script>
+    window.addEventListener('load', function() {
+      const cookieBox = document.getElementById('js-cookie-box');
+      const cookieButton = document.getElementById('js-cookie-button');
+      const cookieName = 'cookie-consent';
+      
+      if (!document.cookie.split(';').some((item) => item.trim().startsWith(cookieName + '='))) {
+        cookieBox.classList.remove('cookie-box-hide');
+        cookieButton.onclick = function () {
+          const date = new Date();
+          date.setTime(date.getTime() + ({{ site.Params.cookies.expire_days }} * 24 * 60 * 60 * 1000));
+          document.cookie = cookieName + '=true; expires=' + date.toUTCString() + '; path=/';
+          cookieBox.classList.add('cookie-box-hide');
+        };
+      }
+    });
+  </script>
+
+  <style>
+    .cookie-box {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      z-index: 9999;
+      padding: 1rem 2rem;
+      background: rgb(71, 71, 71);
+      transition: all .75s cubic-bezier(.19, 1, .22, 1);
+      color: #fdfdfd;
+    }
+    .cookie-box-hide {
+      display: none;
+    }
+  </style>
+  {{ end }}
+
 </head>
