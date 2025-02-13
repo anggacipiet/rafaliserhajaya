@@ -102,10 +102,24 @@
     Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
     Content-Security-Policy = """
       default-src 'self' https://*.tinajs.io https://*.github.com https://app.tina.io https://*.amazonaws.com;
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com https://*.tinajs.io;
-      style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-      img-src 'self' data: www.google-analytics.com https://assets.tina.io https://content.tina.io https://*.tinajs.io;
-      font-src 'self' data: fonts.gstatic.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' 
+        www.google-analytics.com 
+        https://*.tinajs.io  
+        https://www.googletagmanager.com 
+        https://cdnjs.cloudflare.com
+        https://www.gstatic.com;
+      style-src 'self' 'unsafe-inline' 
+        fonts.googleapis.com
+        https://cdnjs.cloudflare.com;
+      img-src 'self' data: 
+        www.google-analytics.com 
+        https://assets.tina.io 
+        https://content.tina.io 
+        https://*.tinajs.io
+        https://www.googletagmanager.com;
+      font-src 'self' data: 
+        fonts.gstatic.com
+        https://cdnjs.cloudflare.com;
       connect-src 'self' 
         https://*.tinajs.io 
         https://identity.tinajs.io 
@@ -115,7 +129,10 @@
         https://app.tina.io
         www.google-analytics.com 
         https://*.amazonaws.com 
-        https://cognito-idp.us-east-1.amazonaws.com;
+        https://cognito-idp.us-east-1.amazonaws.com
+        https://cognito-identity.us-east-1.amazonaws.com
+        https://www.google-analytics.com
+        https://stats.g.doubleclick.net;
       frame-src 'self' https://www.google.com https://identity.tinajs.io https://app.tina.io;
       object-src 'none';
       base-uri 'self';
