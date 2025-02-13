@@ -1,0 +1,17 @@
+{
+  "pages": [
+    {{- range $index, $page := where site.RegularPages "Type" "in" (slice "product" "blog" "project") -}}
+    {{- if $index -}},{{- end }}
+    {
+      "uri": "{{ $page.RelPermalink }}",
+      "title": "{{ $page.Title }}",
+      "content": {{ $page.Plain | default "" | jsonify }},
+      "description": {{ $page.Description | default "" | jsonify }},
+      "categories": {{ $page.Params.categories | default (slice) | jsonify }},
+      "tags": {{ $page.Params.tags | default (slice) | jsonify }},
+      "permalink": "{{ $page.Permalink }}",
+      "image": "{{ $page.Params.image | default "" | absURL }}"
+    }
+    {{- end -}}
+  ]
+}
