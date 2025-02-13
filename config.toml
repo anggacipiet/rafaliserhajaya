@@ -203,9 +203,9 @@ link = "#"
 title = "instagram"
 
 [sitemap]
-  changefreq = "monthly"
+  changefreq = "weekly"
   filename = "sitemap.xml"
-  priority = 0.5
+  priority = 0.8
 
 [params.google]
   analytics_id = "G-2PHP592VWS"
