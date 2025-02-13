@@ -56,7 +56,7 @@ contact_form_action = "https://formspree.io/f/movjwyrk"
 description = "PT Rafalis Erha Jaya - Produsen beton precast berkualitas tinggi di Cileungsi, Bogor. Spesialis Box Culvert, U-Ditch, dan Fence Panel dengan standar SNI. Melayani area Jabodetabek dan sekitarnya. Solusi drainase terpercaya dengan harga pabrik."
 email = "rhprecast@rafaliserhajaya.com"
 logo = "images/rafalis.png"
-mobile = "(+62) 81294212524"
+mobile = "081294212524"
 top_header = false
 
 [params.map]
@@ -183,7 +183,7 @@ mailchimp_form_name = "b254bade3600ade2f1eb9fed1"
 
 # cookies
 [params.cookies]
-enable = false
+enable = true
 expire_days = 2
 
 
