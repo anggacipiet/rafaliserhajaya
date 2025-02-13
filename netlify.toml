@@ -38,7 +38,14 @@
         https://*.amazonaws.com 
         https://cognito-idp.us-east-1.amazonaws.com
         https://cognito-identity.us-east-1.amazonaws.com;
-      frame-src 'self' https://www.google.com https://identity.tinajs.io https://app.tina.io;
+      frame-src 'self' 
+        https://www.google.com 
+        https://identity.tinajs.io 
+        https://app.tina.io
+        https://www.youtube.com 
+        https://youtube.com
+        https://player.vimeo.com
+        https://*.vimeo.com;
       worker-src 'self' blob:;
       font-src 'self' data: fonts.gstatic.com https://*.tinajs.io https://app.tina.io;
       form-action 'self' https://identity.tinajs.io https://app.tina.io;
@@ -133,7 +140,14 @@
         https://cognito-identity.us-east-1.amazonaws.com
         https://www.google-analytics.com
         https://stats.g.doubleclick.net;
-      frame-src 'self' https://www.google.com https://identity.tinajs.io https://app.tina.io;
+      frame-src 'self' 
+        https://www.google.com 
+        https://identity.tinajs.io 
+        https://app.tina.io
+        https://www.youtube.com 
+        https://youtube.com
+        https://player.vimeo.com
+        https://*.vimeo.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self' https://identity.tinajs.io https://app.tina.io;
