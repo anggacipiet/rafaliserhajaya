@@ -11,7 +11,7 @@
         aria-label="Posts by {{ .Params.Author | title }}"
       >{{ .Params.Author | title }}</a></li>
     </ul>
-    <h4 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+    <h3 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <p class="card-text">{{ .Summary | truncate 100 }}</p>
     <a href="{{ .Permalink }}" class="btn btn-primary btn-sm">
       <span aria-hidden="true">{{ i18n "read_more" }}</span>

@@ -207,8 +207,6 @@ title = "instagram"
   filename = "sitemap.xml"
   priority = 0.5
 
-  enableRobotsTXT = true
-
 [params.google]
   analytics_id = "G-2PHP592VWS"
 

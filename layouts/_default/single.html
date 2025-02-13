@@ -34,7 +34,10 @@
           {{ end }}
           <!-- blog contect -->
           <div class="{{ if eq .Type "post" }}col-lg-8{{ else }}col-12{{ end }} mb-50">
-            {{ .Content }}
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+              {{ .Content }}
+            </div>
           </div>
            <!-- Disqus comments -->
         {{ if site.Config.Services.Disqus.Shortname }}
