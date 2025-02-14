@@ -46,22 +46,26 @@ search.addWidget(
   instantsearch.widgets.hits({
     container: '#hits',
     templates: {
-      item: `
-        <div class="hit-item">
-          <div class="hit-image">
-            <img src="{{ "{{image}}" }}" alt="{{ "{{title}}" }}">
+      item: function(hit) {
+        return `
+          <div class="hit-item">
+            <div class="hit-image">
+              <img src="${hit.image}" alt="${hit.title}">
+            </div>
+            <div class="hit-content">
+              <h4><a href="${hit.url}">${hit.title}</a></h4>
+              <p>${instantsearch.highlight({ attribute: 'content', hit })}</p>
+            </div>
           </div>
-          <div class="hit-content">
-            <h4><a href="{{ "{{url}}" }}">{{ "{{title}}" }}</a></h4>
-            <p>{{ "{{#helpers.snippet}}{ "attribute": "content" }{{/helpers.snippet}}" }}</p>
+        `;
+      },
+      empty: function(results) {
+        return `
+          <div class="no-results">
+            Tidak ada hasil untuk pencarian <em>"${results.query}"</em>
           </div>
-        </div>
-      `,
-      empty: `
-        <div class="no-results">
-          Tidak ada hasil untuk pencarian <em>"{{ "{{query}}" }}"</em>
-        </div>
-      `
+        `;
+      }
     }
   })
 );
