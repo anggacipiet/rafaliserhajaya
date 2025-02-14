@@ -220,5 +220,7 @@ title = "instagram"
   app_id = "EE2ODVIPS2"
   search_api_key = "6bafd5632a313d7fa315ae25bd313054"
   index_name = "rafaliserhajaya"
-  auto_sync = true
-  sync_interval = 300 # dalam detik (5 menit)
+
+[params.image]
+  [params.image.widths]
+    default = [400, 600, 800, 1200]

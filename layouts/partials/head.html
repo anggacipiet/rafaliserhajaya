@@ -212,4 +212,19 @@
   </style>
   {{ end }}
 
+  <!-- Lazysizes -->
+  <script>
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.loadMode = 1;
+    window.lazySizesConfig.init = false;
+  </script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+  
+  <!-- Inisialisasi lazysizes setelah load -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lazySizes.init();
+    });
+  </script>
+
 </head>
