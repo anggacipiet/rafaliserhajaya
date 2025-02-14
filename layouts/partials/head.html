@@ -38,7 +38,8 @@
   <link rel="canonical" href="{{ .Permalink }}">
 
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="description"
     content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}
@@ -135,12 +136,11 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "-6.4326057629037",
-      "longitude": "107.00659177478612"
+      "latitude": -6.4326057629037,
+      "longitude": 107.00659177478612
     },
-    "url": "{{ site.BaseURL }}",
-    "telephone": "{{ site.Params.mobile }}",
-    "priceRange": "$$",
+    "url": {{ site.BaseURL | jsonify }},
+    "telephone": "+62{{ replace site.Params.mobile "0" "" 1 }}",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
