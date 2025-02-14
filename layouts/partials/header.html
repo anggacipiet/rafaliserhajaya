@@ -29,11 +29,15 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
         <!-- Search Toggle -->
-        <button class="search-toggle ml-auto" type="button" data-toggle="collapse" data-target="#search-collapse">
-          <i class="ti-search"></i>
-        </button>
-        <!-- Algolia Search -->
-        <!--{{ partial "algolia-search.html" . }}-->
+        <div class="search-box ml-lg-3">
+          <div class="search-icon">
+            <i class="ti-search"></i>
+          </div>
+          <div id="search-wrapper" class="search-wrapper">
+            <div id="searchbox"></div>
+            <div id="hits"></div>
+          </div>
+        </div>
         <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
           <img 
             src="{{ site.Params.logo | absURL }}"
@@ -97,10 +101,6 @@
           {{ end }}
         </div>
       </nav>
-      <!-- Search Collapse -->
-      <div class="collapse" id="search-collapse">
-        {{ partial "search.html" . }}
-      </div>
     </div>
   </div>
 </header>

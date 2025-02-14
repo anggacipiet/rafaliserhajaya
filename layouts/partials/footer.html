@@ -60,18 +60,18 @@
         </div>
         <!-- support -->
         <div class="col-lg-2 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5 text-uppercase">{{ i18n "product" }}</h4>
+          <h4 class="text-white mb-5 text-uppercase">{{ i18n "courses" }}</h4>
           <ul class="list-unstyled">
-            {{ range first 5 (where site.RegularPages "Type" "product")}}
+            {{ range first 5 (where site.RegularPages "Type" "course")}}
             <li class="mb-3"><a class="text-color" href="{{ .Permalink }}">{{ .Title }}</a></li>
             {{ end }}
           </ul>
         </div>
         <!-- support -->
         <div class="col-lg-2 col-sm-4 col-6 mb-5 mb-md-0">
-          <h4 class="text-white mb-5 text-uppercase">{{ i18n "services" }}</h4>
+          <h4 class="text-white mb-5 text-uppercase">{{ i18n "new_notice" }}</h4>
           <ul class="list-unstyled">
-            {{ range first 3 (where site.RegularPages "Type" "services")}}
+            {{ range first 3 (where site.RegularPages "Type" "notice")}}
             <li class="mb-3"><a class="text-color" href="{{ .Permalink }}">{{ .Title }}</a></li>
             {{ end }}
           </ul>
@@ -89,15 +89,7 @@
         <div class="col-md-5 text-md-right text-center">
           <ul class="list-inline">
             {{ range site.Params.social }}
-            <li class="list-inline-item">
-              <a 
-                class="d-inline-block p-2" 
-                href="{{ .link | safeURL }}"
-                aria-label="{{ .title }}"
-              >
-                <i class="{{ .icon }} text-primary"></i>
-              </a>
-            </li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="{{ .link | safeURL }}"><i class="{{ .icon }} text-primary"></i></a></li>
             {{ end }}
           </ul>
         </div>
@@ -107,16 +99,17 @@
 </footer>
 <!-- /footer -->
 
-  {{ "<!-- Google Map API -->" | safeHTML }}
-  {{ with site.Params.map.gmap_api }}
-  <script defer src="{{ . | safeURL }}"></script>
-  {{ end }}
+{{ "<!-- Google Map API -->" | safeHTML }}
+{{ with site.Params.map.gmap_api }}
+<script src="{{ . | safeURL }}"></script>
+{{ end }}
 
-  {{ "<!-- JS Plugins -->" | safeHTML }}
-  {{ range site.Params.plugins.js}}
-  <script defer src="{{ .link | absURL }}"></script>
-  {{ end }}
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range site.Params.plugins.js}}
+<script src="{{ .link | absURL }}"></script>
+{{ end }}
 
-  {{ "<!-- Main Script -->" | safeHTML }}
-  {{ $script := resources.Get "js/script.js" | minify}}
-  <script defer src="{{ $script.Permalink }}"></script>
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+

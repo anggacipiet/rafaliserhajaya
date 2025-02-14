@@ -8,6 +8,7 @@ Allow: /blog/
 Allow: /project/
 Allow: /contact/
 Allow: /about/
+Allow: /services/
 Allow: /services/catalog/
 Allow: /services/pemesanan/
 Allow: /services/ketentuan/
@@ -27,7 +28,6 @@ Disallow: /*?s=
 Disallow: /search/
 
 # Prevent indexing of specific file types
-Disallow: /*.pdf$
 Disallow: /*.doc$
 Disallow: /*.docx$
 Disallow: /*.xls$
@@ -39,13 +39,13 @@ Allow: /*.jpeg$
 Allow: /*.gif$
 Allow: /*.png$
 Allow: /*.webp$
+Allow: /*.pdf$
 
 # Sitemap location
 Sitemap: https://rafaliserhajaya.com/sitemap.xml
 
-# Crawl-delay directives for different bots
-User-agent: Googlebot
-Crawl-delay: 1
+User-agent: Algolia Crawler
+Allow: /
 
 User-agent: bingbot
 Crawl-delay: 2
@@ -55,7 +55,3 @@ Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Crawl-delay: 3
-
-# Default crawl rate for other bots
-User-agent: *
-Crawl-delay: 5 

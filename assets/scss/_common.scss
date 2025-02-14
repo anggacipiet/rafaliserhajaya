@@ -427,21 +427,3 @@ textarea.form-control{
   clip: rect(0,0,0,0);
   border: 0;
 }
-
-.search-toggle {
-  background: none;
-  border: none;
-  color: $white;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  
-  &:hover {
-    color: $primary-color;
-  }
-}
-
-#search-collapse {
-  background: $white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
