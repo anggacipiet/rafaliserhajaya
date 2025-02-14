@@ -140,7 +140,7 @@
       "longitude": 107.00659177478612
     },
     "url": {{ site.BaseURL | jsonify }},
-    "telephone": "+62{{ replace site.Params.mobile "0" "" 1 }}",
+    "telephone": "+62{{ strings.TrimPrefix "0" site.Params.mobile }}",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
