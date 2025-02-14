@@ -28,6 +28,10 @@
   <div class="navigation w-100 {{ if site.Params.top_header }} top-hider {{ end }}">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
+        <!-- Search Toggle -->
+        <button class="search-toggle ml-auto" type="button" data-toggle="collapse" data-target="#search-collapse">
+          <i class="ti-search"></i>
+        </button>
         <!-- Algolia Search -->
         <!--{{ partial "algolia-search.html" . }}-->
         <a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
@@ -93,6 +97,10 @@
           {{ end }}
         </div>
       </nav>
+      <!-- Search Collapse -->
+      <div class="collapse" id="search-collapse">
+        {{ partial "search.html" . }}
+      </div>
     </div>
   </div>
 </header>
