@@ -88,7 +88,13 @@ target = '$1'
 
 ############################# Outputs ##############################
 [outputs]
-home = ["HTML", "RSS", "SITEMAP"]
+home = [
+  "HTML",
+  "RSS",
+  "SITEMAP",
+  "ROBOTS",
+  "JSON"
+]
 
 [outputFormats]
 [outputFormats.Sitemap]
@@ -105,6 +111,12 @@ baseName = "index"
 isHTML = false
 isPlainText = true
 noUgly = true
+
+[outputFormats.ROBOTS]
+mediaType = "text/plain"
+baseName = "robots"
+isPlainText = true
+notAlternative = true
 
 ############################# Imaging ##############################
 [imaging]
@@ -215,3 +227,7 @@ title = "instagram"
   app_id = "EE2ODVIPS2"
   search_api_key = "6bafd5632a313d7fa315ae25bd313054"
   index_name = "rafaliserhajaya"
+
+[mediaTypes]
+[mediaTypes."text/plain"]
+suffixes = ["txt"]
