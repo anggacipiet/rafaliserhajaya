@@ -9,6 +9,8 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
   <title>{{ .Title }}</title>
 
@@ -73,7 +75,7 @@
   >
 
   {{ "<!-- Preload Critical Fonts -->" | safeHTML }}
-  <style>
+  <style nonce="{{ partial "nonce" . }}">
     @font-face {
       font-family: 'themify';
       src: url('{{ "plugins/themify-icons/fonts/themify.eot" | absURL }}');
@@ -159,7 +161,7 @@
   
   {{ "<!-- Google Analytics -->" | safeHTML }}
   {{ with site.Params.google.analytics_id }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -193,7 +195,7 @@
     });
   </script>
 
-  <style>
+  <style nonce="{{ partial "nonce" . }}">
     .cookie-box {
       position: fixed;
       left: 0;
@@ -211,20 +213,5 @@
     }
   </style>
   {{ end }}
-
-  <!-- Lazysizes -->
-  <script>
-    window.lazySizesConfig = window.lazySizesConfig || {};
-    window.lazySizesConfig.loadMode = 1;
-    window.lazySizesConfig.init = false;
-  </script>
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
-  
-  <!-- Inisialisasi lazysizes setelah load -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      lazySizes.init();
-    });
-  </script>
 
 </head>

@@ -1,0 +1,3 @@
+{{ $nonce := printf "%x%x" (now.UnixNano) (now.UnixNano) }}
+{{- .Page.Scratch.Set "nonce" $nonce -}}
+{{- $nonce -}} 
