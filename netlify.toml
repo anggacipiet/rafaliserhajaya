@@ -126,7 +126,8 @@
         https://www.googletagmanager.com;
       font-src 'self' data: 
         fonts.gstatic.com
-        https://cdnjs.cloudflare.com;
+        https://cdnjs.cloudflare.com
+        https://fonts.googleapis.com;
       connect-src 'self' 
         https://*.tinajs.io 
         https://identity.tinajs.io 
@@ -139,6 +140,7 @@
         https://cognito-idp.us-east-1.amazonaws.com
         https://cognito-identity.us-east-1.amazonaws.com
         https://www.google-analytics.com
+        https://*.doubleclick.net
         https://stats.g.doubleclick.net;
       frame-src 'self' 
         https://www.google.com 
@@ -151,5 +153,9 @@
       object-src 'none';
       base-uri 'self';
       form-action 'self' https://identity.tinajs.io https://app.tina.io;
+      manifest-src 'self';
+      worker-src 'self' blob:;
+      prefetch-src 'self';
+      media-src 'self' https: blob:;
     """
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
