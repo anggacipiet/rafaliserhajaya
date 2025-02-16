@@ -393,6 +393,15 @@ textarea.form-control{
         text-align: left !important;
       }
     }
+    // Responsif untuk mobile dan tablet
+    @include mobile-xs;
+    @include mobile;
+    @include tablet {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
   }
 
 

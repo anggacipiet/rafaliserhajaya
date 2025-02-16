@@ -216,21 +216,22 @@ mailchimp_form_name = "b254bade3600ade2f1eb9fed1"
 [params.cookies]
 enable = true
 expire_days = 2
+js_path = "js/js.cookie.min.js"
 
 
 [[params.social]]
 icon = "ti-facebook"
-link = "#"
+link = "https://www.facebook.com/rafaliserhajaya"
 title = "facebook"
 
 [[params.social]]
 icon = "ti-twitter-alt"
-link = "#"
+link = "https://twitter.com/rafaliserhajaya"
 title = "twitter"
 
 [[params.social]]
 icon = "ti-instagram"
-link = "#"
+link = "https://www.instagram.com/rafaliserhajaya"
 title = "instagram"
 
 [sitemap]

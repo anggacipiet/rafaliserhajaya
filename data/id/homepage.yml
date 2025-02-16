@@ -6,7 +6,7 @@ project:
   title: Proyek Kami
 blog:
   enable: true
-  title: Latest News
+  title: Artikel Terbaru
 slider:
   enable: true
   bg_image: images/banner/banner-1.png
@@ -19,7 +19,7 @@ slider:
       animation_out: right
       button:
         enable: true
-        label: Apply now
+        label: Hubungi Kami
         link: contact/
     - title: Exceed your expectations
       content: >-
@@ -29,7 +29,7 @@ slider:
       animation_out: right
       button:
         enable: true
-        label: Apply now
+        label: Hubungi Kami
         link: contact/
     - title: Exceed your expectations
       content: >-
@@ -41,7 +41,7 @@ slider:
       animation_out: right
       button:
         enable: true
-        label: Apply now
+        label: Hubungi Kami
         link: contact/
 banner_feature:
   enable: true

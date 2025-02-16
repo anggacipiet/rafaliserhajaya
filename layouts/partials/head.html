@@ -52,11 +52,11 @@
   {{ end }}
 
   {{ "<!-- plugins -->" | safeHTML }}
-  <link rel="preload" href="{{ "plugins/bootstrap/bootstrap.min.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="{{ "plugins/slick/slick.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="{{ "plugins/animate/animate.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="{{ "plugins/venobox/venobox.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="{{ "plugins/themify-icons/themify-icons.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ "plugins/bootstrap.min.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ "plugins/slick.min.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ "plugins/animate.min.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ "plugins/venobox.min.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ "plugins/themify-icons.min.css" | absURL }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   {{ "<!-- Preload Critical Fonts -->" | safeHTML }}
   <link rel="preload" href="{{ "fonts/Futura-Bold.woff" | absURL }}" as="font" type="font/woff" crossorigin>
@@ -92,7 +92,6 @@
     @font-face {
       font-family: 'Poppins';
       src: url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
-      font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
@@ -156,7 +155,7 @@
   <!-- Google Analytics -->
   {{ if not .Site.IsServer }}
     {{ with site.Params.google.analytics_id }}
-      <script async defer src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

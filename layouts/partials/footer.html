@@ -102,21 +102,21 @@
 
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
-<script nonce="{{ partial "nonce" . }}" src="{{ .link | absURL }}"></script>
+<script src="{{ .link | absURL }}" defer></script>
 {{ end }}
 
 <!-- Main Script -->
 {{ $script := resources.Get "js/script.js" | minify}}
-<script nonce="{{ partial "nonce" . }}" src="{{ $script.Permalink }}" defer></script>
+<script src="{{ $script.Permalink }}" defer></script>
 
 <!-- cookie -->
 {{ if site.Params.cookies.enable }}
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<script src="{{ site.Params.cookies.js_path | absURL }}" defer></script>
 <div id="js-cookie-box" class="cookie-box cookie-box-hide">
   This site uses cookies. By continuing to use this website, you agree to their use. 
   <span id="js-cookie-button" class="btn btn-sm btn-outline-primary ml-2">I Accept</span>
 </div>
-<script nonce="{{ partial "nonce" . }}">
+<script>
   (function() {
     'use strict';
     const EXPIRE_DAYS = {{ site.Params.cookies.expire_days | safeJS }};
@@ -142,7 +142,7 @@
 </script>
 {{ end }}
 
-<style nonce="{{ partial "nonce" . }}">
+<style>
   .cookie-box {
     position: fixed;
     left: 0;
