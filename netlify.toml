@@ -113,12 +113,13 @@
         https://*.github.com 
         https://app.tina.io 
         https://*.amazonaws.com;
-      script-src 'strict-dynamic' 
-        'nonce-{{ .Page.Scratch.Get "nonce" }}' 
-        'self'
-        https:;
-      style-src 'self' 
-        'nonce-{{ .Page.Scratch.Get "nonce" }}'
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' 
+        www.google-analytics.com 
+        https://*.tinajs.io  
+        https://www.googletagmanager.com 
+        https://cdnjs.cloudflare.com
+        https://www.gstatic.com;
+      style-src 'self' 'unsafe-inline' 
         fonts.googleapis.com
         https://cdnjs.cloudflare.com;
       img-src 'self' data: 
@@ -144,7 +145,6 @@
         https://cognito-identity.us-east-1.amazonaws.com
         https://www.google-analytics.com
         https://*.doubleclick.net
-        https://stats.g.doubleclick.net;
       frame-src 'self' 
         https://www.google.com 
         https://identity.tinajs.io 
@@ -159,8 +159,5 @@
       manifest-src 'self';
       worker-src 'self' blob:;
       media-src 'self' https: blob:;
-      upgrade-insecure-requests;
-      block-all-mixed-content;
-      require-trusted-types-for 'script';
     """
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
