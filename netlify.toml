@@ -140,7 +140,9 @@
         https://*.tinajs.io
         https://www.googletagmanager.com
         https://mt1.google.com
-        https://rafaliserhajaya.com;
+        https://rafaliserhajaya.com
+        https://maps.googleapis.com
+        https://maps.gstatic.com;
       font-src 'self' data: 
         fonts.gstatic.com
         https://cdnjs.cloudflare.com
