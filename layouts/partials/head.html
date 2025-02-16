@@ -12,15 +12,18 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-  <title>{{ .Title }}</title>
+  <title>{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="{{ if .Params.meta_title }}{{ .Params.meta_title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}">
   <meta name="description" content="{{ if .Params.meta_description }}{{ .Params.meta_description }}{{ else if .Description }}{{ .Description }}{{ else }}{{ site.Params.description }}{{ end }}">
-  <meta name="keywords" content="{{ if .Params.meta_keywords }}{{ .Params.meta_keywords }}{{ else }}precast bogor, box culvert cileungsi, u-ditch bogor, fence panel cileungsi, beton precast bogor, produsen beton cileungsi, supplier box culvert bogor{{ end }}">
+  <meta name="keywords" content="{{ if .Params.meta_keywords }}{{ .Params.meta_keywords }}{{ else }}{{ delimit site.Params.keywords ", " }}{{ end }}">
   <meta name="author" content="{{ site.Params.author }}">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="{{ .Language.Lang }}">
+  <meta name="language" content="id">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="theme-name" content="educenter-hugo" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -38,19 +41,10 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ .Permalink }}">
-
-  {{ "<!-- mobile responsive meta -->" | safeHTML }}
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description"
-    content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
-  {{ with site.Params.author }}
-  <meta name="author" content="{{ . }}">{{ end }}
-  <!-- theme meta -->
-  <meta name="theme-name" content="educenter-hugo" />
   
   {{ hugo.Generator }}
-  {{ "<!-- multilingual SEO optimizations -->" | safeHTML }}
+
+  <!-- Multilingual SEO -->
   {{ if .IsTranslated }}
   {{ range .Page.AllTranslations }}
   <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
@@ -159,59 +153,18 @@
   }
   </script>
   
-  {{ "<!-- Google Analytics -->" | safeHTML }}
-  {{ with site.Params.google.analytics_id }}
-  <script async defer src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ . }}');
-  </script>
-  {{ end }}
-
-  <!-- cookie -->
-  {{ if site.Params.cookies.enable }}
-  <script defer src="{{ "js/js.cookie.min.js" | absURL }}"></script>
-  <div id="js-cookie-box" class="cookie-box cookie-box-hide">
-    This site uses cookies. By continuing to use this website, you agree to their use. 
-    <span id="js-cookie-button" class="btn btn-sm btn-outline-primary ml-2">I Accept</span>
-  </div>
-  <script>
-    window.addEventListener('load', function() {
-      const cookieBox = document.getElementById('js-cookie-box');
-      const cookieButton = document.getElementById('js-cookie-button');
-      const cookieName = 'cookie-consent';
-      
-      if (!document.cookie.split(';').some((item) => item.trim().startsWith(cookieName + '='))) {
-        cookieBox.classList.remove('cookie-box-hide');
-        cookieButton.onclick = function () {
-          const date = new Date();
-          date.setTime(date.getTime() + ({{ site.Params.cookies.expire_days }} * 24 * 60 * 60 * 1000));
-          document.cookie = cookieName + '=true; expires=' + date.toUTCString() + '; path=/';
-          cookieBox.classList.add('cookie-box-hide');
-        };
-      }
-    });
-  </script>
-
-  <style nonce="{{ partial "nonce" . }}">
-    .cookie-box {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      text-align: center;
-      z-index: 9999;
-      padding: 1rem 2rem;
-      background: rgb(71, 71, 71);
-      transition: all .75s cubic-bezier(.19, 1, .22, 1);
-      color: #fdfdfd;
-    }
-    .cookie-box-hide {
-      display: none;
-    }
-  </style>
+  <!-- Google Analytics -->
+  {{ if not .Site.IsServer }}
+    {{ $nonce := partial "nonce" . }}
+    {{ with site.Params.google.analytics_id }}
+      <script nonce="{{ $nonce }}" async defer src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+      <script nonce="{{ $nonce }}">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ . }}');
+      </script>
+    {{ end }}
   {{ end }}
 
 </head>

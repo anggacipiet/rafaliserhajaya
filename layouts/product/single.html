@@ -73,11 +73,19 @@
     </div>
     <div class="row">
       <!-- prod item -->
-      {{ $related := (where site.RegularPages "Type" "product") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) | shuffle | first 3}}
-      {{ range first 3 $related }}
-      <div class="col-lg-4 col-sm-6 mb-5">
-        {{ .Render "product"}}
+      {{ $currentPage := . }}
+      {{ $related := where (where site.RegularPages "Type" "product") ".Permalink" "ne" $currentPage.Permalink | first 3 }}
+
+      <!-- Tampilkan produk terkait -->
+      {{ if $related }}
+      <div class="col-12">
+        <h3 class="mb-4">{{ i18n "related_product" }}</h3>
       </div>
+      {{ range $related }}
+      <div class="col-lg-4 col-sm-6 mb-5">
+        {{ .Render "product" }}
+      </div>
+      {{ end }}
       {{ end }}
     </div>
   </div>

@@ -1,0 +1,86 @@
+- id: read_more
+  translation: Baca Selengkapnya
+
+- id: contact_form
+  translation: Formulir Kontak
+
+- id: send
+  translation: Kirim Pesan
+
+- id: contact_info
+  translation: Informasi Kontak
+
+- id: subscribe_newsletter
+  translation: Berlangganan Newsletter
+
+- id: subscribe
+  translation: Berlangganan
+
+- id: contact_us
+  translation: Hubungi Kami
+
+- id: latest_article
+  translation: Artikel Terbaru
+
+- id: categories
+  translation: Kategori
+
+- id: tags
+  translation: Tag
+
+- id: see_all
+  translation: Lihat Semua
+
+- id: apply_now
+  translation: Daftar Sekarang
+
+- id: posted_by
+  translation: Diposting oleh
+
+- id: date
+  translation: Tanggal
+
+- id: time
+  translation: Waktu
+
+- id: category
+  translation: Kategori
+
+- id: related_product
+  translation: Produk Terkait
+
+- id: location
+  translation: Lokasi
+
+- id: join
+  translation: Bergabung
+
+- id: enter_email
+  translation: Masukkan email Anda...
+
+- id: company
+  translation: Perusahaan
+
+- id: links
+  translation: Tautan
+
+- id: product
+  translation: Produk
+
+- id: services
+  translation: Layanan
+
+- id: call
+  translation: Telepon
+
+- id: email
+  translation: Email
+
+- id: all
+  translation: Semua
+
+- id: download
+  translation: Unduh
+
+- id: telp
+  translation: WhatsApp 

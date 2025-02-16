@@ -1,70 +1,98 @@
 baseURL = "https://rafaliserhajaya.com"
-disableLanguages = ["fr"]
+defaultContentLanguage = "id"
 paginate = "9"
 summaryLength = 10
 theme = "educenter-hugo"
-title = "Rafalis Erha Jaya"
-[Languages.en]
+title = "Jual U-Ditch & Box Culvert Precast Harga Pabrik - PT Rafalis Erha Jaya, Bogor"
+
+[Languages.id]
 contentDir = "content/english"
 copyright = "Copyright &copy; 2024 All Right Reserved [Rafalis Erha Jaya](/)"
-home = "Home"
-languageCode = "en-us"
-languageName = "En"
+home = "Beranda"
+languageCode = "id"
+languageName = "Indonesia"
 weight = 1
 
-[[menu.main]]
+[[Languages.id.menu.main]]
 URL = "about"
-name = "About"
+name = "Tentang"
 weight = 1
 
-[[menu.main]]
+[[Languages.id.menu.main]]
 URL = "product"
-name = "product"
+name = "Produk"
 weight = 2
 
-[[menu.main]]
+[[Languages.id.menu.main]]
 URL = "blog"
-name = "blog"
+name = "Blog"
 weight = 3
 
-[[menu.main]]
+[[Languages.id.menu.main]]
 URL = "contact"
-name = "Contact"
+name = "Kontak"
 weight = 5
 
-[[menu.footer]]
+[[Languages.id.menu.footer]]
 URL = "sertifikasi"
-name = "sertifikasi"
+name = "Sertifikasi"
 weight = 1
-[[menu.footer]]
+[[Languages.id.menu.footer]]
 URL = "spesifikasi"
-name = "spesifikasi"
+name = "Spesifikasi"
 weight = 2
-[[menu.footer]]
+[[Languages.id.menu.footer]]
 URL = "services"
-name = "services"
+name = "Layanan"
 weight = 3
-[[menu.footer]]
+[[Languages.id.menu.footer]]
 URL = "project"
-name = "project"
+name = "Proyek"
 weight = 4
 
 [params]
 address = "PURI HESTI INSANI RT. 17 RW. 15 No. 3 Desa Mampir Kec. Cileungsi Kab. bogor Jawa Barat Indonesia"
 author = "angga cipiet"
 contact_form_action = "https://formspree.io/f/movjwyrk"
-description = "PT Rafalis Erha Jaya - Produsen beton precast berkualitas tinggi di Cileungsi, Bogor. Spesialis Box Culvert, U-Ditch, dan Fence Panel dengan standar SNI. Melayani area Jabodetabek dan sekitarnya. Solusi drainase terpercaya dengan harga pabrik."
+description = "Jual U-Ditch & Box Culvert Precast harga pabrik di Bogor & Cileungsi. PT Rafalis Erha Jaya, produsen beton precast berkualitas SNI untuk proyek drainase & konstruksi Jabodetabek."
+keywords = [
+  "u-ditch precast bogor",
+  "box culvert cileungsi",
+  "beton precast bogor",
+  "harga u-ditch precast",
+  "produsen beton precast bogor",
+  "harga box culvert cileungsi",
+  "jual beton precast murah",
+  "supplier u-ditch bogor",
+  "fence panel cileungsi",
+  "harga beton precast cileungsi",
+  "produsen beton precast cileungsi",
+  "harga beton precast bogor",
+  "beton precast murah",
+  "solusi drainase bogor",
+  "jual u-ditch precast cileungsi"
+] 
 email = "rhprecast@rafaliserhajaya.com"
 logo = "images/rafalis.png"
 mobile = "081294212524"
 top_header = false
 
 [params.map]
-#enable = false
-#gmap_api = "https://www.google.com/maps?z=16&q=jl.%2Bmanisi%2B(bunderan%2Bcibiru)%2Bcipadung%2Bcibiru%2Bbandung%2B40614"
-#map_latitude = "107.00659177478612"
-#map_longitude = "-6.4326057629037"
-#map_marker = "images/marker.png"
+enable = true
+gmap_api = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Nc8a3Qg4IG__s_TOrDU0m1M8ka2-njI"
+office_latitude = "-6.4326057629037"
+office_longitude = "107.00659177478612"
+factory_latitude = "-6.435000"
+factory_longitude = "107.010000"
+map_marker = "images/marker.png"
+
+[params.office]
+title = "Kantor"
+address = "PURI HESTI INSANI RT. 17 RW. 15 No. 3 Desa Mampir Kec. Cileungsi Kab. Bogor Jawa Barat Indonesia"
+
+[params.factory]
+title = "Pabrik"
+address = "Kp. Binong RT.03 RW. 05 No.3 Desa Situsari Kec. Cileungsi Kab Bogor, Jawa Barat - Indonesia"
 
 ############################# Build ##############################
 [build]
@@ -173,8 +201,6 @@ link = "plugins/slick/slick.min.js"
 link = "plugins/venobox/venobox.min.js"
 [[params.plugins.js]]
 link = "plugins/filterizr/jquery.filterizr.min.js"
-[[params.plugins.js]]
-link = "plugins/google-map/gmap.js"
 
 [params.preloader]
 enable = false

@@ -43,43 +43,87 @@
 </section>
 <!-- /contact -->
 
-<!-- Maps -->
-<section class="section pt-2">
-  <div class="container">
-    <div class="row">
-      <!-- Office Map -->
-      <div class="col-lg-6 mb-4">
-        <h4 class="mb-3">{{ .Params.office.title }} Location</h4>
-        <div class="map-responsive">
-          <iframe 
-            src="{{ .Params.office.maps_embed_url }}"
-            width="100%" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-      
-      <!-- Factory Map -->
-      <div class="col-lg-6 mb-4">
-        <h4 class="mb-3">{{ .Params.factory.title }} Location</h4>
-        <div class="map-responsive">
-          <iframe 
-            src="{{ .Params.factory.maps_embed_url }}"
-            width="100%" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Google Map -->
+<!-- Tambahkan Google Maps API -->
+{{ if .Site.Params.map.enable }}
+<!-- Tambahkan Leaflet CSS -->
+<!-- Tambahkan Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Tambahkan Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Tambahkan Plugin Fullscreen -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@1.0.1/Control.FullScreen.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@1.0.1/Control.FullScreen.js"></script>
+
+<!-- Tambahkan Plugin Locate Control -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
+<!-- Google Map -->
+<section class="section pt-0">
+  <div id="map_canvas" style="height: 450px;"></div>
 </section>
 
-{{ end }} 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Ambil data lokasi dari Hugo Params
+    var kantor = [
+      parseFloat("{{ .Site.Params.map.office_latitude }}"),
+      parseFloat("{{ .Site.Params.map.office_longitude }}"),
+    ];
+    var pabrik = [
+      parseFloat("{{ .Site.Params.map.factory_latitude }}"),
+      parseFloat("{{ .Site.Params.map.factory_longitude }}"),
+    ];
+
+    // Validasi koordinat
+    if (isNaN(kantor[0]) || isNaN(kantor[1])) {
+      console.error("Koordinat kantor tidak valid:", kantor);
+      return;
+    }
+    if (isNaN(pabrik[0]) || isNaN(pabrik[1])) {
+      console.error("Koordinat pabrik tidak valid:", pabrik);
+      return;
+    }
+
+    // Inisialisasi Peta
+    var map = L.map("map_canvas", {
+      fullscreenControl: true, // Aktifkan kontrol fullscreen
+    }).setView(kantor, 13);
+
+    // Tambahkan Tile Layer Stadia Maps (Modern & Berwarna)
+    L.tileLayer("https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=AIzaSyB2Nc8a3Qg4IG__s_TOrDU0m1M8ka2-njI", {
+      attribution: '&copy; Google Maps',
+    }).addTo(map);
+
+    // Membuat custom icon untuk marker
+    var customIcon = L.icon({
+      iconUrl: "{{ .Site.Params.map.map_marker | absURL }}", // Path ke file marker
+      iconSize: [38, 95], // Ukuran marker (width, height)
+      iconAnchor: [19, 95], // Titik anchor marker (pusat bawah)
+      popupAnchor: [0, -95], // Offset popup dari marker
+    });
+
+    // Tambahkan Marker Kantor dengan Custom Icon
+    L.marker(kantor, { icon: customIcon })
+      .addTo(map)
+      .bindPopup(
+        "<b>{{ .Site.Params.office.title }}</b><br>{{ .Site.Params.office.address }}"
+      )
+      .openPopup();
+
+    // Tambahkan Marker Pabrik dengan Custom Icon
+    L.marker(pabrik, { icon: customIcon })
+      .addTo(map)
+      .bindPopup(
+        "<b>{{ .Site.Params.factory.title }}</b><br>{{ .Site.Params.factory.address }}"
+      );
+
+    // Tambahkan Locate Control
+    L.control.locate().addTo(map);
+  });
+</script>
+{{ end }}
+{{ end }}
