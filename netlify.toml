@@ -124,7 +124,9 @@
         https://www.gstatic.com
         https://unpkg.com
         https://cdn.jsdelivr.net
-        https://rafaliserhajaya.com;
+        https://rafaliserhajaya.com
+        https://maps.googleapis.com
+        https://maps.gstatic.com;
       style-src 'self' 'unsafe-inline' 
         fonts.googleapis.com
         https://cdnjs.cloudflare.com
@@ -159,7 +161,9 @@
         https://*.doubleclick.net
         https://cdnjs.cloudflare.com
         https://mt1.google.com
-        https://rafaliserhajaya.com;
+        https://rafaliserhajaya.com
+        https://maps.googleapis.com
+        https://maps.gstatic.com;
       frame-src 'self' 
         https://www.google.com 
         https://identity.tinajs.io 
