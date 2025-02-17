@@ -69,4 +69,4 @@ Proyek berhasil diselesaikan dengan hasil yang memuaskan:
 
 "PT Rafalis Erha Jaya telah membuktikan komitmen dan kualitas kerja yang sangat baik dalam proyek ini. Produk dan layanan mereka sangat memuaskan."
 
-* Project Manager PT Kawasan Industri Jababeka
+* \-
