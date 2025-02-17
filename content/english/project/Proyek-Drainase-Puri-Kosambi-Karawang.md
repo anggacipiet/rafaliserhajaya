@@ -4,11 +4,11 @@ date: 2024-12-11T17:00:00.000Z
 draft: false
 bg_image: /images/project/proyek drainase puri kosambi karawang.jpeg
 description: >-
-  Pemasangan U-Ditch Jalan Puri Kosambi 2 No. 22, Duren, Kec. Klari, Karawang,
-  Jawa Barat 13471
+  Pemasangan U-Ditch dan Cover U Ditch Jalan Puri Kosambi 2 No. 22, Duren, Kec.
+  Klari, Karawang, Jawa Barat 13471
 image: /images/project/proyek drainase puri kosambi karawang.jpeg
 type: project
-client_name: '-'
+client_name: Puri Kosambi
 project_type: U-Ditch
 location: 'Karawang, Jawa Barat'
 duration: 2 Hari
