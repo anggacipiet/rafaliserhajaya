@@ -32,7 +32,7 @@ gallery:
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase RT. 03/RW. 04 Cimahpar, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16154 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
+Proyek ini merupakan pengembangan sistem drainase Jalan Jayasari, Gandoang, Kec. Cileungsi, Kab. Bogor, Jawa Barat 16820 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
 
 ### Tantangan
 
