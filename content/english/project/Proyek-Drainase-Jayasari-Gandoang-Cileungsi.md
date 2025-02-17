@@ -1,16 +1,14 @@
 ---
-title: 'Proyek Drainase Jayasari, Gandoang, Cileungsi'
-date: 2025-01-24T17:00:00.000Z
+title: 'Proyek Drainase Cisalak, Kota Depok'
+date: 2025-01-14T17:00:00.000Z
 draft: false
-bg_image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
-description: >-
-  Pemasangan Box Culvert Jalan Jayasari, Gandoang, Kec. Cileungsi, Kab. Bogor,
-  Jawa Barat 16820
-image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
+bg_image: /images/project/proyek drainase box culvert cisalak sukmajaya depok.jpeg
+description: 'Pemasangan Box Culvert Cisalak, Sukmajaya, Kota Depok, Jawa Barat 16416'
+image: /images/project/proyek drainase box culvert cisalak sukmajaya depok.jpeg
 type: project
-client_name: Jayasari
+client_name: Cisalak
 project_type: Box Culvert
-location: 'Gandoang, Cileungsi'
+location: 'Cisalak, Kota Depok'
 duration: 2 Hari
 project_details:
   - label: Produk
@@ -20,19 +18,19 @@ project_details:
   - label: Nilai Proyek
     value: '-'
   - label: Waktu Pengerjaan
-    value: 25 Januari 2025
+    value: 15 Januari 2025
 gallery:
-  - image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
+  - image: /images/project/proyek drainase box culvert cisalak sukmajaya depok.jpeg
     caption: Proses pemasangan Box Culvert
-  - image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
+  - image: /images/project/proyek drainase box culvert cisalak sukmajaya depok.jpeg
     caption: Hasil pemasangan Box Culvert
-  - image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
+  - image: /images/project/proyek drainase box culvert cisalak sukmajaya depok.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase Jalan Jayasari, Gandoang, Kec. Cileungsi, Kab. Bogor, Jawa Barat 16820 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
+Proyek ini merupakan pengembangan sistem drainase Cisalak, Sukmajaya, Kota Depok, Jawa Barat 16416 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
 
 ### Tantangan
 
