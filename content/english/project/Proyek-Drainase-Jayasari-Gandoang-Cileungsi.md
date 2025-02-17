@@ -9,7 +9,7 @@ description: >-
 image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
 type: project
 client_name: Jayasari
-project_type: U-Ditch
+project_type: Box Culvert
 location: 'Gandoang, Cileungsi'
 duration: 2 Hari
 project_details:
