@@ -1,5 +1,5 @@
 ---
-title: 'Proyek Drainase Pasirmulya, Majalaya Karawang'
+title: 'Proyek Drainase Pasirmulya, Majalaya, Karawang'
 date: 2024-07-02T17:00:00.000Z
 draft: false
 bg_image: /images/project/proyek drainase u ditch pasirmulya majalaya karawang.jpeg
