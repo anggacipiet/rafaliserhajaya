@@ -22,7 +22,7 @@ project_details:
   - label: Waktu Pengerjaan
     value: 06 Februari - 07 Febuari 2025
 gallery:
-  - image: /images/project/proyek drainase puri kosambi karawang.jpeg
+  - image: /images/project/proyek drainase uditch kawarang.jpeg
     caption: Proses pemasangan U-Ditch
   - image: /images/project/proyek drainase puri kosambi karawang.jpeg
     caption: Hasil pemasangan U Ditch
