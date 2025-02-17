@@ -10,7 +10,7 @@ description: >-
   Jawa Barat 17330
 image: /images/project/proyek drainase box culvert u ditch jayasampurna.jpeg
 type: project
-client_name: PT Kawasan Industri Jababeka
+client_name: '-'
 project_type: Box Culvert
 location: 'Jayasampurna, Kab. Bekasi'
 duration: '-'
@@ -26,8 +26,8 @@ project_details:
 gallery:
   - image: /images/project/proyek drainase u ditch jayasampurna bekasi.jpeg
     caption: Proses pemasangan Box Culvert
-  - image: /images/product/box-culvert.jpg
-    caption: Hasil pemasangan Box Culvert
+  - image: /images/project/proyek drainase box culvert u ditch jayasampurna.jpeg
+    caption: Hasil pemasangan U Ditch
   - image: /images/product/box-culvert.jpg
     caption: Tampak sistem drainase yang sudah selesai
 ---
