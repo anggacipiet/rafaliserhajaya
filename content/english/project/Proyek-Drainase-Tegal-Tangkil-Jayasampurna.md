@@ -13,7 +13,7 @@ type: project
 client_name: '-'
 project_type: Box Culvert
 location: 'Jayasampurna, Kab. Bekasi'
-duration: '-'
+duration: 2 Hari
 project_details:
   - label: Produk
     value: U-Ditch ukuran 60x60x120 dan Box Culvert 100x100x100
