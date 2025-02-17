@@ -32,7 +32,7 @@ gallery:
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase untuk kawasan industri baru di daerah Cikarang. Sistem drainase yang baik sangat penting untuk mencegah banjir dan mengalirkan air dengan lancar di area industri.
+Proyek ini merupakan pengembangan sistem drainase Simpang Susun Kamal, Tol Airport Prof. Sedyatmo untuk mencegah banjir dan mengalirkan air dengan lancar di area jalan tol menuju bandara.
 
 ### Tantangan
 
@@ -67,4 +67,4 @@ Proyek berhasil diselesaikan dengan hasil yang memuaskan:
 
 "PT Rafalis Erha Jaya telah membuktikan komitmen dan kualitas kerja yang sangat baik dalam proyek ini. Produk dan layanan mereka sangat memuaskan."
 
-* Project Manager PT Kawasan Industri Jababeka
+* \-
