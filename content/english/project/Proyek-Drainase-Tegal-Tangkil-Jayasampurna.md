@@ -22,7 +22,7 @@ project_details:
   - label: Nilai Proyek
     value: '-'
   - label: Waktu Pengerjaan
-    value: Januari - Juni 2023
+    value: 26 Desember - 27 Desember 2024
 gallery:
   - image: /images/project/proyek drainase u ditch jayasampurna bekasi.jpeg
     caption: Proses pemasangan Box Culvert
