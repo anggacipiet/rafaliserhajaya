@@ -6,7 +6,7 @@ bg_image: /images/project/proyek drainase tajur halang cijeruk bogor.jpeg
 description: 'Pemasangan U-Ditch dan Conver U Ditch Tajur Halang, Cijeruk, Kab. Bogor'
 image: /images/project/proyek drainase tajur halang cijeruk bogor.jpeg
 type: project
-client_name: Cimahpar
+client_name: Tajur Halang
 project_type: U-Ditch
 location: 'Bogor Utara, Kota Bogor'
 duration: 2 Hari
