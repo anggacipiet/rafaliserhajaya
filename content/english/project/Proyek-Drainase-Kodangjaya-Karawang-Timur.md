@@ -8,7 +8,7 @@ description: >-
   41371
 image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
 type: project
-client_name: '-'
+client_name: Kodangjaya
 project_type: U-Ditch
 location: 'Karawang Timur, Jawa Barat'
 duration: 2 Hari
@@ -20,7 +20,7 @@ project_details:
   - label: Nilai Proyek
     value: '-'
   - label: Waktu Pengerjaan
-    value: 06 Februari - 07 Febuari 2025
+    value: 08 Desember 2024
 gallery:
   - image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
     caption: Proses pemasangan U-Ditch
