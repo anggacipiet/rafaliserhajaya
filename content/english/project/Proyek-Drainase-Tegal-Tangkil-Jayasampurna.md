@@ -20,7 +20,7 @@ project_details:
   - label: Volume
     value: 1.500 unit U-Ditch dan 200 unit Box Culvert
   - label: Nilai Proyek
-    value: Rp 4.5 Miliar
+    value: '-'
   - label: Waktu Pengerjaan
     value: Januari - Juni 2023
 gallery:
@@ -34,7 +34,7 @@ gallery:
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase untuk kawasan industri baru di daerah Cikarang. Sistem drainase yang baik sangat penting untuk mencegah banjir dan mengalirkan air dengan lancar di area industri.
+Proyek ini merupakan pengembangan sistem drainase untuk  jalan Tegal Tangkil, Jayasampurna Kec. Serang Baru, Kabupaten Bekasi Jawa Barat 17330 untuk mencegah banjir dan mengalirkan air dengan lancar.
 
 ### Tantangan
 
