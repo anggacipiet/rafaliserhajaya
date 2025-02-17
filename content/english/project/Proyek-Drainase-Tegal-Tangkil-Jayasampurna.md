@@ -28,7 +28,7 @@ gallery:
     caption: Proses pemasangan Box Culvert
   - image: /images/project/proyek drainase box culvert u ditch jayasampurna.jpeg
     caption: Hasil pemasangan U Ditch
-  - image: /images/product/box-culvert.jpg
+  - image: /images/project/proyek drainase box culvert u ditch jayasampurna.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
