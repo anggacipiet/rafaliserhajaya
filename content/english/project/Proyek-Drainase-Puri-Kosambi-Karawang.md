@@ -24,15 +24,15 @@ project_details:
 gallery:
   - image: /images/project/proyek drainase puri kosambi karawang.jpeg
     caption: Proses pemasangan U-Ditch
-  - image: /images/project/proyek drainase u ditch tol bandara.jpeg
-    caption: Hasil pemasangan Box Culvert
+  - image: /images/project/proyek drainase puri kosambi karawang.jpeg
+    caption: Hasil pemasangan U Ditch
   - image: /images/project/proyek drainase pengerjaan u ditch tol bandara.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase Simpang Susun Kamal, Tol Airport Prof. Sedyatmo untuk mencegah banjir dan mengalirkan air dengan lancar di area jalan tol menuju bandara.
+Proyek ini merupakan pengembangan sistem drainase Jalan Puri Kosambi 2 No. 22, Duren, Kec. Klari, Karawang, Jawa Barat 13471 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
 
 ### Tantangan
 
