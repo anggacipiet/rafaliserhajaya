@@ -26,7 +26,7 @@ gallery:
     caption: Proses pemasangan U-Ditch
   - image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
     caption: Hasil pemasangan Cover U Ditch
-  - image: /images/project/proyek drainase puri kosambi karawang.jpeg
+  - image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
