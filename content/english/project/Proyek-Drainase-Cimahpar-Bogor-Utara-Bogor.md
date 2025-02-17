@@ -22,7 +22,7 @@ project_details:
   - label: Waktu Pengerjaan
     value: 14 Juli 2024
 gallery:
-  - image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
+  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
     caption: Proses pemasangan U-Ditch
   - image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
     caption: Hasil pemasangan Cover U Ditch
@@ -32,7 +32,7 @@ gallery:
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase Jalan Raden Rubaya, Karangpawitan, Karawang Barat, Karawang, Jawa Barat 41315 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
+Proyek ini merupakan pengembangan sistem drainase RT. 03/RW. 04 Cimahpar, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16154 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
 
 ### Tantangan
 
