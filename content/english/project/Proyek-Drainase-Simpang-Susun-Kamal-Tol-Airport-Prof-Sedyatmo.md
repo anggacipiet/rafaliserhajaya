@@ -6,19 +6,19 @@ bg_image: /images/project/proyek drainase u ditch tol bandara.jpeg
 description: >-
   Pemasangan U-Ditch dan Box Culvert Simpang Susun Kamal, Tol Airport Prof.
   Sedyatmo
-image: ''
+image: /images/project/proyek drainase u ditch tol bandara.jpeg
 type: project
 client_name: PT Kawasan Industri Jababeka
 project_type: U-Ditch
-location: 'Cikarang, Bekasi'
-duration: 6 bulan
+location: 'Kamal Muara, Jakarta Utara'
+duration: 2 Hari
 project_details:
   - label: Produk
     value: U-Ditch ukuran 60x60x120 dan Box Culvert 100x100x100
   - label: Volume
     value: 1.500 unit U-Ditch dan 200 unit Box Culvert
   - label: Nilai Proyek
-    value: Rp 4.5 Miliar
+    value: '-'
   - label: Waktu Pengerjaan
     value: Januari - Juni 2023
 gallery:
