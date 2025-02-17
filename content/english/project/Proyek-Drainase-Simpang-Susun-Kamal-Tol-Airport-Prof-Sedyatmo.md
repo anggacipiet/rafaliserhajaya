@@ -8,7 +8,7 @@ description: >-
   Sedyatmo
 image: /images/project/proyek drainase u ditch tol bandara.jpeg
 type: project
-client_name: '-'
+client_name: Kamal
 project_type: U-Ditch
 location: 'Kamal Muara, Jakarta Utara'
 duration: 2 Hari
