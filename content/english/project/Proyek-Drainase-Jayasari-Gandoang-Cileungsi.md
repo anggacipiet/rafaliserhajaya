@@ -22,11 +22,11 @@ project_details:
   - label: Waktu Pengerjaan
     value: 25 Januari 2025
 gallery:
-  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
-    caption: Proses pemasangan U-Ditch
-  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
-    caption: Hasil pemasangan Cover U Ditch
-  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
+  - image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
+    caption: Proses pemasangan Box Culvert
+  - image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
+    caption: Hasil pemasangan Box Culvert
+  - image: /images/project/proyek drainase box culvert gandoang cileungsi.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
