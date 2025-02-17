@@ -8,7 +8,7 @@ description: >-
   Karawang Barat, Karawang, Jawa Barat 41315
 image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
 type: project
-client_name: '-'
+client_name: Karangpawitan
 project_type: U-Ditch
 location: 'Karawang Barat, Jawa Barat'
 duration: 2 Hari
