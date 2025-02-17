@@ -1,5 +1,5 @@
 ---
-title: Proyek Drainase Karangpawitan Karawang Barat
+title: 'Proyek Drainase Karangpawitan, Karawang Barat'
 date: 2024-12-12T17:00:00.000Z
 draft: false
 bg_image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
