@@ -1,5 +1,5 @@
 ---
-title: Proyek Drainase Kodangjaya Karawang Timur
+title: 'Proyek Drainase Kodangjaya, Karawang Timur'
 date: 2024-12-07T17:00:00.000Z
 draft: false
 bg_image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
