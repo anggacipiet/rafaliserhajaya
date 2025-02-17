@@ -26,7 +26,7 @@ gallery:
     caption: Proses pemasangan U-Ditch
   - image: /images/project/proyek drainase puri kosambi karawang.jpeg
     caption: Hasil pemasangan U Ditch
-  - image: /images/project/proyek drainase pengerjaan u ditch tol bandara.jpeg
+  - image: /images/project/proyek drainase puri kosambi karawang.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
