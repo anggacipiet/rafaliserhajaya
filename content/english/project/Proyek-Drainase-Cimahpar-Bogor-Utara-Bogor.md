@@ -24,7 +24,7 @@ project_details:
 gallery:
   - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
     caption: Proses pemasangan U-Ditch
-  - image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
+  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
     caption: Hasil pemasangan Cover U Ditch
   - image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
     caption: Tampak sistem drainase yang sudah selesai
