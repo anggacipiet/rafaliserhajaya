@@ -32,7 +32,7 @@ gallery:
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase Jalan Puri Kosambi 2 No. 22, Duren, Kec. Klari, Karawang, Jawa Barat 13471 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
+Proyek ini merupakan pengembangan sistem drainase Jalan Nuansa 21, Kodangjaya, Karawang Timur, Jawa Barat 41371 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
 
 ### Tantangan
 
