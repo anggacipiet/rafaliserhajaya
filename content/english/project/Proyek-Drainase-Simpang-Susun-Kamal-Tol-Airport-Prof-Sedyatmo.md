@@ -2,7 +2,7 @@
 title: 'Proyek Drainase Simpang Susun Kamal, Tol Airport Prof. Sedyatmo'
 date: 2025-02-05T17:00:00.000Z
 draft: false
-bg_image: /images/project/proyek drainase u ditch tol bandara.jpeg
+bg_image: /images/project/proyek drainase pengerjaan u ditch tol bandara.jpeg
 description: >-
   Pemasangan U-Ditch dan Box Culvert Simpang Susun Kamal, Tol Airport Prof.
   Sedyatmo
