@@ -5,7 +5,7 @@ draft: false
 bg_image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
 description: >-
   Pemasangan U-Ditch dan Conver U Ditch Jalan Raden Rubaya, Karangpawitan,
-  Karawang Barat, Karawang, Jawa Barat 41371
+  Karawang Barat, Karawang, Jawa Barat 41315
 image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
 type: project
 client_name: '-'
@@ -24,7 +24,7 @@ project_details:
 gallery:
   - image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
     caption: Proses pemasangan U-Ditch
-  - image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
+  - image: /images/project/proyek drainase uditch karangpawitan karawang barat.jpeg
     caption: Hasil pemasangan Cover U Ditch
   - image: /images/project/proyek drainase uditch kodangjaya karawang.jpeg
     caption: Tampak sistem drainase yang sudah selesai
@@ -32,7 +32,7 @@ gallery:
 
 ### Tentang Proyek
 
-Proyek ini merupakan pengembangan sistem drainase Jalan Nuansa 21, Kodangjaya, Karawang Timur, Jawa Barat 41371 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
+Proyek ini merupakan pengembangan sistem drainase Jalan Raden Rubaya, Karangpawitan, Karawang Barat, Karawang, Jawa Barat 41315 untuk mencegah banjir dan mengalirkan air dengan lancar di area perumahan.
 
 ### Tantangan
 
