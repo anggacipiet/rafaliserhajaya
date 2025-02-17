@@ -20,7 +20,7 @@ project_details:
   - label: Nilai Proyek
     value: '-'
   - label: Waktu Pengerjaan
-    value: 06 Februari - 07 Febuari 2025
+    value: 12 Desember 2024
 gallery:
   - image: /images/project/proyek drainase uditch kawarang.jpeg
     caption: Proses pemasangan U-Ditch
