@@ -20,7 +20,7 @@ project_details:
   - label: Waktu Pengerjaan
     value: 12 Juli 2024
 gallery:
-  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
+  - image: /images/project/proyek drainase tajur halang cijeruk bogor.jpeg
     caption: Proses pemasangan U-Ditch
   - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
     caption: Hasil pemasangan Cover U Ditch
