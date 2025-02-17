@@ -24,7 +24,7 @@ gallery:
     caption: Proses pemasangan U-Ditch
   - image: /images/project/proyek drainase tajur halang cijeruk bogor.jpeg
     caption: Hasil pemasangan Cover U Ditch
-  - image: /images/project/proyek drainase uditch cimahpar bogor utara.jpeg
+  - image: /images/project/proyek drainase tajur halang cijeruk bogor.jpeg
     caption: Tampak sistem drainase yang sudah selesai
 ---
 
