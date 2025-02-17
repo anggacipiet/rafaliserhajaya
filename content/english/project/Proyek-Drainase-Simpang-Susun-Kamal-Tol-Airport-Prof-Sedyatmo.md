@@ -20,7 +20,7 @@ project_details:
   - label: Nilai Proyek
     value: '-'
   - label: Waktu Pengerjaan
-    value: 07 Febuari 2025
+    value: 06 Februari - 07 Febuari 2025
 gallery:
   - image: /images/project/proyek drainase pemasangan u ditch tol bandara.jpeg
     caption: Proses pemasangan U-Ditch
