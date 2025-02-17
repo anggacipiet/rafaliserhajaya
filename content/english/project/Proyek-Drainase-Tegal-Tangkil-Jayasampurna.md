@@ -10,7 +10,7 @@ description: >-
   Jawa Barat 17330
 image: /images/project/proyek drainase box culvert u ditch jayasampurna.jpeg
 type: project
-client_name: '-'
+client_name: Jayasampurna
 project_type: Box Culvert
 location: 'Jayasampurna, Kab. Bekasi'
 duration: 2 Hari
